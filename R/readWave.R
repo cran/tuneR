@@ -16,7 +16,7 @@ function(filename){
     
     # Reading in the header:
     RIFF <- readChar(con, 4)
-    file.length <- readBin(con, int, n = 1, size = 4)
+    file.length <- readBin(con, int, n = 1, size = 4, endian = "little")
     WAVE <- readChar(con, 4)
     if (!(RIFF == "RIFF" && WAVE == "WAVE"))
         warning("Looks like '", filename, "' is not a valid wave file.")
@@ -25,18 +25,18 @@ function(filename){
     i <- 0
     while(FMT != "fmt "){
         i <- i+1
-        belength <- readBin(con, int, n = 1, size = 4)
+        belength <- readBin(con, int, n = 1, size = 4, endian = "little")
         seek(con, where = belength, origin = "current")
         FMT <- readChar(con, 4)
         if(i > 5) stop("There seems to be no 'fmt ' chunk in this Wave (?) file.")
     }
-    fmt.length <- readBin(con, int, n = 1, size = 4)
-    pcm <- readBin(con, int, n = 1, size = 2)
-    channels <- readBin(con, int, n = 1, size = 2)
-    sample.rate <- readBin(con, int, n = 1, size = 4)
-    bytes.second <- readBin(con, int, n = 1, size = 4)
-    block.align <- readBin(con, int, n = 1, size = 2)
-    bits <- readBin(con, int, n = 1, size = 2)
+    fmt.length <- readBin(con, int, n = 1, size = 4, endian = "little")
+    pcm <- readBin(con, int, n = 1, size = 2, endian = "little")
+    channels <- readBin(con, int, n = 1, size = 2, endian = "little")
+    sample.rate <- readBin(con, int, n = 1, size = 4, endian = "little")
+    bytes.second <- readBin(con, int, n = 1, size = 4, endian = "little")
+    block.align <- readBin(con, int, n = 1, size = 2, endian = "little")
+    bits <- readBin(con, int, n = 1, size = 2, endian = "little")
     if(fmt.length > 16)
         seek(con, where = fmt.length - 16, origin = "current")
     DATA <- readChar(con, 4)
@@ -44,12 +44,12 @@ function(filename){
     i <- 0    
     while(DATA != "data"){
         i <- i+1
-        belength <- readBin(con, int, n = 1, size = 4)
+        belength <- readBin(con, int, n = 1, size = 4, endian = "little")
         seek(con, where = belength, origin = "current")
         DATA <- readChar(con, 4)
         if(i > 5) stop("There seems to be no 'data' chunk in this Wave (?) file.")
     }
-    data.length <- readBin(con, int, n = 1, size = 4)
+    data.length <- readBin(con, int, n = 1, size = 4, endian = "little")
     bytes <- bits/8
     if(((sample.rate * block.align) != bytes.second) || 
         ((channels * bytes) != block.align))
@@ -58,7 +58,7 @@ function(filename){
     ## reading in sample data
     N <- data.length / bytes
     sample.data <- readBin(con, int, n = N, size = bytes, 
-        signed = (bytes == 2))
+        signed = (bytes == 2), endian = "little")
     
     # Constructing the Wave object:    
     object <- new("Wave", stereo = (channels == 2), samp.rate = sample.rate, bit = bits)

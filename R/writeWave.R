@@ -30,20 +30,20 @@ function(object, filename){
         
     # Writing the header:
     writeChar("RIFF", con, 4, eos = NULL)
-    writeBin(as.integer(bytes + 36), con, size = 4)
+    writeBin(as.integer(bytes + 36), con, size = 4, endian = "little")
     writeChar("WAVE", con, 4, eos = NULL)
     writeChar("fmt ", con, 4, eos = NULL)
-    writeBin(as.integer(16), con, size = 4)    
-    writeBin(as.integer(1), con, size = 2)
-    writeBin(as.integer(channels), con, size = 2)
-    writeBin(as.integer(object@samp.rate), con, size = 4)
-    writeBin(as.integer(object@samp.rate * block.align), con, size = 4)
-    writeBin(as.integer(block.align), con, size = 2)
-    writeBin(as.integer(object@bit), con, size = 2)
+    writeBin(as.integer(16), con, size = 4, endian = "little")    
+    writeBin(as.integer(1), con, size = 2, endian = "little")
+    writeBin(as.integer(channels), con, size = 2, endian = "little")
+    writeBin(as.integer(object@samp.rate), con, size = 4, endian = "little")
+    writeBin(as.integer(object@samp.rate * block.align), con, size = 4, endian = "little")
+    writeBin(as.integer(block.align), con, size = 2, endian = "little")
+    writeBin(as.integer(object@bit), con, size = 2, endian = "little")
     writeChar("data", con, 4, eos = NULL)
-    writeBin(as.integer(bytes), con, size = 4)
+    writeBin(as.integer(bytes), con, size = 4, endian = "little")
 
     # Write data: 
-    writeBin(as.integer(sample.data), con, size = byte)
+    writeBin(as.integer(sample.data), con, size = byte, endian = "little")
     invisible(NULL)
 }
