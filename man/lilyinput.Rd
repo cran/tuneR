@@ -1,5 +1,6 @@
 \name{lilyinput}
 \alias{lilyinput}
+\encoding{latin1}
 \title{Providing LilyPond compatible input}
 \description{A function \emph{(in development!)} that writes a file to be processed by \emph{LilyPond}
     by extracting the relevant information (e.g. pitch, length, ...) from columns of a data frame.
