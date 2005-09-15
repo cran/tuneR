@@ -11,9 +11,9 @@ function(object, filename){
     else sample.data <- object@left
 
     if((object@bit == 8) && ( (max(sample.data) > 255) || (min(sample.data) < 0) ))
-        stop("for 8-bit Wave files, data range is supposed to be in [0, 255]")
+        stop("for 8-bit Wave files, data range is supposed to be in [0, 255], see ?normalize")
     if((object@bit == 16) && ( (max(sample.data) > 32767) || (min(sample.data) < -32768)))
-        stop("for 16-bit Wave files, data range is supposed to be in [-32768, 32767]")
+        stop("for 16-bit Wave files, data range is supposed to be in [-32768, 32767], see ?normalize")
     if(any(sample.data %% 1)) 
         warning("channels' data will be rounded to integers for writing the wave file")
 

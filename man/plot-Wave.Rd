@@ -1,6 +1,7 @@
 \name{plot-Wave}
 \docType{methods}
 \alias{plot,Wave,missing-method}
+\alias{plot-Wave}
 \alias{plot.Wave.channel}
 \title{Plotting Wave objects}
 \description{Plotting objects of class \code{Wave}.}
@@ -35,7 +36,10 @@ plot.Wave.channel(x, xunit, ylim, xlab, ylab, main, nr, simplify, ...)
 \details{Function \code{plot.Wave.channel} is a helper function
     to plot a single (left!) channel; in particular it is \emph{not} intended to be called by the user directly.}
 \author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
-\seealso{\code{\link{Wave}}}
+\seealso{\code{\link{Wave}} and \link{tuneR}}
 \keyword{hplot}
 \keyword{aplot}
 \keyword{methods}
+\concept{Wave}
+\concept{music}
+\concept{speech}

@@ -12,7 +12,7 @@ setValidity("Wave",
 function(object){
     if(!is(object@left, "numeric")) return("channels of Wave objects bust be numeric")
     if(!(is(object@stereo, "logical") && (length(object@stereo) < 2)))
-        return("slot stereo of a Wave object must be a logical of length 1")
+        return("slot 'stereo' of a Wave object must be a logical of length 1")
     if(object@stereo){
         if(!is(object@right, "numeric"))
             return("channels of Wave objects bust be numeric")
@@ -20,13 +20,13 @@ function(object){
             return("both channels of Wave objects must have the same length")
     }
     else if(length(object@right))
-        return("right channel of a wave object is not supposed to contain data if slot stereo==FALSE")
+        return("'right' channel of a wave object is not supposed to contain data if slot stereo==FALSE")
     if(!(is(object@samp.rate, "numeric") &&
         (length(object@samp.rate) < 2) && (object@samp.rate > 0)))
-            return("slot samp.rate of a Wave object must be a positive numeric of length 1")
+            return("slot 'samp.rate' of a Wave object must be a positive numeric of length 1")
     if(!(is(object@bit, "numeric") &&
         (length(object@bit) < 2) && (object@bit %in% c(8, 16))))
-            return("slot bit of a Wave object must be a positive numeric (either 8 or 16) of length 1")
+            return("slot 'bit' of a Wave object must be a positive numeric (either 8 or 16) of length 1")
     return(TRUE)
 })
 

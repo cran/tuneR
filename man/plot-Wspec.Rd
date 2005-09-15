@@ -21,7 +21,9 @@
     See \code{\link{plot.default}} for details.}
 }
 \author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
-\seealso{\code{\link{Wspec}},
-    and \code{\link{periodogram}} for the constructor function and some examples.}}
+\seealso{see \code{\link{Wspec}}, \code{\link{periodogram}} and \link{tuneR} 
+    for the constructor function and some examples.}}
 \keyword{hplot}
 \keyword{methods}
+\concept{periodogram}
+\concept{Wave}

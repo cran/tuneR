@@ -4,6 +4,7 @@
 \alias{summary,ANY-method}
 \alias{summary,Wave-method}
 \alias{summary,Wspec-method}
+\alias{summary,WspecMat-method}
 \title{Object Summaries}
 \description{
 summary is a generic function used to produce result summaries of the results of various model fitting functions. 
@@ -18,9 +19,13 @@ The function invokes particular methods which depend on the class of the first a
 \item{object = "Wspec"}{The \code{\link{Wspec}} object is beeing \code{show}ed, and as an additional output is given:
     \code{df}, \code{taper} (see \code{\link{spectrum}}), 
     and for the underlying \code{\link{Wave}} object the number of channels and its sampling rate.}
+\item{object = "WspecMat"}{The \code{\link{WspecMat}} object is beeing \code{show}ed, and as an additional output is given:
+    \code{df}, \code{taper} (see \code{\link{spectrum}}), 
+    and for the underlying \code{\link{Wave}} object the number of channels and its sampling rate.}
 }}
 \author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
 \seealso{For the S3 generic: \code{\link[base]{summary.default}}, \code{\link{plot-methods}}, 
-    \code{\link{Wave}}, \code{\link{Wspec}}}
+    \code{\link{Wave}}, \code{\link{Wspec}}, \code{\link{WspecMat}}}
 \keyword{methods}
 \keyword{print}
+

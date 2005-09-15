@@ -20,4 +20,7 @@ downsample(object, samp.rate)
 \seealso{\code{\link{Wave}}}
 \keyword{manip}
 \keyword{utilities}
-
+\concept{Wave}
+\concept{sampling}
+\concept{sampling rate}
+\concept{CD quality}

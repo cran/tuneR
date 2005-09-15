@@ -2,8 +2,9 @@
 \docType{methods}
 \alias{show,Wave-method}
 \alias{show,Wspec-method}
+\alias{show,WspecMat-method}
 \title{Showing objects}
-\description{Showing \code{Wave} and \code{Wspec} objects.}
+\description{Showing \code{Wave}, \code{Wspec}, and \code{WspecMat} objects.}
 \section{Methods}{
 \describe{
 \item{object = "Wave"}{The \code{Wave} object is beeing \code{show}ed.
@@ -14,9 +15,15 @@
 \item{object = "Wspec"}{The number of periodograms, Fourier frequencies, window width (used amount of data), 
     amount of overlap of neighboring windows, and whether the periodogram(s) has/have been normalized
     will be printed.}
+\item{object = "WspecMat"}{The number of periodograms, Fourier frequencies, window width (used amount of data), 
+    amount of overlap of neighboring windows, and whether the periodogram(s) has/have been normalized
+    will be printed.}
 }}
 \author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
-\seealso{\code{\link{Wave}}, \code{\link{Wspec}}, \code{\link{plot-methods}}, \code{\link{summary-methods}},
+\seealso{\code{\link{Wave}}, \code{\link{Wspec}}, \code{\link{WspecMat}}, 
+    \code{\link{plot-methods}}, \code{\link{summary-methods}},
     and \code{\link{periodogram}} for the constructor function and some examples}
 \keyword{methods}
 \keyword{print}
+\concept{Wave}
+\concept{periodogram}

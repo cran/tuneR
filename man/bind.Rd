@@ -13,6 +13,9 @@ bind(...)
     An object of class \code{\link{Wave}}.
 }
 \author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
-\seealso{\code{\link{Wave}}, \code{\link{extractWave}}, \code{\link{stereo}}}
+\seealso{\code{\link{prepComb}} for preparing the concatenation, 
+         \code{\link{Wave}}, \code{\link{extractWave}}, \code{\link{stereo}}}
 \keyword{manip}
 \keyword{utilities}
+\concept{Wave}
+

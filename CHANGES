@@ -1,19 +1,8 @@
-Incompatible changes:
-
-- 440 Hz as the default
-- extract -> extractWave
-- quantize2 first arg not required, hence removed
-
-
-
 Functions that are heavily in development and hence not yet in the CRAN version:
+ Example.R metrumweihs.R plotDD.R
 
-Example.R
-metrum.R
-plotDD.R
-quantize.R
-quantize3.R
-quantplot.R
+In development, hence UNDOCUMENTED (InDevelopment.Rd):
+ dynquant metrum plotDD tempo
 
-InDevelopment.Rd
-
+ToDo:
+ lilyinput

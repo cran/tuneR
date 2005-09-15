@@ -1,0 +1,13 @@
+importFrom(graphics, plot, image)
+import("stats")
+exportClasses("Wspec","WspecMat","Wave")
+exportMethods("plot","image","summary","show","Wave","coerce","[","play")
+export(channel, bind, prepComb, downsample, mono, stereo, 
+	extractWave, normalize, noSilence, 
+	writeWave, readWave,
+	periodogram, FFpure, noteFromFF, FF, 
+	smoother, notenames, melodyplot,
+	quantize, quantplot, quantMerge, lilyinput, 
+	setWavPlayer, getWavPlayer,
+	silence, sine, sawtooth, square, noise, panorama
+)

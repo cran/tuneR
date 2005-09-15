@@ -18,3 +18,4 @@ equalWave(object1, object2)
 \seealso{\code{\link{Wave}}}
 \keyword{error}
 \keyword{utilities}
+\concept{Wave}

@@ -17,11 +17,9 @@ writeWave(object, filename)
     \code{writeWave} creates a Wave file, but returns nothing.
 }
 \author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
-\seealso{\code{\link{writeWave}}, \code{\link{Wave}}}
+\seealso{\code{\link{Wave}}, \code{\link{normalize}}}
 \examples{
-x <- seq(0, 2*pi, length = 44100)
-Wobj <- Wave(left = round(32000 * sin(440 * x)))
-Wobj
+Wobj <- sine(440, bit = 16)
 
 tdir <- tempdir()
 tfile <- file.path(tdir, "myWave.wav")
@@ -33,3 +31,8 @@ file.remove(tfile)
 }
 \keyword{IO}
 \keyword{file}
+\concept{Wave}
+\concept{file}
+\concept{sound}
+\concept{music}
+\concept{speech}

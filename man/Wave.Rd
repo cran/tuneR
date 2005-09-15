@@ -51,6 +51,18 @@ x <- seq(0, 2*pi, length = 44100)
 channel <- round(32000 * sin(440 * x))
 Wobj <- Wave(left = channel)
 Wobj
+
+# or more easily:
+Wobj <- sine(440, bit = 16)
 }
 \keyword{classes}
 \keyword{methods}
+\concept{Wave}
+\concept{channel}
+\concept{sampling}
+\concept{sampling rate}
+\concept{bit}
+\concept{stereo}
+\concept{mono}
+\concept{music}
+\concept{speech}

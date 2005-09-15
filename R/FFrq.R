@@ -81,7 +81,7 @@ function(object, peakheight = 0.01, silence = 0.2, minpeak = 9,
 }
 
 noteFromFF <-
-function(x, diapason = 440)
+function(x, diapason = 440, roundshift = 0)
 {
-    round(12 * log(x / diapason, 2))
+    round(12 * log(x / diapason, 2) + roundshift)
 }

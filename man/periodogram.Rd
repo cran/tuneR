@@ -70,9 +70,7 @@ Support for processing of stereo \code{\link{Wave}} objects has not yet been imp
 }}
 \examples{
 # constructing a Wave object (1 sec.) containing sinus sound with 440Hz:
-x <- seq(0, 2*pi, length = 44100)
-channel <- round(32000 * sin(440 * x))
-Wobj <- Wave(left = channel)
+Wobj <- sine(440, bit = 16)
 Wobj
 
 # Calculate periodograms in windows of 4096 samples each - without
@@ -91,3 +89,5 @@ FF(Wspecobj)              # all ~ 440 Hertz
 noteFromFF(FF(Wspecobj))  # all diapason a
 }
 \keyword{ts}
+\concept{Wave}
+\concept{spectrum}

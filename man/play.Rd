@@ -20,8 +20,13 @@ play(object, player, ...)
         If no \code{player} and no further arguments are given under Windows, the default is: \code{"/play /close"}.}
 }
 \author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
-\seealso{\code{\link{Wave}}, \code{\link{writeWave}}}
+\seealso{\code{\link{Wave}}, \code{\link{writeWave}}, \code{\link{setWavPlayer}}}
 \keyword{utilities}
 \keyword{IO}
 \keyword{interface}
 \keyword{methods}
+\concept{Wave}
+\concept{player}
+\concept{sound}
+\concept{music}
+\concept{speech}

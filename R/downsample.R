@@ -10,6 +10,6 @@ function(object, samp.rate){
         object <- object[seq(1, ll, length = samp.rate * ll / object@samp.rate)]
         object@samp.rate <- samp.rate
     }
-    else warning("samp.rate < object's original sampling rate, hence object is returned unchanged.")
+    else warning("samp.rate > object's original sampling rate, hence object is returned unchanged.")
     return(object)
 }

@@ -9,3 +9,20 @@ function(x, which = 1, type = "h", xlab = "Frequency", ylab = NULL, log = "", ..
     plot(x@freq, spec, type = type, 
         xlab = xlab, ylab = ylab, log = log, ...)
 })
+
+
+setMethod("plot", signature(x = "WspecMat", y = "missing"),
+function(x, xlab = "time", ylab = "Frequency", xunit = c("samples", "time"), ...){
+    xunit <- match.arg(xunit)
+    if(xunit == "time"){
+        x@starts <- x@starts / x@samp.rate
+    }
+    image(x@starts, x@freq, x@spec, xlab = xlab, ylab = ylab, ...)
+})
+
+setMethod("image", signature(x = "Wspec"),
+function(x, xlab = "time", ylab = "Frequency", xunit = c("samples", "time"), ...){
+    x <- as(x, "WspecMat")
+    xunit <- match.arg(xunit)    
+    plot(x, xlab = xlab, ylab = ylab, xunit = xunit, ...)
+})

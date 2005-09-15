@@ -37,8 +37,7 @@ Moreover, setting both \code{from} or \code{to} implies \code{interact = FALSE}.
     An object of class \code{\link{Wave}}.
 }
 \examples{
-x <- seq(0, 2*pi, length = 44100)
-Wobj <- Wave(left = round(32000 * sin(440 * x)))
+Wobj <- sine(440, bit = 16)
 # extracting the middle 0.5 seconds of that 1 sec. sound:
 Wobj2 <- extractWave(Wobj, from = 0.25, to = 0.75, xunit = "time")
 Wobj2
@@ -53,3 +52,4 @@ Wobj2 <- extractWave(Wobj)
 \keyword{manip}
 \keyword{utilities}
 \keyword{iplot}
+\concept{Wave}
