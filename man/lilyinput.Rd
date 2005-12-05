@@ -10,7 +10,7 @@
 lilyinput(X, file = "Rsong.ly", Major = TRUE, key = "c", 
     clef = c("treble", "bass", "alto", "tenor"), time = "4/4", 
     endbar = TRUE, midi = TRUE, tempo = "2 = 60", 
-    textheight = 220, linewidth = 150, indent = 0)
+    textheight = 220, linewidth = 150, indent = 0, fontsize = 14)
 }
 \arguments{
   \item{X}{A data frame containing 4 named components (columns):
@@ -36,9 +36,10 @@ lilyinput(X, file = "Rsong.ly", Major = TRUE, key = "c",
   \item{tempo}{Character specifying the tempo to be used for the Midi file if \code{midi = TRUE}.
     The default, \code{"2 = 60"} indicates: 60 half notes per minute, whereas \code{"4 = 90"}
     indicates 90 quarters per minute.}
-  \item{textheight}{Textheight of the sheet music te be written by \emph{LilyPond}.}
-  \item{linewidth}{Linewidth of the sheet music te be written by \emph{LilyPond}.}
-  \item{indent}{Indentation of the sheet music te be written by \emph{LilyPond}.}
+  \item{textheight}{Textheight of the sheet music to be written by \emph{LilyPond}.}
+  \item{linewidth}{Linewidth of the sheet music to be written by \emph{LilyPond}.}
+  \item{indent}{Indentation of the sheet music to be written by \emph{LilyPond}.}
+  \item{fontsize}{Fontsize of the sheet music to be written by \emph{LilyPond}.}  
 }
 \details{
     Details will be given when development has reached a stable stage ...!
@@ -47,9 +48,9 @@ lilyinput(X, file = "Rsong.ly", Major = TRUE, key = "c",
     Nothing is returned, but a \code{file} is written.
 }
 \references{
-    Nienhuys, H.-W., Nieuwenhuizen, J. et al. (2004):
-    \emph{GNU LilyPond - The Music Typesetter}.
-    Free Software Foundation, \url{http://www.lilypond.org/}, Version 2.0.3.
+    The LilyPond development team (2005):
+    \emph{LilyPond - The music typesetter}.
+    \url{http://www.lilypond.org/}, Version 2.7.20.
 
     Preußer, A., Ligges, U. und Weihs, C. (2002): 
     \emph{Ein R Exportfilter für das Notations- und Midi-Programm LilyPond}.   
@@ -58,8 +59,7 @@ lilyinput(X, file = "Rsong.ly", Major = TRUE, key = "c",
 \author{Andrea Preußer and Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
 \note{
     This function is in development!!!\cr
-    Everything (and in particular its user interface) is subject to change!!!\cr
-    The interface produces invalid code for new versions of LilyPond!!!
+    Everything (and in particular its user interface) is subject to change!!!
 }
 \seealso{\code{\link{quantMerge}} prepares the data to be written into the LilyPond format;
     \code{\link{quantize}} and \code{\link{quantplot}} generate another kind of plot;
@@ -70,4 +70,3 @@ lilyinput(X, file = "Rsong.ly", Major = TRUE, key = "c",
 \concept{transcription}
 \concept{transcribe}
 \concept{note}
-

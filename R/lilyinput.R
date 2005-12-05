@@ -1,7 +1,7 @@
 lilyinput <- function(X, file = "Rsong.ly", 
     Major = TRUE, key = "c", clef = c("treble", "bass", "alto", "tenor"), 
     time = "4/4", endbar = TRUE, midi = TRUE, tempo = "2 = 60", 
-    textheight = 220, linewidth = 150, indent = 0)
+    textheight = 220, linewidth = 150, indent = 0, fontsize = 14)
 {
   clef <- match.arg(clef)
   
@@ -18,8 +18,7 @@ lilyinput <- function(X, file = "Rsong.ly",
         es = c("c", "des", "d", "es", "e", "f", "ges", "g", "as", "a", "bes", "b"),
         c("c", "cis", "d", "es", "e", "f", "fis", "g", "gis", "a", "bes", "b")
     )
-  }
-  else{
+  }else{
   pot <- 
     switch(key,
         h = c("c", "cis", "d", "dis", "e", "f", "fis", "g", "gis", "a", "bes", "b"),
@@ -41,8 +40,8 @@ lilyinput <- function(X, file = "Rsong.ly",
   
   # note: pitch, length, punctuation
   note <- ifelse(is.na(X$note), "r", pot[X$note + 49])
-  length <- ifelse(X$length %in% 2^(0:8), X$length, "")
-  punctate <- ifelse(X$punctate, ".", "")
+  duration <- ifelse(X$duration %in% 2^(0:8), X$duration, "")
+  punctuation <- ifelse(X$punctuation, ".", "")
 
   # start/end of slurs:
   if(sum(X$slur) %% 2) 
@@ -51,8 +50,8 @@ lilyinput <- function(X, file = "Rsong.ly",
     rep(c("(", ")"), sum(X$slur) %/% 2)
   # join notes:
   toene <- ifelse(slur == ")", 
-    paste(slur, note, length, punctate, sep = ""),
-    paste(note, length, punctate, slur, sep = ""))
+    paste(note, duration, punctuation, slur, sep = ""),
+    paste(note, duration, punctuation, slur, sep = ""))
 
   # mode
   mode <- if(Major) "\\major" else "\\minor"        
@@ -64,23 +63,21 @@ lilyinput <- function(X, file = "Rsong.ly",
     if(!(key %in% pot))
         stop("Wrong key, possible major keys are:\n", 
              paste(pot, collapse = " "), "\n")
-  }
-  else{
+  }else{
     pot <- c("cis" , "gis" , "dis" , "fis" , "h" , "e" , "a" , 
         "d" , "g" , "c" , "f" , "b" , "es")
     if(!(key %in% pot))
         stop("Wrong key, possible minor keys are:\n", 
              paste(pot, collapse = " "), "\n")
   }
-  if(key == "b") key <- "bes"
-  else if(key == "h") key <- "b"
+  if(key == "b"){key <- "bes"
+  }else {if(key == "h") key <- "b"}
 
   # generate LilyPond file:
   write(file = file,
-    c("\\include \"paper16.ly\"", 
+        c(paste("#(set-global-staff-size", fontsize, ")"),
         "\\header{tagline = \"\"}",
-        "\\score{", 
-        "  \\notes{", 
+        "\melody = {",
         paste("    \\time", time),
         paste("    \\key", key, mode),
         paste("    \\clef", clef),
@@ -89,23 +86,28 @@ lilyinput <- function(X, file = "Rsong.ly",
         "   \\bar \"|.\"",
         "  }",
         "  \\paper{",
-        "    \\paperSixteen",
         paste("    textheight = ", textheight, ".\\mm", sep = ""),
         paste("    linewidth = ", linewidth, ".\\mm", sep = ""),
         paste("    indent = ", indent, ".\\mm", sep = ""),
-        "  }",
-    if(midi){ 
-      c("  \\midi{", 
-        paste("    \\tempo", tempo),
-        "  }")
-    },
-        "}"))
+        "  }",  
+     "   \\score{",
+     "   \\melody",
+     "   \\layout{ }",
+     if(midi){ c("    \\midi{",  paste("      \\tempo", tempo), "  }")},
+    "   }"))
 }
 
 ## test:
 #  X <- data.frame(note = c(3, 0, 1, 3, -4, -2, 0, 1, 3, 1, 0, -2, NA),  
-#    length = c(2, 4, 8, 2, 2, 8, 8, 8, 8, 4, 4, 1, 1), 
-#    punctate = c(FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE), 
+#    duration = c(2, 4, 8, 2, 2, 8, 8, 8, 8, 4, 4, 1, 1), 
+#    punctuation = c(FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE), 
 #    slur = c(FALSE, TRUE, TRUE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE))
 #
-#  lilyinput(X, file = "c:/test.ly")
+#  lilyinput(X, file = "c:/test2.ly")
+#  
+# Y <- data.frame(note = c(3, 5, 7, 8, 10, 10, 12, 12, 12, 12, 10, 12, 12, 12, 12, 10, 8, 8, 8, 8, 7, 7, 5, 5, 5, 5, 3, NA),  
+#    duration = c(4, 4, 4, 4, 2, 2, 4, 4, 4, 4, 2, 4, 4, 4, 4, 2, 4, 4, 4, 4, 2, 2, 4, ,4, 4, 4, 2, 1), 
+#    punctuation = FALSE, 
+#    slur = FALSE)
+#    
+#lilyinput(Y, file="c:/Bsp.ly")

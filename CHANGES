@@ -3,6 +3,3 @@ Functions that are heavily in development and hence not yet in the CRAN version:
 
 In development, hence UNDOCUMENTED (InDevelopment.Rd):
  dynquant metrum plotDD tempo
-
-ToDo:
- lilyinput
