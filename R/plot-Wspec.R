@@ -12,17 +12,21 @@ function(x, which = 1, type = "h", xlab = "Frequency", ylab = NULL, log = "", ..
 
 
 setMethod("plot", signature(x = "WspecMat", y = "missing"),
-function(x, xlab = "time", ylab = "Frequency", xunit = c("samples", "time"), ...){
+function(x, xlab = "time", ylab = "Frequency", xunit = c("samples", "time"), log = "", ...){
+    if(log == "z"){ 
+        x@spec <- log(x@spec)
+        log <- ""
+    }
     xunit <- match.arg(xunit)
     if(xunit == "time"){
         x@starts <- x@starts / x@samp.rate
     }
-    image(x@starts, x@freq, x@spec, xlab = xlab, ylab = ylab, ...)
+    image(x@starts, x@freq, x@spec, xlab = xlab, ylab = ylab, log = log, ...)
 })
 
 setMethod("image", signature(x = "Wspec"),
-function(x, xlab = "time", ylab = "Frequency", xunit = c("samples", "time"), ...){
+function(x, xlab = "time", ylab = "Frequency", xunit = c("samples", "time"), log = "", ...){
     x <- as(x, "WspecMat")
     xunit <- match.arg(xunit)    
-    plot(x, xlab = xlab, ylab = ylab, xunit = xunit, ...)
+    plot(x, xlab = xlab, ylab = ylab, xunit = xunit, log = log, ...)
 })

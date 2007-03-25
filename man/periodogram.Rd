@@ -1,16 +1,25 @@
-\name{periodogram}
+\name{periodogram-methods}
+\docType{methods}
 \alias{periodogram}
+\alias{periodogram-methods}
+\alias{periodogram,Wave-method}
+\alias{periodogram,character-method}
 \title{Periodogram (Spectral Density) Estimation on Wave objects}
 \description{This function estimates one or more periodograms (spectral densities) 
-    of the time series contained in an object of class \code{Wave}
+    of the time series contained in an object of class \code{Wave} (or directly in a Wave file)
     using a window running through the time series (possibly with overlapping).
     It returns an object of class \code{Wspec}.}
 \usage{
-periodogram(object, width = length(object@left), overlap = 0, 
-    starts = NULL, ends = NULL, taper = 0, normalize = TRUE, ...)
+periodogram(object, ...)
+\S4method{periodogram}{Wave}(object, width = length(object), overlap = 0,
+    starts = NULL, ends = NULL, taper = 0, normalize = TRUE, 
+    frqRange = c(-Inf, Inf), ...)
+\S4method{periodogram}{character}(object, width, overlap = 0, from = 1, to = Inf, 
+    units = c("samples", "seconds", "minutes", "hours"), 
+    downsample = NA, channel = c("left", "right"), pieces = 1, ...)
 }
 \arguments{
-  \item{object}{An object of class \code{\link{Wave}}.}
+  \item{object}{An object of class \code{\link{Wave}} or a character string pointing to a Wave file.}
   \item{width}{A window of width \sQuote{\code{width}} running through the time series selects the samples 
     from which the periodograms are to be calculated.}
   \item{overlap}{The window can be applied by each overlapping \code{overlap} samples.}
@@ -24,6 +33,19 @@ periodogram(object, width = length(object@left), overlap = 0,
   \item{normalize}{Logical; if \code{TRUE} (default), two steps will be applied:
     (i) the input signal will be normalized to amplitude \code{max(abs(amplitude)) == 1},
     (ii) the resulting \code{spec} values will be normalized to sum up to one for each periodogram.}
+  \item{frqRange}{Numeric vector of two elements indicating minimum and maximum of the frequency range 
+    that is to be stored in the resulting object. This is useful to reduce memory consumption.}
+  \item{from}{Where to start reading in the Wave file, in \code{units}.}
+  \item{to}{Where to stop reading in the Wave file, in \code{units}.}
+  \item{units}{Units in which \code{from} and \code{to} is given, the default is \dQuote{samples},
+        but can be set to time intervals such as \dQuote{seconds}, see the Usage Section above.}
+  \item{downsample}{Sampling rate the object is to be downsampled to.
+        If \code{NA}, the default, no changes are applied. Otherwise \code{downsample} must be in \code{[2000, 192000]}; 
+        typical values are 11025, 22050, and 44100 for CD quality. See also \code{\link{downsample}}.}
+  \item{channel}{Character, indicating whether the \dQuote{left} or \dQuote{right} channel should be extracted 
+        (see \code{\link{mono}} for details) - stereo processing is not yet implemented.}
+  \item{pieces}{The Wave file will be read in in \code{pieces} steps in order to reduce the amount 
+        of required memory.}
   \item{\dots}{Further arguments to be passed to the underlying function \code{\link{spec.pgram}}.}
 }
 \value{
@@ -59,7 +81,6 @@ because it is unique for all periodograms of estimated by the function call.
 }
 \author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
 \note{
-This function is still in development. 
 Support for processing of stereo \code{\link{Wave}} objects has not yet been implemented.
 }
 \seealso{\itemize{

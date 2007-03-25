@@ -1,5 +1,7 @@
 readWave <- 
-function(filename){
+function(filename, from = 1, to = Inf, 
+    units = c("samples", "seconds", "minutes", "hours"), header = FALSE){
+        
     if(!is.character(filename))
         stop("'filename' must be of type character.")
     if(length(filename) != 1)
@@ -9,19 +11,19 @@ function(filename){
     if(file.access(filename, 4))
         stop("No read permission for file ", filename)
 
-    # Open connection
+    ## Open connection
     con <- file(filename, "rb")
     on.exit(close(con)) # be careful ...
     int <- integer()
     
-    # Reading in the header:
+    ## Reading in the header:
     RIFF <- readChar(con, 4)
     file.length <- readBin(con, int, n = 1, size = 4, endian = "little")
     WAVE <- readChar(con, 4)
     if (!(RIFF == "RIFF" && WAVE == "WAVE"))
         warning("Looks like '", filename, "' is not a valid wave file.")
     FMT <- readChar(con, 4)
-    # waiting for the fmt chunk
+    ## waiting for the fmt chunk
     i <- 0
     while(FMT != "fmt "){
         i <- i+1
@@ -40,7 +42,7 @@ function(filename){
     if(fmt.length > 16)
         seek(con, where = fmt.length - 16, origin = "current")
     DATA <- readChar(con, 4)
-    # waiting for the data chunk    
+    ## waiting for the data chunk    
     i <- 0    
     while(DATA != "data"){
         i <- i+1
@@ -55,12 +57,33 @@ function(filename){
         ((channels * bytes) != block.align))
             warning("Wave file '", filename, "' seems to be corrupted.")
 
-    ## reading in sample data
+    ## If only header required: construct and return it
+    if(header){
+        return(list(sample.rate = sample.rate, channels = channels, 
+            bits = bits, samples = data.length / (channels * bytes)))
+    }
+
+    ## convert times to sample numbers
+    fctr <- switch(match.arg(units),
+                   samples = 1,
+                   seconds = sample.rate,
+                   minutes = sample.rate * 60,
+                   hours = sample.rate * 3600)
+    if(fctr > 1) {
+        from <- from * fctr + 1
+        to <- to * fctr
+    }
+
+    ## calculating from/to for reading in sample data    
     N <- data.length / bytes
+    N <- min(N, to*channels) - (from*channels+1-channels) + 1
+    seek(con, where = (from - 1) * bytes * channels, origin = "current")
+
+    ## reading in sample data   
     sample.data <- readBin(con, int, n = N, size = bytes, 
         signed = (bytes == 2), endian = "little")
     
-    # Constructing the Wave object:    
+    ## Constructing the Wave object:    
     object <- new("Wave", stereo = (channels == 2), samp.rate = sample.rate, bit = bits)
     if(channels == 2) {
         sample.data <- matrix(sample.data, nrow = 2)
@@ -68,7 +91,7 @@ function(filename){
         object@right <- sample.data[2, ]
     }   
     else object@left <- sample.data
-    
-    # Return the Wave object
+
+    ## Return the Wave object
     return(object)
 }

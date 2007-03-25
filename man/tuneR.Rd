@@ -14,7 +14,7 @@ to transform  Wave objects (\code{\link{bind}}, \code{\link{channel}},
 \code{\link{downsample}}, \code{\link{extractWave}}, \code{\link{mono}}, \code{\link{stereo}}),
 and to \code{\link{play}} Wave objects are used.
 
-Other functions and classes are avaiable to 
+Other functions and classes are available to 
 calculate several periodograms of a signal (\code{\link{periodogram}}, \code{\link{Wspec}}),
 to estimate the corresponding fundamental frequencies (\code{\link{FF}}, \code{\link{FFpure}}),
 to derive the corresponding notes (\code{\link{noteFromFF}}), 

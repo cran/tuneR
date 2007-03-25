@@ -1,13 +1,14 @@
 importFrom(graphics, plot, image)
 import("stats","methods")
 exportClasses("Wspec","WspecMat","Wave")
-exportMethods("plot","image","summary","show","Wave","coerce","[","play","Arith")
+exportMethods("plot","image","summary","show","Wave","coerce","[","play","Arith", "periodogram")
 export(channel, bind, prepComb, downsample, mono, stereo, 
     extractWave, normalize, noSilence, 
     writeWave, readWave,
-    periodogram, FFpure, noteFromFF, FF, 
+    FFpure, noteFromFF, FF, 
     smoother, notenames, melodyplot,
     quantize, quantplot, quantMerge, lilyinput, 
     setWavPlayer, getWavPlayer,
-    silence, sine, sawtooth, square, noise, panorama
+    silence, sine, sawtooth, square, noise, panorama,
+    MFCC
 )
