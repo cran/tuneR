@@ -70,9 +70,9 @@ function(filename, from = 1, to = Inf,
                    minutes = sample.rate * 60,
                    hours = sample.rate * 3600)
     if(fctr > 1) {
-        from <- from * fctr + 1
-        to <- to * fctr
-    }
+        from <- round(from * fctr + 1)
+        to <- round(to * fctr)
+    } 
 
     ## calculating from/to for reading in sample data    
     N <- data.length / bytes
