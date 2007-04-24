@@ -107,13 +107,13 @@ function(object, width, overlap = 0, from = 1, to = Inf,
         return(WSobj) # finished
     }
     
-    ### only if more than one pice:
+    ### only if more than one piece:
     header <- readWave(filename = object, header = TRUE)
     fctr <- switch(units,
                    samples = 1,
-                   seconds = sample.rate,
-                   minutes = sample.rate * 60,
-                   hours = sample.rate * 3600)
+                   seconds = header$sample.rate,
+                   minutes = header$sample.rate * 60,
+                   hours = header$sample.rate * 3600)
     if(fctr > 1) {
         from <- from * fctr + 1
         to <- to * fctr
