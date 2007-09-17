@@ -34,6 +34,8 @@ function(filename, from = 1, to = Inf,
     }
     fmt.length <- readBin(con, int, n = 1, size = 4, endian = "little")
     pcm <- readBin(con, int, n = 1, size = 2, endian = "little")
+    if(!(pcm %in% c(0, 1)))
+        stop("Only PCM/uncompressed Wave formats supported")
     channels <- readBin(con, int, n = 1, size = 2, endian = "little")
     sample.rate <- readBin(con, int, n = 1, size = 4, endian = "little")
     bytes.second <- readBin(con, int, n = 1, size = 4, endian = "little")

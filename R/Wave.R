@@ -25,8 +25,8 @@ function(object){
         (length(object@samp.rate) < 2) && (object@samp.rate > 0)))
             return("slot 'samp.rate' of a Wave object must be a positive numeric of length 1")
     if(!(is(object@bit, "numeric") &&
-        (length(object@bit) < 2) && (object@bit %in% c(8, 16))))
-            return("slot 'bit' of a Wave object must be a positive numeric (either 8 or 16) of length 1")
+        (length(object@bit) < 2) && (object@bit %in% c(8, 16, 24, 32))))
+            return("slot 'bit' of a Wave object must be a positive numeric (8, 16, 24 or 32) of length 1")
     return(TRUE)
 })
 
@@ -105,7 +105,7 @@ function(object){
     cat("\n\tSamplingrate (Hertz):  ", object@samp.rate)
     cat("\n\tChannels (Mono/Stereo):",
         if(object@stereo) "Stereo" else "Mono")
-    cat("\n\tBit (8/16):            ", object@bit, "\n\n")
+    cat("\n\tBit (8/16/24/32):      ", object@bit, "\n\n")
 })
 
 setMethod("summary", signature(object = "Wave"), 
@@ -118,7 +118,7 @@ function(object, ...){
     cat("\n\tSamplingrate (Hertz):  ", object@samp.rate)
     cat("\n\tChannels (Mono/Stereo):",
         if(object@stereo) "Stereo" else "Mono")
-    cat("\n\tBit (8/16):            ", object@bit)
+    cat("\n\tBit (8/16/24/32):      ", object@bit)
     cat("\n\nSummary statistics for channel(s):\n\n")
     if(object@stereo)
         print(rbind(left = summary(object@left), right = summary(object@right)))

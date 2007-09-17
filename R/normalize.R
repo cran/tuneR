@@ -1,10 +1,10 @@
-normalize <- function(object, unit = c("1", "8", "16", "0"), center = TRUE, level = 1){
+normalize <- function(object, unit = c("1", "8", "16", "24", "32", "0"), center = TRUE, level = 1){
     if(!is(object, "Wave")) 
         stop("'object' needs to be of class 'Wave'")
     validObject(object)
     unit <- match.arg(unit)
-    if(!(unit %in% c("1", "8", "16", "0")))
-        stop("'unit' must be either 1 (real valued norm.), 8 (norm. to 8-bit) or 16 (norm. to 16-bit)")
+    if(!(unit %in% c("1", "8", "16", "24", "32", "0")))
+        stop("'unit' must be either 1 (real valued norm.), 8 (norm. to 8-bit), 16 (norm. to 16-bit), 24 (...), or 32 (...)")
     if(center){
         object@left <- object@left - mean(object@left)
         object@right <- object@right - mean(object@right)    
@@ -21,9 +21,17 @@ normalize <- function(object, unit = c("1", "8", "16", "0"), center = TRUE, leve
             object@left <- round(object@left * 127 + 127)
             object@right <- round(object@right * 127 + 127)
         }
-        if(unit == "16"){
+        else if(unit == "16"){
             object@left <- round(object@left * 32767)
             object@right <- round(object@right * 32767)
+        }    
+        else if(unit == "24"){
+            object@left <- round(object@left * 8388607)
+            object@right <- round(object@right * 8388607)
+        }    
+        else if(unit == "32"){
+            object@left <- round(object@left * 2147483647)
+            object@right <- round(object@right * 2147483647)
         }    
     }
     return(object)

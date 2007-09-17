@@ -14,6 +14,10 @@ function(object, filename){
         stop("for 8-bit Wave files, data range is supposed to be in [0, 255], see ?normalize")
     if((object@bit == 16) && ( (max(sample.data) > 32767) || (min(sample.data) < -32768)))
         stop("for 16-bit Wave files, data range is supposed to be in [-32768, 32767], see ?normalize")
+    if((object@bit == 24) && ( (max(sample.data) > 8388607) || (min(sample.data) < -8388608)))
+        stop("for 24-bit Wave files, data range is supposed to be in [-8388608, 8388607], see ?normalize")
+    if((object@bit == 32) && ( (max(sample.data) > 2147483647) || (min(sample.data) < -2147483648)))
+        stop("for 32-bit Wave files, data range is supposed to be in [-2147483648, 2147483647], see ?normalize")
     if(any(sample.data %% 1)) 
         warning("channels' data will be rounded to integers for writing the wave file")
 

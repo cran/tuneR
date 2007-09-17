@@ -41,7 +41,7 @@ sine <- function(freq, duration = samp.rate, from = 0, samp.rate = 44100, bit = 
     xunit <- match.arg(xunit)
     durFrom <- preWaveform(freq = freq, duration = duration, from = from, 
         xunit = xunit, samp.rate = samp.rate)
-    channel <- sin(2 * pi * freq * (durFrom["from"]:sum(durFrom)) / samp.rate)
+    channel <- sin(2 * pi * freq * (durFrom["from"]:(sum(durFrom)-1)) / samp.rate)
     postWaveform(channel = channel, samp.rate = samp.rate, 
         bit = bit, stereo = stereo, ...)
 }
@@ -82,7 +82,7 @@ noise <- function(kind = c("white", "pink"), duration = samp.rate,
     durFrom <- preWaveform(freq = 1, duration = duration, from = 0, 
         xunit = xunit, samp.rate = samp.rate)
     N <- durFrom["duration"] * (stereo + 1)
-    ru <- runif(N, min = -1, max = 1)
+    ru <- rnorm(N)
     channel <- 
         switch(kind,
             white = ru,
