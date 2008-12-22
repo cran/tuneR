@@ -35,7 +35,7 @@ quantMerge(notes, minlength, barsize, bars)
   \item{slur}{currently always \code{FALSE}, sensible processing is not yet implemented.\cr
     It is supposed to indicate the beginning and ending positions of slurs.}
 }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \seealso{to get the input: \code{\link{noteFromFF}}, 
     for plotting: \code{\link{quantplot}}, 
     for further processing: \code{\link{lilyinput}},

@@ -21,7 +21,7 @@ normalize(object, unit = c("1", "8", "16", "24", "32", "0"), center = TRUE, leve
 \value{
   An object of class \code{\link{Wave}}.
 }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de},
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de},
     based on code from Matthias Heymann's former package \sQuote{sound}.}
 \seealso{\code{\link{Wave}}, \code{\link{writeWave}}}
 \keyword{manip}

@@ -47,7 +47,7 @@ Wobj2
 Wobj2 <- extractWave(Wobj)
 }
 }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \seealso{\code{\link{Wave}}, \code{\link{bind}}, \code{\link{channel}}, \code{\link{mono}}}
 \keyword{manip}
 \keyword{utilities}

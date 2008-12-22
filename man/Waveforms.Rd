@@ -55,7 +55,7 @@ square(freq, duration = samp.rate, from = 0, samp.rate = 44100, bit = 1,
 \value{
   A \code{\link{Wave}} object.
 }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de},
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de},
     partly based on code from Matthias Heymann's former package \sQuote{sound},
     code for pink noise adapted and simplified from C code of Steve Moshier.}
 \seealso{\code{\link{Wave}}, \code{\link{normalize}}, \code{\link{noSilence}}}

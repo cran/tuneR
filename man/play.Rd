@@ -19,7 +19,7 @@ play(object, player, ...)
     \item{\dots}{Further arguments passed to the Wave file \code{player}.
         If no \code{player} and no further arguments are given under Windows, the default is: \code{"/play /close"}.}
 }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \seealso{\code{\link{Wave}}, \code{\link{writeWave}}, \code{\link{setWavPlayer}}}
 \keyword{utilities}
 \keyword{IO}

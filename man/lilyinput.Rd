@@ -56,7 +56,7 @@ lilyinput(X, file = "Rsong.ly", Major = TRUE, key = "c",
     \emph{Ein R Exportfilter für das Notations- und Midi-Programm LilyPond}.   
     Arbeitsbericht 35. Fachbereich Statistik, Universität Dortmund. (german)
 }
-\author{Andrea Preußer and Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Andrea Preußer and Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \note{
     This function is in development!!!\cr
     Everything (and in particular its user interface) is subject to change!!!

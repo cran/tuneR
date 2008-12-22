@@ -31,7 +31,7 @@ postprocessing with the music typesetting software LilyPond.
 
 Of course, print (show), plot and summary methods are available for most classes.
 }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \examples{
 library(tuneR) # in a regular session, we are loading tuneR
   

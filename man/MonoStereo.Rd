@@ -25,7 +25,7 @@ stereo(left, right)
     If argument \code{right} is missing in \code{stereo}, a logical values is returned 
     that indicates whether \code{left} is stereo (\code{TRUE}) or mono (\code{FALSE}).
 }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \seealso{\code{\link{Wave}}}
 \examples{
 Wobj <- sine(440, bit = 16)

@@ -59,7 +59,7 @@ quantplot(observed, energy = NULL, expected = NULL, bars,
   \item{observedpar}{A list of parameters to be passed to the \code{\link{lines}} 
     function that draws the observed values.}
 }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \seealso{\code{\link{noteFromFF}}, \code{\link{FF}}, \code{\link{melodyplot}}, \code{\link{quantize}}; 
     for an example, see the help in \link{tuneR}.}
 \keyword{hplot}

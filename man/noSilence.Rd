@@ -23,7 +23,7 @@ noSilence(object, zero = 0, level = 0, where = c("both", "start", "end"))
     the interval between \code{zero} and \code{zero - level}/\code{zero + level}.
     All values before (or after, respectively) the first non-silent value are removed from the object.
     }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}, 
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}, 
     based on code from Matthias Heymann's former package \sQuote{sound}.}
 \seealso{\code{\link{silence}}, \code{\link{Wave}}, \code{\link{extractWave}}}
 \keyword{manip}

@@ -18,7 +18,7 @@ function(object, filename){
         stop("for 24-bit Wave files, data range is supposed to be in [-8388608, 8388607], see ?normalize")
     if((object@bit == 32) && ( (max(sample.data) > 2147483647) || (min(sample.data) < -2147483648)))
         stop("for 32-bit Wave files, data range is supposed to be in [-2147483648, 2147483647], see ?normalize")
-    if(any(sample.data %% 1)) 
+    if(any(sample.data %% 1 > 0))
         warning("channels' data will be rounded to integers for writing the wave file")
 
     # Open connection

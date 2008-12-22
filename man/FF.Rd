@@ -54,7 +54,7 @@ FFpure(object, peakheight = 0.01, diapason = 440,
 \value{
    Vector of estimated fundamental frequencies (in Hertz) for each periodogram conatined in \code{object}.
 }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \note{These functions are still in development and may be changed in due course.}
 \seealso{\code{\link{Wspec}}, \code{\link{periodogram}} (including an example), \code{\link{noteFromFF}},
     and \link{tuneR} for a very complete example.}

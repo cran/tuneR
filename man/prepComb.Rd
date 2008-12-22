@@ -28,7 +28,7 @@ prepComb(object, zero = 0, where = c("both", "start", "end"))
      before the last \code{zero} level crossing from negative to positive.
 }
 \note{If stereo, only the left channel is analyzed while the right channel will be simply cut at the same locations.}
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}, 
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}, 
     based on code from Matthias Heymann's former package \sQuote{sound}.}
 \seealso{\code{\link{bind}}, \code{\link{Wave}}, \code{\link{extractWave}}, and \code{\link{noSilence}} to cut off silence}
 \examples{

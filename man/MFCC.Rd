@@ -43,7 +43,7 @@ MFCC(obj)
 \references{Young, S., Everman, G., Gales, M., Hain, T., Kershaw, D., Moore, G., Odell, J., 
     Ollason, D., Povey, D., Valtchev, V., and Woodland, P. (2005): 
     \emph{The HTK-Book (v 3.3)}, Cambridge University Engineering Dept., 59-61.}
-\author{Julia Schiffner \email{schiffner@statistik.uni-dortmund.de} and Gero Szepannek \email{szepannek@statistik.uni-dortmund.de} and Uwe Ligges \email{ligges@statistik.uni-dortmund.de}}
+\author{Julia Schiffner \email{schiffner@statistik.tu-dortmund.de} and Gero Szepannek \email{szepannek@statistik.tu-dortmund.de} and Uwe Ligges \email{ligges@statistik.tu-dortmund.de}}
 \seealso{\code{\link{Wave}}}
 \keyword{ts}
 \concept{MFCC}

@@ -20,7 +20,7 @@
   \item{\dots}{Further arguments to be passed to the underlying plot functions. 
     See \code{\link{plot.default}} for details.}
 }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \seealso{see \code{\link{Wspec}}, \code{\link{periodogram}} and \link{tuneR} 
     for the constructor function and some examples.}}
 \keyword{hplot}

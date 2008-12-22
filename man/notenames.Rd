@@ -13,7 +13,7 @@ notenames(notes, language = c("english", "german"))
 \value{
 A character vector of note names.
 }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \examples{
 notenames(c(-24, -12, 0, 12)) # octaves of a
 notenames(3:15)               # chromaticism

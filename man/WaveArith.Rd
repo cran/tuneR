@@ -13,7 +13,7 @@
 \item{object = "numeric"}{For, e.g., adding a number to the whole Wave, e.g. useful for demeaning.}
 \item{object = "missing"}{For unary Wave operations.}
 }}
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \seealso{For the S3 generic: \code{\link[base]{Arith}},  \code{\link{Wave}}}
 \keyword{methods}
 \keyword{arith}

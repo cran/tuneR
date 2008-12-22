@@ -24,7 +24,7 @@ writeWave(object, filename)
 
     \code{writeWave} creates a Wave file, but returns nothing.
 }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \seealso{\code{\link{Wave}}, \code{\link{normalize}}}
 \examples{
 Wobj <- sine(440, bit = 16)

@@ -41,7 +41,7 @@ The subset function \dQuote{\code{[}} extracts the selected
 elements of slots \code{spec}, \code{starts}, \code{variance} and \code{energy}
 and returns the other slots unchanged.
 }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \seealso{the \code{show}, \code{plot} and \code{summary} methods}
 \keyword{classes}
 \concept{periodogram}

@@ -8,7 +8,7 @@ function(x, xunit, ylim, xlab, ylab, main, nr, simplify, ...){
         nr <- ceiling(l / round(l / nr))
         index <- seq(1, l, length = nr)
         if(xunit == "time") index <- index / x@samp.rate
-        mat <- matrix(c(x@left, rep(null, nr - (l %% nr))), 
+        mat <- matrix(c(x@left, if(l %% nr > 0) rep(null, nr - (l %% nr))), 
             nrow = nr, byrow = TRUE)
         rg <- apply(mat, 1, range)
         plot(index, rg[1,], type = "n", yaxt = "n", ylim = ylim, 

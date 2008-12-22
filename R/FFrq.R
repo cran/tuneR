@@ -70,7 +70,7 @@ function(object, peakheight = 0.01, silence = 0.2, minpeak = 9,
     FFvalue <- FFpure(object, peakheight = peakheight, diapason = diapason, 
         notes = notes, interest.frqs = interest.frqs, search.par = search.par)
     N <- length(FFvalue)
-    silence <- if(silence) sort(object@energy)[round(N * silence)] else -Inf
+    silence <- if(silence) sort(object@energy)[max(1, round(N * silence))] else -Inf
     energy <- object@energy < silence
     for(k in 1:N){
       if(energy[k] && (sum(object@spec[[k]] > peakheight) > minpeak)){

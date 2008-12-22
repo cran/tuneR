@@ -12,7 +12,7 @@ bind(...)
 \value{
     An object of class \code{\link{Wave}}.
 }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \seealso{\code{\link{prepComb}} for preparing the concatenation, 
          \code{\link{Wave}}, \code{\link{extractWave}}, \code{\link{stereo}}}
 \keyword{manip}

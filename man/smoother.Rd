@@ -16,7 +16,7 @@ smoother(notes, method ="median", order = 4, times = 2)
 \value{
 The smoothed series of notes.
 }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \keyword{misc}
 \keyword{ts}
 \concept{smooth}

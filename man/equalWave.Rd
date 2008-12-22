@@ -14,7 +14,7 @@ equalWave(object1, object2)
     if the two objects don't have the same properties, i.e.
     identical sampling rate, resolution (bit), and number of channels (stereo/mono).
 }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \seealso{\code{\link{Wave}}}
 \keyword{error}
 \keyword{utilities}

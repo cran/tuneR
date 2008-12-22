@@ -24,7 +24,7 @@ An integer representing the (rounded) difference in halftones from diapason a,
     For example: 0 indicates diapason a, 3: c', 12: a', \dots
 }
 \details{The formula used is simply \code{round(12 * log(x / diapason, 2) + roundshift)}.}
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \seealso{\code{\link{FF}}, \code{\link{periodogram}}, and \link{tuneR} for a very complete example.}
 \keyword{utilities}
 \concept{note}

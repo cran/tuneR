@@ -43,7 +43,7 @@ Wave(left, ...)
         8 for a rather rough representation.}
   }
 }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \seealso{\code{\link{writeWave}}, \code{\link{readWave}}}
 \examples{
 # constructing a Wave object (1 sec.) containing sinus sound with 440Hz:

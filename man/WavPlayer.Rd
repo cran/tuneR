@@ -14,7 +14,7 @@ getWavPlayer()
 \value{
     \code{getWavPlayer} returns the character string that has been set by \code{setWavPlayer}.
 }
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \seealso{\code{\link{Wave}}, \code{\link{play}}}
 \keyword{utilities}
 \concept{Wave}

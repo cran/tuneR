@@ -35,7 +35,7 @@ plot.Wave.channel(x, xunit, ylim, xlab, ylab, main, nr, simplify, ...)
 }
 \details{Function \code{plot.Wave.channel} is a helper function
     to plot a single (left!) channel; in particular it is \emph{not} intended to be called by the user directly.}
-\author{Uwe Ligges, \email{ligges@statistik.uni-dortmund.de}}
+\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \seealso{\code{\link{Wave}} and \link{tuneR}}
 \keyword{hplot}
 \keyword{aplot}
