@@ -6,7 +6,7 @@
 notenames(notes, language = c("english", "german"))
 }
 \arguments{
-\item{notes}{An interger values vector, where 0 corresponds to \code{a'}, 
+\item{notes}{An interger values vector, where 0 corresponds to \kbd{a'}, 
     notes below and above have to be specified in the corresponding halftone distance.}
 \item{language}{Language of the note names. Currently only english and german are supported.}
 }

@@ -31,7 +31,7 @@ generates an \code{\link{image}} with correct annotated axes.
 }
 \author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \seealso{see \code{\link{image}}, \code{\link{Wspec}}, \code{\link{WspecMat}}, \code{\link{periodogram}} and \link{tuneR} 
-    for the constructor function and some examples.}}
+    for the constructor function and some examples.}
 \keyword{hplot}
 \keyword{methods}
 \concept{periodogram}
