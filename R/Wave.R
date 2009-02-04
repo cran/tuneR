@@ -25,7 +25,7 @@ function(object){
         (length(object@samp.rate) < 2) && (object@samp.rate > 0)))
             return("slot 'samp.rate' of a Wave object must be a positive numeric of length 1")
     if(!(is(object@bit, "numeric") &&
-        (length(object@bit) < 2) && (object@bit %in% c(8, 16, 24, 32))))
+        (length(object@bit) < 2) && (object@bit %in% c(1, 8, 16, 24, 32))))
             return("slot 'bit' of a Wave object must be a positive numeric (8, 16, 24 or 32) of length 1")
     return(TRUE)
 })

@@ -15,8 +15,10 @@ normalize <- function(object, unit = c("1", "8", "16", "24", "32", "0"), center 
     }   
     if(unit != "0"){
         m <- max(abs(c(range(object@left), if(object@stereo) range(object@right))))
-        object@left <- level * object@left / m
-        object@right <- level * object@right / m
+        if(!isTRUE(all.equal(m, 0))){
+            object@left <- level * object@left / m
+            object@right <- level * object@right / m
+        }
         if(unit == "8"){
             object@left <- round(object@left * 127 + 127)
             object@right <- round(object@right * 127 + 127)

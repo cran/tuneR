@@ -6,12 +6,16 @@ function(object, player, ...){
     if(missing(player)){
         player <- getWavPlayer()
         if(.Platform$OS.type == "windows" && is.null(player)){
-            player <- "mplay32"
-            if(missing(...))
-                player <- paste(player, "/play /close")
+            player <- "c:/Program Files/Windows Media Player/wmplayer.exe"
+            if(!file.exists(player)){
+                player <- "mplay32"
+                if(missing(...))
+                    player <- paste(player, "/play /close")
+            }
+            else player <- shQuote(player)
         }
     }
-    system(paste(player, ..., object))
+    shell(paste('"', paste(player, ..., shQuote(object)), '"', sep=""))
 })
 
 setMethod("play", signature(object = "Wave", player = "ANY"),
@@ -21,5 +25,5 @@ function(object, player, ...){
     setwd(tempdir())
     on.exit({unlink(filename); setwd(wd)})
     writeWave(object, filename)
-    play(filename, player, ...)
+    play(file.path(tempdir(), filename), player, ...)
 })

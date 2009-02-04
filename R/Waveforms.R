@@ -16,7 +16,7 @@ preWaveform <- function(freq, duration, from, xunit, samp.rate){
 
 postWaveform <- function(channel, samp.rate, bit, stereo, ...){
     if(!is.numeric(bit) || length(bit)!=1 || (!bit %in% c(0,1,8,16)))
-        stop("'bit' must be an integer of length 1 in in {0,1,8,16}")
+        stop("'bit' must be an integer of length 1 in {0,1,8,16}")
     if(bit == 8)
         channel <- channel + 127
     if(stereo && !is.matrix(channel))
