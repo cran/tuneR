@@ -15,7 +15,7 @@ equalWave(object1, object2)
     identical sampling rate, resolution (bit), and number of channels (stereo/mono).
 }
 \author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
-\seealso{\code{\link{Wave}}}
+\seealso{\link{Wave-class}, \code{\link{Wave}}}
 \keyword{error}
 \keyword{utilities}
 \concept{Wave}

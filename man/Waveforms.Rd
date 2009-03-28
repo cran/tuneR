@@ -58,7 +58,7 @@ square(freq, duration = samp.rate, from = 0, samp.rate = 44100, bit = 1,
 \author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de},
     partly based on code from Matthias Heymann's former package \sQuote{sound},
     code for pink noise adapted and simplified from C code of Steve Moshier.}
-\seealso{\code{\link{Wave}}, \code{\link{normalize}}, \code{\link{noSilence}}}
+\seealso{\link{Wave-class}, \code{\link{Wave}}, \code{\link{normalize}}, \code{\link{noSilence}}}
 \examples{
 Wobj <- sine(440, bit = 16, duration = 1000)
 Wobj2 <- noise(bit = 16, duration = 1000)

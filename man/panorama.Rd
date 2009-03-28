@@ -19,7 +19,7 @@ If \code{pan < 0}, the left and the right channel are interchanged.
 }
 \value{Wave object with the transformed panorama.}
 \author{Uwe Ligges, based on code by Matthias Heymann}
-\seealso{\code{\link{Wave}}}
+\seealso{\link{Wave-class}, \code{\link{Wave}}}
 \keyword{manip}
 \concept{Wave}
 \concept{channel}

@@ -17,7 +17,7 @@ downsample(object, samp.rate)
     An object of class \code{\link{Wave}}.
 }
 \author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
-\seealso{\code{\link{Wave}}}
+\seealso{\link{Wave-class}, \code{\link{Wave}}}
 \keyword{manip}
 \keyword{utilities}
 \concept{Wave}

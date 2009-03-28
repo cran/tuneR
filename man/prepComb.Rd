@@ -30,7 +30,7 @@ prepComb(object, zero = 0, where = c("both", "start", "end"))
 \note{If stereo, only the left channel is analyzed while the right channel will be simply cut at the same locations.}
 \author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}, 
     based on code from Matthias Heymann's former package \sQuote{sound}.}
-\seealso{\code{\link{bind}}, \code{\link{Wave}}, \code{\link{extractWave}}, and \code{\link{noSilence}} to cut off silence}
+\seealso{\code{\link{bind}}, \link{Wave-class}, \code{\link{Wave}}, \code{\link{extractWave}}, and \code{\link{noSilence}} to cut off silence}
 \examples{
 Wobj1 <- sine(440, duration = 520, bit = 16)
 Wobj2 <- extractWave(sine(330, duration = 500, bit = 16), from = 110, to = 500)

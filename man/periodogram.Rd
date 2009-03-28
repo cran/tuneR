@@ -87,7 +87,7 @@ Support for processing of stereo \code{\link{Wave}} objects has not yet been imp
     \item for the resulting objects' class: \code{\link{Wspec}},
     \item for plotting: \code{\link{plot-Wspec}},  
     \item for the underlying periodogram calculations: \code{\link{spec.pgram}},
-    \item for the input data class: \code{\link{Wave}}.
+    \item for the input data class: \link{Wave-class}, \code{\link{Wave}}.
 }}
 \examples{
 # constructing a Wave object (1 sec.) containing sinus sound with 440Hz:

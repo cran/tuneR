@@ -15,7 +15,7 @@ getWavPlayer()
     \code{getWavPlayer} returns the character string that has been set by \code{setWavPlayer}.
 }
 \author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
-\seealso{\code{\link{Wave}}, \code{\link{play}}}
+\seealso{\link{Wave-class}, \code{\link{Wave}}, \code{\link{play}}}
 \keyword{utilities}
 \concept{Wave}
 \concept{player}

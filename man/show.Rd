@@ -20,7 +20,7 @@
     will be printed.}
 }}
 \author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
-\seealso{\code{\link{Wave}}, \code{\link{Wspec}}, \code{\link{WspecMat}}, 
+\seealso{\link{Wave-class}, \code{\link{Wave}}, \code{\link{Wspec}}, \code{\link{WspecMat}}, 
     \code{\link{plot-methods}}, \code{\link{summary-methods}},
     and \code{\link{periodogram}} for the constructor function and some examples}
 \keyword{methods}

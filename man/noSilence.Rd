@@ -25,7 +25,7 @@ noSilence(object, zero = 0, level = 0, where = c("both", "start", "end"))
     }
 \author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}, 
     based on code from Matthias Heymann's former package \sQuote{sound}.}
-\seealso{\code{\link{silence}}, \code{\link{Wave}}, \code{\link{extractWave}}}
+\seealso{\code{\link{silence}}, \link{Wave-class}, \code{\link{Wave}}, \code{\link{extractWave}}}
 \keyword{manip}
 \keyword{utilities}
 \concept{silence}

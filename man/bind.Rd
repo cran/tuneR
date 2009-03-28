@@ -13,7 +13,7 @@ bind(...)
     An object of class \code{\link{Wave}}.
 }
 \author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
-\seealso{\code{\link{prepComb}} for preparing the concatenation, 
+\seealso{\code{\link{prepComb}} for preparing the concatenation, \link{Wave-class},
          \code{\link{Wave}}, \code{\link{extractWave}}, \code{\link{stereo}}}
 \keyword{manip}
 \keyword{utilities}

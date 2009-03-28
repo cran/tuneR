@@ -14,7 +14,7 @@
 \item{object = "missing"}{For unary Wave operations.}
 }}
 \author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
-\seealso{For the S3 generic: \code{\link[base]{Arith}},  \code{\link{Wave}}}
+\seealso{For the S3 generic: \code{\link[base]{Arith}}, \link{Wave-class}, \code{\link{Wave}}}
 \keyword{methods}
 \keyword{arith}
 

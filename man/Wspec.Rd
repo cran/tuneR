@@ -42,7 +42,7 @@ and returns the other slots unchanged.
 \seealso{\itemize{
     \item the \code{show}, \code{plot} and \code{summary} methods,
     \item for the constructor function and some examples: \code{\link{periodogram}} 
-        (and hence also \code{\link{spec.pgram}} and \code{\link{Wave}})
+        (and hence also \code{\link{spec.pgram}}, \link{Wave-class}, and \code{\link{Wave}})
     \item \code{\link{WspecMat}} for a similar class that represents the spectrum in form of a matrix.
     }
 }

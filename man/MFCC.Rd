@@ -44,7 +44,7 @@ MFCC(obj)
     Ollason, D., Povey, D., Valtchev, V., and Woodland, P. (2005): 
     \emph{The HTK-Book (v 3.3)}, Cambridge University Engineering Dept., 59-61.}
 \author{Julia Schiffner \email{schiffner@statistik.tu-dortmund.de} and Gero Szepannek \email{szepannek@statistik.tu-dortmund.de} and Uwe Ligges \email{ligges@statistik.tu-dortmund.de}}
-\seealso{\code{\link{Wave}}}
+\seealso{\link{Wave-class}, \code{\link{Wave}}}
 \keyword{ts}
 \concept{MFCC}
 \concept{Mel}

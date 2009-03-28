@@ -25,7 +25,7 @@ The function invokes particular methods which depend on the class of the first a
 }}
 \author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
 \seealso{For the S3 generic: \code{\link[base]{summary.default}}, \code{\link{plot-methods}}, 
-    \code{\link{Wave}}, \code{\link{Wspec}}, \code{\link{WspecMat}}}
+    \link{Wave-class}, \code{\link{Wave}}, \code{\link{Wspec}}, \code{\link{WspecMat}}}
 \keyword{methods}
 \keyword{print}
 
