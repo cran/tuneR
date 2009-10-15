@@ -1,6 +1,6 @@
 Package: tuneR
-Version: 0.2-10
-Date: 2009-03-28
+Version: 0.2-11
+Date: 2009-10-15
 Title: Analysis of music
 Author: Uwe Ligges <ligges@statistik.tu-dortmund.de> with contributions
         from Andrea Preusser and Claus Weihs, as well as code fragments
@@ -11,6 +11,6 @@ Suggests: pastecs
 Description: Collection of tools to analyze music, handling wave files,
         transcription, ...
 License: GPL-2
-Packaged: Sat Mar 28 19:07:03 2009; ligges
+Packaged: 2009-10-15 12:03:13 UTC; ligges
 Repository: CRAN
-Date/Publication: 2009-03-29 14:55:16
+Date/Publication: 2009-10-15 15:14:55

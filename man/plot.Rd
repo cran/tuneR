@@ -8,7 +8,7 @@
 \describe{
 \item{x = "ANY", y = "ANY"}{Any object for which a plot is desired.}
 }}
-\seealso{For the S3 generic: \code{\link[base]{plot.default}}}
+\seealso{For the S3 generic: \code{\link[graphics]{plot.default}}}
 \keyword{hplot}
 \keyword{aplot}
 \keyword{methods}
