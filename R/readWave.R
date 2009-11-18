@@ -41,6 +41,8 @@ function(filename, from = 1, to = Inf,
     bytes.second <- readBin(con, int, n = 1, size = 4, endian = "little")
     block.align <- readBin(con, int, n = 1, size = 2, endian = "little")
     bits <- readBin(con, int, n = 1, size = 2, endian = "little")
+    if(!(bits %in% c(8, 16, 24, 32)))
+        stop("Only 8-, 16-, 24-, or 32-bit Wave formats supported")
     if(fmt.length > 16)
         seek(con, where = fmt.length - 16, origin = "current")
     DATA <- readChar(con, 4)
@@ -81,10 +83,17 @@ function(filename, from = 1, to = Inf,
     N <- min(N, to*channels) - (from*channels+1-channels) + 1
     seek(con, where = (from - 1) * bytes * channels, origin = "current")
 
-    ## reading in sample data   
-    sample.data <- readBin(con, int, n = N, size = bytes, 
-        signed = (bytes == 2), endian = "little")
-    
+    ## reading in sample data
+    if(bits == 24){
+        sample.data <- readBin(con, int, n = N * bytes, size = 1, 
+            signed = FALSE, endian = "little")
+        sample.data <- t(matrix(sample.data, nrow = 3)) %*% 256^(0:2)
+        sample.data <- sample.data - 2^24 * (sample.data >= 2^23)
+    } else {
+        sample.data <- readBin(con, int, n = N, size = bytes, 
+            signed = (bytes != 1), endian = "little")
+    }
+
     ## Constructing the Wave object:    
     object <- new("Wave", stereo = (channels == 2), samp.rate = sample.rate, bit = bits)
     if(channels == 2) {

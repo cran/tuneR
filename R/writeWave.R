@@ -48,6 +48,16 @@ function(object, filename){
     writeBin(as.integer(bytes), con, size = 4, endian = "little")
 
     # Write data: 
-    writeBin(as.integer(sample.data), con, size = byte, endian = "little")
+    if(byte == 3){
+        sample.data <- sample.data + 2^24 * (sample.data < 0)
+        temp <- sample.data %% (256^2)
+        sample.data <- sample.data %/% 256^2
+        a2 <- temp %/% 256
+        temp <- temp %%  256
+        writeBin(as.integer(rbind(temp, a2, sample.data)), con, size = 1, endian = "little")
+    } else {
+        writeBin(as.integer(sample.data), con, size = byte, endian = "little")
+    }
+
     invisible(NULL)
 }
