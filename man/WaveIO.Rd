@@ -32,7 +32,7 @@ Wobj <- sine(440, bit = 16)
 tdir <- tempdir()
 tfile <- file.path(tdir, "myWave.wav")
 writeWave(Wobj, filename = tfile)
-list.files(tdir, pattern = "\\.wav$")
+list.files(tdir, pattern = "\\\\.wav$")
 newWobj <- readWave(tfile)
 newWobj
 file.remove(tfile)
