@@ -1,0 +1,8 @@
+## -*- mode: makefile; -*-
+
+## PKG_CPPFLAGS = -DFPM_DEFAULT -DOPT_ACCURACY -DNDEBUG
+PKG_CPPFLAGS = -DHAVE_CONFIG_H
+
+
+
+

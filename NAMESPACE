@@ -1,13 +1,14 @@
+useDynLib(tuneR)
 importFrom(graphics, plot, image)
 import("stats","methods")
 exportClasses("Wspec","WspecMat","Wave")
 exportMethods("plot","image","summary","show","Wave","coerce","[","play","Arith", "periodogram")
-export(channel, bind, prepComb, downsample, mono, stereo, 
-    extractWave, normalize, noSilence, 
-    writeWave, readWave,
-    FFpure, noteFromFF, FF, 
+export(channel, bind, prepComb, downsample, mono, stereo,
+    extractWave, normalize, noSilence,
+    writeWave, readWave, readMP3,
+    FFpure, noteFromFF, FF,
     smoother, notenames, melodyplot,
-    quantize, quantplot, quantMerge, lilyinput, 
+    quantize, quantplot, quantMerge, lilyinput,
     setWavPlayer, getWavPlayer,
     silence, sine, sawtooth, square, noise, panorama,
     MFCC

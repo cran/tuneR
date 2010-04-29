@@ -11,11 +11,16 @@ function(object, player, ...){
                 player <- "mplay32"
                 if(missing(...))
                     player <- paste(player, "/play /close")
+            } else {
+                player <- shQuote(player)
             }
-            else player <- shQuote(player)
         }
     }
-    shell(paste('"', paste(player, ..., shQuote(object)), '"', sep=""))
+    if(.Platform$OS.type == "windows"){
+        shell(paste('"', paste(player, ..., shQuote(object)), '"', sep=""))
+    } else {
+        system(paste(player, ..., object))
+    }
 })
 
 setMethod("play", signature(object = "Wave", player = "ANY"),
