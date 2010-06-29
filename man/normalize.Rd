@@ -4,7 +4,8 @@
 \description{Centering and rescaling the waveform of a Wave object to either [-1,1], [0, 254], 
     [-32767, 32767], [-8388607, 8388607], or [-2147483647, 2147483647].}
 \usage{
-normalize(object, unit = c("1", "8", "16", "24", "32", "0"), center = TRUE, level = 1)
+normalize(object, unit = c("1", "8", "16", "24", "32", "0"), 
+    center = TRUE, level = 1)
 }
 \arguments{
     \item{object}{Object of class \code{\link{Wave}}.}

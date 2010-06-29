@@ -15,7 +15,8 @@ play(object, player, ...)
         If the latter, it is written to a temporary file by \code{\link{writeWave}},
         played by the chosen player, and deleted afterwards.}
     \item{player}{(Path to) a program capable of playing a wave file by invocation from the command line.
-        If under Windows and no player is given, \dQuote{mplay32.exe} will be chosen as the default.}
+        If under Windows and no player is given, \dQuote{mplay32.exe} or \dQuote{wmplayer.exe} 
+        (if the former does not exists as under Windows 7) will be chosen as the default.}
     \item{\dots}{Further arguments passed to the Wave file \code{player}.
         If no \code{player} and no further arguments are given under Windows, the default is: \code{"/play /close"}.}
 }

@@ -13,17 +13,19 @@ noise(kind = c("white", "pink"), duration = samp.rate,
         samp.rate = 44100, bit = 1, stereo = FALSE, 
         xunit = c("samples", "time"), ...)
 
-sawtooth(freq, duration = samp.rate, from = 0, samp.rate = 44100, bit = 1, 
-        stereo = FALSE, xunit = c("samples", "time"), reverse = FALSE, ...)
+sawtooth(freq, duration = samp.rate, from = 0, samp.rate = 44100, 
+        bit = 1, stereo = FALSE, xunit = c("samples", "time"), 
+        reverse = FALSE, ...)
 
-silence(duration = samp.rate, from = 0, samp.rate = 44100, bit = 1, 
-        stereo = FALSE, xunit = c("samples", "time"), ...)
+silence(duration = samp.rate, from = 0, samp.rate = 44100, 
+        bit = 1, stereo = FALSE, xunit = c("samples", "time"), ...)
 
-sine(freq, duration = samp.rate, from = 0, samp.rate = 44100, bit = 1,
-        stereo = FALSE, xunit = c("samples", "time"), ...)
+sine(freq, duration = samp.rate, from = 0, samp.rate = 44100, 
+        bit = 1, stereo = FALSE, xunit = c("samples", "time"), ...)
 
-square(freq, duration = samp.rate, from = 0, samp.rate = 44100, bit = 1, 
-        stereo = FALSE, xunit = c("samples", "time"), up = 0.5, ...)
+square(freq, duration = samp.rate, from = 0, samp.rate = 44100, 
+        bit = 1, stereo = FALSE, xunit = c("samples", "time"), 
+        up = 0.5, ...)
 }
 \arguments{
   \item{kind}{The kind of noise, either \dQuote{white} or \dQuote{pink} 

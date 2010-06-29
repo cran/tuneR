@@ -3,7 +3,8 @@
 \title{Cut off silence from a Wave object}
 \description{Cut off silence or low noise at the beginning and/or at the end of an object of class \code{Wave}.}
 \usage{
-noSilence(object, zero = 0, level = 0, where = c("both", "start", "end"))
+noSilence(object, zero = 0, level = 0, 
+    where = c("both", "start", "end"))
 }
 \arguments{
   \item{object}{Object of class \code{\link{Wave}}.}
