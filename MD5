@@ -1,9 +1,9 @@
-499cc97f6caa264a5ae4df68edde90dc *DESCRIPTION
-67bbd4a27ce1cc1f7eb3829a051668f7 *NAMESPACE
+52af37863f76e3fe2a3a35f990596348 *DESCRIPTION
+8904efea3e968883e5e18709e9ecf004 *NAMESPACE
 45b223e91054cfb57891222acf4fcfbd *R/FFrq.R
 b34b82ea856fd463e3eff3e6702b898e *R/MFCC.R
 0231688d088d6bf52e595c81443cffd2 *R/WavPlayer.R
-b2669051758393dc5a7f8aa4c60a001a *R/Wave.R
+fc4b21e9cf98fea137306bab51fe509e *R/Wave.R
 24c4a9c75b3c0bed3ef2de18fa03cdfd *R/WaveArith.R
 9c787df8c8379021b2c25da551cd71a6 *R/Waveforms.R
 e67f3edae1f88da7e80ddba34b4587bd *R/Wspec.R
@@ -21,7 +21,6 @@ dc010bb251106ab3bd0dc6281dd31239 *R/fft2melmx.R
 a0e5e8970d898a52bd034fce3d203b62 *R/hz2bark.R
 f0374dca72ccebdc2f71febcb2c20661 *R/hz2mel.R
 5f11a45b91c746a07b0e0414fb294954 *R/length.R
-7f5a16ac40890da1706db9bc3d10c593 *R/levinson.R
 b1dde47871375c2fb525aed6d5071d28 *R/lifter.R
 87133bb81373b8d68a8681c964ab0abe *R/lilyinput.R
 f4affe88f460ed7c725784796eeba936 *R/lpc2cep.R
@@ -35,7 +34,7 @@ b4ab230477cd72364ca73591b75ccdac *R/normalize.R
 4b6731fef127e227cecb436dab0ba56d *R/panorama.R
 cdc904dc94329ca008634ef920a9e466 *R/periodogram.R
 a70b7b01c313674df62bd9d3f5ddbfdc *R/play.R
-7da583ad37c8298b2e536e499e17ccaa *R/plot-Wave.R
+355f0399b275db118c2e4d6fb023c10d *R/plot-Wave.R
 62f2c2c97bb203b0c859dc82208b8da8 *R/plot-Wspec.R
 8eef3097523c392ad38dc2a205388f42 *R/postaud.R
 8b1355f1b22fb986109e1e928101938c *R/powspec.R
@@ -48,7 +47,6 @@ cb23a3bdd5beda4e76854246e2ba7735 *R/quantize.R
 7e590a57eade30bfdd8c1911045f0d47 *R/spec2cep.R
 92220e404563c4f9c18c85397a477c91 *R/stereo.R
 1f49b288866ad0693bfb682dfec27162 *R/writeWave.R
-19da4148cb58e8a3ab8ea6007095da9c *R/zzz.R
 82bb67b1c8f6434e062ca8ccf1b03630 *inst/CITATION
 4af91239ce3f71c7e12bd22aef6f67d0 *man/Extractor.Rd
 4c36900e6f1121c0977d350d0a559e62 *man/FF.Rd
@@ -74,7 +72,6 @@ f60b8e5d32a7bcdd20a6faa077b796a0 *man/deltas.Rd
 d50ce4a8e8f6fa6893eaeaa4af17bc72 *man/fftfreqconvmx.Rd
 54bcccc99b504547a34d7fef942a179c *man/freqconv.Rd
 3608dbf08af6b8865ae7afd181152b63 *man/length.Rd
-0280faf3e53e21703946c9df3acf48e2 *man/levinson.Rd
 2aa5f1e54342d6b97fd45fad53fdd4bf *man/lifter.Rd
 8dcaa515c250808bc882dfa7de580d8d *man/lilyinput.Rd
 7ff2c8da8fcbedcc10efebc6b29bc0c2 *man/lpc2cep.Rd
@@ -87,7 +84,7 @@ bb19916c1d30bcd2274322ec1ef09427 *man/noteFromFF.Rd
 265e7e8d31a9fd7b59c318d15d7eef7a *man/panorama.Rd
 c2052d1f27acd028192e7a583f71b039 *man/periodogram.Rd
 da44adbd7917aeb42158c855e964e045 *man/play.Rd
-ca85259cc3aae9e1bab3ef872d3547ab *man/plot-Wave.Rd
+714ebffe908e659b4d2b1766ab3ef9ea *man/plot-Wave.Rd
 57f97a590095d42e6fe49a39d317865a *man/plot-Wspec.Rd
 570f44568caac10b2b2a6c74a2d1b8db *man/plot-WspecMat.Rd
 bac195456fb357d52e6b01e94283f536 *man/plot.Rd

@@ -1,4 +1,3 @@
-require(methods)
 ##########
 # define class Wave
 setClass("Wave",

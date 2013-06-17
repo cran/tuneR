@@ -8,9 +8,10 @@
 \usage{
 \S4method{plot}{Wave,missing}(x, info = FALSE, xunit = c("time", "samples"), 
     ylim = NULL, main = NULL, sub = NULL, xlab = NULL, ylab = NULL, 
-    simplify = TRUE, nr = 1500, ...)
+    simplify = TRUE, nr = 1500, axes = TRUE, yaxt = par("yaxt"), ...)
     
-plot.Wave.channel(x, xunit, ylim, xlab, ylab, main, nr, simplify, ...)
+plot.Wave.channel(x, xunit, ylim, xlab, ylab, main, nr, simplify, 
+    axes = TRUE, yaxt = par("yaxt"), ...)
 }
 \arguments{
   \item{x}{Object of class \code{\link{Wave}}.}
@@ -31,6 +32,8 @@ plot.Wave.channel(x, xunit, ylim, xlab, ylab, main, nr, simplify, ...)
         (an appropriate number close to \code{nr} is selected)
         to \code{simplify} (see above) the plot.
         Only used if \code{simplify = TRUE} and the number of samples of \code{Wave} object \code{x} is larger.}
+  \item{axes}{Whether to plot axes, default is \code{TRUE}.}
+  \item{yaxt}{How to plot the y axis (\code{"n"} for no y-axis).}  
   \item{\dots}{Further arguments to be passed to the underlying plot functions.}
 }
 \details{Function \code{plot.Wave.channel} is a helper function

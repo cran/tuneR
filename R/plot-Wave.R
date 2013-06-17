@@ -1,9 +1,13 @@
 plot.Wave.channel <- 
-function(x, xunit, ylim, xlab, ylab, main, nr, simplify, ...){
+function(x, xunit, ylim, xlab, ylab, main, nr, simplify, axes = TRUE, yaxt = par("yaxt"), ...){
     null <- if(x@bit == 8) 128 else 0
     l <- length(x@left)
-    at <- round((ylim[2] - null) * 2/3, -floor(log(ylim[2], 10)))
-    at <- null + c(-at, 0, at)
+    if(all(ylim <= 0)) {
+      at <- pretty(x)
+    } else {
+      at <- round((ylim[2] - null) * 2/3, -floor(log(ylim[2], 10)))
+      at <- null + c(-at, 0, at)
+    }
     if(simplify && (l > nr)){
         nr <- ceiling(l / round(l / nr))
         index <- seq(1, l, length = nr)
@@ -12,7 +16,7 @@ function(x, xunit, ylim, xlab, ylab, main, nr, simplify, ...){
             nrow = nr, byrow = TRUE)
         rg <- apply(mat, 1, range)
         plot(index, rg[1,], type = "n", yaxt = "n", ylim = ylim, 
-            xlab = xlab, ylab = ylab, main = main, ...)
+            xlab = xlab, ylab = ylab, main = main, axes = axes, ...)
         segments(index, rg[1,], index, rg[2,], ...)
     }
     else{
@@ -20,16 +24,16 @@ function(x, xunit, ylim, xlab, ylab, main, nr, simplify, ...){
         if(xunit == "time") index <- index / x@samp.rate
         plot(index, x@left,
             type = "l", yaxt = "n", ylim = ylim, xlab = xlab, 
-            ylab = ylab, main = main, ...)
+            ylab = ylab, main = main, axes = axes, ...)
     }
-    axis(2, at = at)
+    if(axes) axis(2, at = at, yaxt = yaxt)
 }
     
     
 setMethod("plot", signature(x = "Wave", y = "missing"),
 function(x, info = FALSE, xunit = c("time", "samples"), 
     ylim = NULL, main = NULL, sub = NULL, xlab = NULL, ylab = NULL, 
-    simplify = TRUE, nr = 1500, ...){
+    simplify = TRUE, nr = 1500, axes = TRUE, yaxt = par("yaxt"), ...){
     
     xunit <- match.arg(xunit)
     if(is.null(xlab)) xlab <- xunit
@@ -51,11 +55,13 @@ function(x, info = FALSE, xunit = c("time", "samples"),
         plot.Wave.channel(mono(x, "left"), xunit = xunit,
             ylab = if(is.null(ylab)) "left channel" else ylab, 
             main = NULL, sub = NULL, xlab = NULL, ylim = ylim, 
-            xaxt = "n", simplify = simplify, nr = nr, ...)
+            xaxt = "n", simplify = simplify, nr = nr, 
+            axes = axes, yaxt = yaxt, ...)
         plot.Wave.channel(mono(x, "right"), xunit = xunit,
             ylab = if(is.null(ylab)) "right channel" else ylab,
             main = NULL, sub = sub, xlab = NULL, ylim = ylim,  
-            simplify = simplify, nr = nr, ...)
+            simplify = simplify, nr = nr, 
+            axes = axes, yaxt = yaxt, ...)
         title(main = main, outer = TRUE, line = 2)
         title(xlab = xlab, outer = TRUE, line = 3)
         title(sub  = sub , outer = TRUE, line = 4)
@@ -69,7 +75,8 @@ function(x, info = FALSE, xunit = c("time", "samples"),
         plot.Wave.channel(x, xunit = xunit, 
             ylab = if(is.null(ylab)) "" else ylab,
             main = main, sub = sub, xlab = xlab, ylim = ylim,
-            simplify = simplify, nr = nr, ...)
+            simplify = simplify, nr = nr, 
+            axes = axes, yaxt = yaxt, ...)            
     }
     if(info){
         mtext(paste("Wave Object: ",  

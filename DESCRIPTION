@@ -1,6 +1,6 @@
 Package: tuneR
-Version: 0.4-1
-Date: 2012-08-28
+Version: 0.4-2
+Date: 2013-06-17
 Title: Analysis of music and speech
 Author: Uwe Ligges <ligges@statistik.tu-dortmund.de> with contributions
         from Sebastian Krey, Olaf Mersmann, Andrea Preusser, and Claus
@@ -10,14 +10,15 @@ Author: Uwe Ligges <ligges@statistik.tu-dortmund.de> with contributions
         libmad MPEG audio decoder library are authored by Underbit
         Technologies.
 Maintainer: Uwe Ligges <ligges@statistik.tu-dortmund.de>
-Depends: R (>= 2.10.0), methods
+Depends: R (>= 2.10.0)
 Suggests: pastecs
-Imports: signal
+Imports: signal, methods
 Description: Collection of tools to analyze music, extract features
         like MFCCs, handling wave files, read mp3, transcription, ...
         Also contains functions ported from the rastamat Matlab
         package.
 License: GPL-2
-Packaged: 2012-08-28 16:31:26 UTC; ligges
+Packaged: 2013-06-17 12:49:34 UTC; ligges
 Repository: CRAN
-Date/Publication: 2012-08-28 16:50:50
+Date/Publication: 2013-06-17 14:52:54
+NeedsCompilation: yes
