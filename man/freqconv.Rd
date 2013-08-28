@@ -17,8 +17,8 @@ mel2hz(z, htk = FALSE)
 \arguments{
   \item{f}{ Frequency in Hertz }
   \item{z}{ Frequency in the auditory frequency scale }
-  \item{htk}{ Use the HTK-Melscale (\code{htk=TRUE}) or Slaney's Melscale from the
-Auditory Toolbox (\code{htk=FALSE}) }
+  \item{htk}{ Use the HTK-Melscale (\code{htk = TRUE}) or Slaney's Melscale from the
+Auditory Toolbox (\code{htk = FALSE}) }
 }
 \value{
 The value of the input in the target frequency scale.

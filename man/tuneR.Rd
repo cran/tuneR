@@ -9,7 +9,7 @@
 In the following examples, some of the functions 
 to generate some data (such as \code{\link{sine}}),
 to read and write Wave files (\code{\link{readWave}}, \code{\link{writeWave}}),
-to represent or construct Wave files (\code{\link{Wave}}),
+to represent or construct (multi channel) Wave files (\code{\link{Wave}}, \code{\link{WaveMC}}),
 to transform  Wave objects (\code{\link{bind}}, \code{\link{channel}}, 
 \code{\link{downsample}}, \code{\link{extractWave}}, \code{\link{mono}}, \code{\link{stereo}}),
 and to \code{\link{play}} Wave objects are used.
@@ -31,13 +31,19 @@ postprocessing with the music typesetting software LilyPond.
 
 Of course, print (show), plot and summary methods are available for most classes.
 }
-\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
+\author{Uwe Ligges <ligges@statistik.tu-dortmund.de> with contributions
+    from Sebastian Krey, Olaf Mersmann, Sarah Schnackenberg,
+    Andrea Preusser, Anita Thieler, and Claus Weihs, as well as code fragments
+    and ideas from the former package \pkg{sound} by Matthias Heymann
+    and functions from \sQuote{rastamat} by Daniel P. W. Ellis.
+    The included parts of the libmad MPEG audio decoder library are
+    authored by Underbit Technologies.}
 \examples{
-library(tuneR) # in a regular session, we are loading tuneR
+library("tuneR") # in a regular session, we are loading tuneR
   
 # constructing a mono Wave object (2 sec.) containing sinus 
 # sound with 440Hz and folled by 220Hz:
-Wobj <- bind(sine(440, bit = 16), sine(220, bit = 16))
+Wobj <- bind(sine(440), sine(220))
 show(Wobj)
 plot(Wobj) # it does not make sense to plot the whole stuff
 plot(extractWave(Wobj, from = 1, to = 500))
@@ -92,4 +98,3 @@ qlily
 \concept{Wave}
 \concept{periodogram}
 \concept{music}
-

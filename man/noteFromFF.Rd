@@ -14,9 +14,9 @@ noteFromFF(x, diapason = 440, roundshift = 0)
         before rounding to an integer. This is useful if it is unclear that some instruments really 
         shift the note in the center between two theoretical frequencies.
         
-        Example: if \code{x=452} and \code{diapason=440}, the internally calculated 
+        Example: if \code{x = 452} and \code{diapason = 440}, the internally calculated 
         real value of 0.46583 is rounded to 0,
-        but for \code{roundshift=0.1} we get 0.56583 and it is rounded to note 1.}
+        but for \code{roundshift = 0.1} we get 0.56583 and it is rounded to note 1.}
 }
 \value{
 An integer representing the (rounded) difference in halftones from diapason a,
@@ -24,7 +24,7 @@ An integer representing the (rounded) difference in halftones from diapason a,
     For example: 0 indicates diapason a, 3: c', 12: a', \dots
 }
 \details{The formula used is simply \code{round(12 * log(x / diapason, 2) + roundshift)}.}
-\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
+\author{Uwe Ligges \email{ligges@statistik.tu-dortmund.de}}
 \seealso{\code{\link{FF}}, \code{\link{periodogram}}, and \link{tuneR} for a very complete example.}
 \keyword{utilities}
 \concept{note}

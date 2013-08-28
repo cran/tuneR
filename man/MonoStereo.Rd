@@ -25,10 +25,11 @@ stereo(left, right)
     If argument \code{right} is missing in \code{stereo}, a logical values is returned 
     that indicates whether \code{left} is stereo (\code{TRUE}) or mono (\code{FALSE}).
 }
-\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
+\details{For objects of \link{WaveMC-class}, a mono channel can be created by simple matrix indexing, e.g. \code{WaveMCobject[,2]} selects the second channel.}
+\author{Uwe Ligges \email{ligges@statistik.tu-dortmund.de}}
 \seealso{\link{Wave-class}, \code{\link{Wave}}}
 \examples{
-Wobj <- sine(440, bit = 16)
+Wobj <- sine(440)
 Wobj
 Wobj2 <- stereo(Wobj, Wobj)
 Wobj2

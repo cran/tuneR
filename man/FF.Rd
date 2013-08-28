@@ -45,7 +45,7 @@ FFpure(object, peakheight = 0.01, diapason = 440,
             from the next two partials.}}
 }
 \details{\code{FFpure} just estimates the fundamental frequencies for all periodograms contained in the 
-    \code{object} (of class \code{\link{Wspec}}.
+    \code{object} (of class \code{\link{Wspec}}).
     
     \code{FF} additionally uses some heuristics to distinguish silence, noise (and breathing for singers) 
     from real tones. It is recommended to use the wrapper function \code{FF} rather than \code{FFpure}.
@@ -54,7 +54,7 @@ FFpure(object, peakheight = 0.01, diapason = 440,
 \value{
    Vector of estimated fundamental frequencies (in Hertz) for each periodogram conatined in \code{object}.
 }
-\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
+\author{Uwe Ligges \email{ligges@statistik.tu-dortmund.de}}
 \note{These functions are still in development and may be changed in due course.}
 \seealso{\code{\link{Wspec}}, \code{\link{periodogram}} (including an example), \code{\link{noteFromFF}},
     and \link{tuneR} for a very complete example.}

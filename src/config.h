@@ -5,7 +5,7 @@
 #define OPT_ACCURACY 1
 
 /* Disable assert() and Co. */
-#define NDEBUG
+/* #define NDEBUG */
 
 /* Select fixed point routines based on architecture.
  * 

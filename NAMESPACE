@@ -2,16 +2,16 @@ useDynLib(tuneR)
 importFrom(graphics, plot, image)
 importFrom(signal, hamming, hanning, levinson, specgram)
 import("stats","methods")
-exportClasses("Wspec","WspecMat","Wave")
-exportMethods("plot","image","summary","show","Wave","coerce","[","play","Arith", "periodogram")
-export(channel, bind, prepComb, downsample, mono, stereo,
-    extractWave, normalize, noSilence,
-    writeWave, readWave, readMP3,
+exportClasses("Wspec","WspecMat","Wave","WaveMC")
+exportMethods("plot","image","panorama","summary","show","Wave","WaveMC","coerce","[","play","Arith", "periodogram", "bind", "length", "nchannel", "normalize", "noSilence")
+
+export(channel, prepComb, downsample, mono, stereo, updateWave,
+    extractWave, writeWave, readWave, readMP3, MCnames,
     FFpure, noteFromFF, FF,
     smoother, notenames, melodyplot,
     quantize, quantplot, quantMerge, lilyinput,
     setWavPlayer, getWavPlayer,
-    silence, sine, sawtooth, square, noise, panorama,
+    silence, sine, sawtooth, square, noise,
     MFCC, melfcc, deltas, audspec, dolpc, lifter, postaud, powspec,
     bark2hz, hz2bark, hz2mel, mel2hz, lpc2cep, spec2cep
 )

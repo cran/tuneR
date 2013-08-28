@@ -6,25 +6,26 @@
 }
 \usage{
 melfcc(samples, sr = samples@samp.rate, wintime = 0.025, 
-    hoptime = 0.01, numcep = 12, lifterexp = 0.6, htklifter=FALSE,
+    hoptime = 0.01, numcep = 12, lifterexp = 0.6, htklifter = FALSE,
     sumpower = TRUE, preemph = 0.97, dither = FALSE,
     minfreq = 0, maxfreq = sr/2, nbands = 40, bwidth = 1, 
     dcttype = c("t2", "t1", "t3", "t4"), 
     fbtype = c("mel", "htkmel", "fcmel", "bark"), usecmp = FALSE, 
-    modelorder = NULL, spec_out=FALSE, frames_in_rows=TRUE)
+    modelorder = NULL, spec_out = FALSE, frames_in_rows = TRUE)
 }
 \arguments{
-  \item{samples}{ Object of class \sQuote{Wave}. }
+  \item{samples}{ Object of \link{Wave-class} or \link{WaveMC-class}. Only the first channel will be used.}
   \item{sr}{ Sampling rate of the signal. }
   \item{wintime}{ Window length in sec. }
   \item{hoptime}{ Step between successive windows in sec. }
   \item{numcep}{ Number of cepstra to return. }
-  \item{lifterexp}{ Exponent for liftering; 0 = none; }
+  \item{lifterexp}{ Exponent for liftering; 0 = none. }
   \item{htklifter}{ Use HTK sin lifter. }
-  %\item{sumpower}{\code{sumpower=TRUE}: \code{sum(abs(fft)^2)}; \code{sumpower=FALSE}: \code{sum(abs(fft))}}
-  \item{sumpower}{ If \code{sumpower=TRUE} the frequency scale transformation is based on the
-powerspectrum, if \code{sumpower=FALSE} it is based on its squareroot (absolute value of the spectrum) and
-squared afterwards.}
+  \item{sumpower}{ If \code{sumpower = TRUE} the frequency scale transformation is based on the
+    powerspectrum, if \code{sumpower = FALSE} it is based on its squareroot (absolute value of the spectrum) and
+    squared afterwards. 
+    %\code{sumpower=TRUE}: \code{sum(abs(fft)^2)}; \code{sumpower=FALSE}: \code{sum(abs(fft))}
+  }
   \item{preemph}{ Apply pre-emphasis filter [1 -preemph] (0 = none). }
   \item{dither}{ Add offset to spectrum as if dither noise. }
   \item{minfreq}{ Lowest band edge of mel filters (Hz). }
@@ -32,15 +33,15 @@ squared afterwards.}
   \item{nbands}{ Number of warped spectral bands to use. }
   \item{bwidth}{ Width of spectral bands in Bark/Mel. }
   \item{dcttype}{ Type of DCT used - 1 or 2 (or 3 for HTK or 4 for feacalc). }
-  \item{fbtype}{ Auditory frequency scale to use: \sQuote{mel},
-    \sQuote{bark}, \sQuote{htkmel}, \sQuote{fcmel} }
+  \item{fbtype}{ Auditory frequency scale to use: \code{"mel"},
+    \code{"bark"}, \code{"htkmel"}, \code{"fcmel"}. }
   \item{usecmp}{ Apply equal-loudness weighting and cube-root compression (PLP
 instead of LPC). }
-  \item{modelorder}{ If > 0, fit a linear prediction (autoregressive-) model of this order and
-calculation of cepstra out of \sQuote{lpcas} }
+  \item{modelorder}{ If \code{modelorder > 0}, fit a linear prediction (autoregressive-) model of this order and
+calculation of cepstra out of \code{lpcas}. }
   \item{spec_out}{ Should matrices of the power- and the auditory-spectrum be
-    returned}
-  \item{frames_in_rows}{ Return time frames in rows instead of columns (original Matlab code)}
+    returned.}
+  \item{frames_in_rows}{ Return time frames in rows instead of columns (original Matlab code).}
 }
 \details{
 Calculation of the MFCCs imlcudes the following steps:
@@ -49,7 +50,7 @@ Calculation of the MFCCs imlcudes the following steps:
   \item{Take the absolute value of the STFT (usage of Hamming window)}
   \item{Warp to auditory frequency scale (Mel/Bark)}
   \item{Take the DCT of the log-auditory-spectrum}
-  \item{Return the first 'ncep' components}
+  \item{Return the first \sQuote{ncep} components}
   }
 }
 \value{
@@ -58,7 +59,7 @@ row/column)}
   \item{aspectrum }{Auditory spectrum (spectrum after transformation to Mel/Bark
 scale) of the signal}
   \item{pspectrum }{Power spectrum of the input signal.}
-  \item{lpcas }{If \code{modelorder > 0} the linear prediction coefficients (LPC/PLP).}
+  \item{lpcas }{If \code{modelorder > 0}, the linear prediction coefficients (LPC/PLP).}
 }
 \references{Daniel P. W. Ellis: \url{http://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/} }
 \author{ Sebastian Krey \email{krey@statistik.tu-dortmund.de} }

@@ -5,7 +5,7 @@
 \description{Internal functions to support those for generating \link{Waveforms}.}
 \usage{
 preWaveform(freq, duration, from, xunit, samp.rate)
-postWaveform(channel, samp.rate, bit, stereo, ...)
+postWaveform(channel, samp.rate, bit, stereo, pcm = FALSE, ...)
 }
 \seealso{\code{\link{Waveforms}}}
 \keyword{internal}

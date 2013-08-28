@@ -14,13 +14,13 @@
     Default is to plot the first one.}
   \item{type}{The default is to plot horizontal lines, rather than points. See \code{\link{plot.default}} for details.}
   \item{xlab, ylab}{Label for x-/y-axis.}
-  \item{log}{Character - \code{"x"} if the x axis is to be logarithmic, 
-    \code{"y"} if the y axis is to be logarithmic (quite typical for some visualizations of periodograms), 
+  \item{log}{Character - \code{"x"} if the x-axis is to be logarithmic, 
+    \code{"y"} if the y-axis is to be logarithmic (quite typical for some visualizations of periodograms), 
     and \code{"xy"} or \code{"yx"} if both axes are to be logarithmic.}
   \item{\dots}{Further arguments to be passed to the underlying plot functions. 
     See \code{\link{plot.default}} for details.}
 }
-\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
+\author{Uwe Ligges \email{ligges@statistik.tu-dortmund.de}}
 \seealso{see \code{\link{Wspec}}, \code{\link{periodogram}} and \link{tuneR} 
     for the constructor function and some examples.}
 \keyword{hplot}

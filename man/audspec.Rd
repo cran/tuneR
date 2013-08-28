@@ -18,8 +18,8 @@ audspec(pspectrum, sr = 16000, nfilts = ceiling(hz2bark(sr/2)) + 1,
   \item{fbtype}{ Used auditory frequency scale. }
   \item{minfreq}{ Lowest frequency. }
   \item{maxfreq}{ Highest frequency. }
-  \item{sumpower}{ If \code{sumpower=TRUE} the frequency scale transformation is based on the
-powerspectrum, if \code{sumpower=FALSE} it is based on its squareroot (absolute value of the spectrum) and
+  \item{sumpower}{ If \code{sumpower = TRUE}, the frequency scale transformation is based on the
+powerspectrum, if \code{sumpower = FALSE}, it is based on its squareroot (absolute value of the spectrum) and
 squared afterwards.}
   \item{bwidth}{ Modify the width of the frequency bands. }
 }

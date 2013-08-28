@@ -1,17 +1,16 @@
 \name{periodogram-methods}
 \docType{methods}
 \alias{periodogram}
-\alias{periodogram-methods}
-\alias{periodogram,Wave-method}
+\alias{periodogram,WaveGeneral-method}
 \alias{periodogram,character-method}
 \title{Periodogram (Spectral Density) Estimation on Wave objects}
 \description{This function estimates one or more periodograms (spectral densities) 
-    of the time series contained in an object of class \code{Wave} (or directly in a Wave file)
+    of the time series contained in an object of class \code{Wave} or \code{WaveMC} (or directly in a Wave file)
     using a window running through the time series (possibly with overlapping).
     It returns an object of class \code{Wspec}.}
 \usage{
 periodogram(object, ...)
-\S4method{periodogram}{Wave}(object, width = length(object), overlap = 0,
+\S4method{periodogram}{WaveGeneral}(object, width = length(object), overlap = 0,
     starts = NULL, ends = NULL, taper = 0, normalize = TRUE, 
     frqRange = c(-Inf, Inf), ...)
 \S4method{periodogram}{character}(object, width, overlap = 0, from = 1, to = Inf, 
@@ -19,7 +18,7 @@ periodogram(object, ...)
     downsample = NA, channel = c("left", "right"), pieces = 1, ...)
 }
 \arguments{
-  \item{object}{An object of class \code{\link{Wave}} or a character string pointing to a Wave file.}
+  \item{object}{An object of class \code{\link{Wave}}, \code{\link{WaveMC}}, or a character string pointing to a Wave file.}
   \item{width}{A window of width \sQuote{\code{width}} running through the time series selects the samples 
     from which the periodograms are to be calculated.}
   \item{overlap}{The window can be applied by each overlapping \code{overlap} samples.}
@@ -55,7 +54,7 @@ An object of class \code{\link{Wspec}} is returned containing the following slot
     \item{spec}{List of vectors or matrices of the \code{spec} values returned by \code{\link{spec.pgram}}
         at frequencies corresponding to \code{freq}.
         Each element of the list corresponds to one periodogram estimated from samples of the window
-        beginning at \code{start} of the \code{\link{Wave}} object.}
+        beginning at \code{start} of the \code{\link{Wave}} or \code{\link{WaveMC}} object.}
     \item{kernel}{The kernel argument, or the kernel constructed from spans returned by \code{\link{spec.pgram}}. (1)}
     \item{df}{The distribution of the spectral density estimate can be approximated by a chi square distribution with 
         \code{df} degrees of freedom. (1)}
@@ -67,8 +66,8 @@ An object of class \code{\link{Wspec}} is returned containing the following slot
         If the argument \code{ends} was given in the call, \sQuote{\code{ends - width}}.
         If neither \code{starts} nor \code{ends} was given, the start points of all periodograms.
         In the latter case the start points are calculated from the arguments \code{width} and \code{overlap}.}
-    \item{stereo}{Whether the underlying \code{\link{Wave}} \code{object} was stereo ot not. (1)}
-    \item{samp.rate}{Sampling rate of the underlying \code{\link{Wave}} \code{object}. (1)}
+    \item{stereo}{Always \code{FALSE} (for back compatibility). (1)}
+    \item{samp.rate}{Sampling rate of the underlying \code{\link{Wave}} or \code{\link{WaveMC}} \code{object}. (1)}
     \item{variance}{The variance of samples in each window, corresponding to amplitude / loudness of sound.}
     \item{energy}{The \dQuote{energy} \eqn{E}{E}, also an indicator for the amplitude / loudness of sound:
        \deqn{E(x_I) := 20 * log_{10} \sum_{j\in I}|x_j|,}{%
@@ -79,19 +78,19 @@ An object of class \code{\link{Wspec}} is returned containing the following slot
 Those slots marked with \dQuote{(1)} contain the information once, 
 because it is unique for all periodograms of estimated by the function call.
 }
-\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
+\author{Uwe Ligges \email{ligges@statistik.tu-dortmund.de}}
 \note{
-Support for processing of stereo \code{\link{Wave}} objects has not yet been implemented.
+Support for processing more than one channel of \code{\link{Wave}} or \code{\link{WaveMC}} objects has not yet been implemented.
 }
 \seealso{\itemize{
     \item for the resulting objects' class: \code{\link{Wspec}},
     \item for plotting: \code{\link{plot-Wspec}},  
     \item for the underlying periodogram calculations: \code{\link{spec.pgram}},
-    \item for the input data class: \link{Wave-class}, \code{\link{Wave}}.
+    \item for the input data class: \link{Wave-class}, \code{\link{Wave}}, \link{WaveMC-class}, \code{\link{WaveMC}}.
 }}
 \examples{
 # constructing a Wave object (1 sec.) containing sinus sound with 440Hz:
-Wobj <- sine(440, bit = 16)
+Wobj <- sine(440)
 Wobj
 
 # Calculate periodograms in windows of 4096 samples each - without

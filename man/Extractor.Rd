@@ -1,6 +1,5 @@
 \name{[-methods}
 \docType{methods}
-\alias{[-methods}
 \alias{[,ANY-method}
 \title{Extract or Replace Parts of an Object}
 \description{Operators act on objects to extract or replace subsets.}

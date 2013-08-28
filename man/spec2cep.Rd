@@ -9,9 +9,9 @@ Cosine Transformation.
 spec2cep(spec, ncep = 12, type = c("t2", "t1", "t3", "t4"))
 }
 \arguments{
-  \item{spec}{ Input spectra (samples/time frames in columns)}
-  \item{ncep}{ Number of cepstra to return }
-  \item{type}{ DCT Type }
+  \item{spec}{ Input spectra (samples/time frames in columns).}
+  \item{ncep}{ Number of cepstra to return. }
+  \item{type}{ DCT Type. }
 }
 \value{
   \item{cep }{Matrix of resulting cepstra.}

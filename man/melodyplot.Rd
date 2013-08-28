@@ -17,7 +17,7 @@ melodyplot(object, observed, expected = NULL, bars = NULL,
     energylabel = list(text="energy", side=4, line=2.5, at=rg.s-0.25, las=3),
     energypar = list(), 
     expectedpar = list(),
-    gridpar = list(col = gridcol), 
+    gridpar = list(col=gridcol), 
     observedpar = list(col=observedcol, type=observedtype, lwd=2, pch=15))
 }
 \arguments{
@@ -30,8 +30,8 @@ melodyplot(object, observed, expected = NULL, bars = NULL,
   \item{bars}{Number of bars to be plotted (a virtual static segmentation takes place).
     If \code{NULL} (default), time rather than bars are used.}
   \item{main}{Main title of the plot.}
-  \item{xlab, ylab}{Annotation of x/y-axes.}
-  \item{xlim, ylim}{Range of x/y-axis, where \code{ylim} must be an integer 
+  \item{xlab, ylab}{Annotation of -/y-axes.}
+  \item{xlim, ylim}{Range of x-/y-axis, where \code{ylim} must be an integer 
     that represents the range of note heights that should be displayed.}
   \item{observedtype}{Type (either \code{"p"} for points or \code{"l"} for lines) 
     used for representing observed notes. 
@@ -49,7 +49,7 @@ melodyplot(object, observed, expected = NULL, bars = NULL,
   \item{plotenergy}{Logical (default: \code{TRUE}), 
     whether to plot energy values in the bottom part of the plot.}
   \item{...}{Additional graphical parameters to be passed to underlying \code{plot} function.}
-  \item{axispar}{A named list of three other lists (\code{ax1},\code{ax2}, and \code{ax4})
+  \item{axispar}{A named list of three other lists (\code{ax1}, \code{ax2}, and \code{ax4})
     containing parameters passed to the corresponding \code{\link{axis}} calls for the three axis
     time (\code{ax1}), notes (\code{ax2}), and energy (\code{ax4}).}
   \item{boxpar}{A list of parameters to be passed to the box generating functions.}
@@ -63,7 +63,7 @@ melodyplot(object, observed, expected = NULL, bars = NULL,
   \item{observedpar}{A list of parameters to be passed to the \code{\link{lines}} 
     function that draws the observed values.}
 }
-\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
+\author{Uwe Ligges \email{ligges@statistik.tu-dortmund.de}}
 \seealso{\code{\link{noteFromFF}}, \code{\link{FF}}, \code{\link{quantplot}}; 
     for an example, see the help in \link{tuneR}.}    
 \keyword{hplot}

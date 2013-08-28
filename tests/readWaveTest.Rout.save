@@ -1,0 +1,329 @@
+
+R version 3.0.0 (2013-04-03) -- "Masked Marvel"
+Copyright (C) 2013 The R Foundation for Statistical Computing
+Platform: i386-w64-mingw32/i386 (32-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library("tuneR")
+tuneR >= 1.0 has changed its Wave class definition.
+Use updateWave(object) to convert Wave objects saved with previous versions of tuneR.
+> d <- list.files("Testfiles", pattern="\\.wav$")
+> garbage <- lapply(d, 
++     function(x) {
++         wav <- readWave(file.path("Testfiles", x))
++         cat(x, "\n")
++         print(wav)
++         if(is(wav, "Wave")){
++             print(wav@left[1:10])
++             if(wav@stereo)
++                 print(wav@right[1:10])
++         } else {
++             print(wav@.Data[1:10,])
++         }
++     }
++ )
+16bit_PCM_3channels_ex.wav 
+
+WaveMC Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Number of channels:     3
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    16 
+
+         FL    FR   FC
+ [1,]     0     0    0
+ [2,]  3077  2053 1027
+ [3,]  6126  4098 2053
+ [4,]  9122  6126 3077
+ [5,] 12036  8131 4098
+ [6,] 14845 10103 5114
+ [7,] 17522 12036 6126
+ [8,] 20044 13922 7132
+ [9,] 22390 15753 8131
+[10,] 24537 17522 9122
+16bit_PCM_mono.wav 
+
+Wave Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Mono
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    16 
+
+ [1]     0  2053  4098  6126  8131 10103 12036 13922 15753 17522
+16bit_PCM_mono_ex.wav 
+
+Wave Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Mono
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    16 
+
+ [1]     0  2053  4098  6126  8131 10103 12036 13922 15753 17522
+16bit_PCM_stereo.wav 
+
+Wave Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Stereo
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    16 
+
+ [1]     0  2053  4098  6126  8131 10103 12036 13922 15753 17522
+ [1]    0 1027 2053 3077 4098 5114 6126 7132 8131 9122
+16bit_PCM_stereo_ex.wav 
+
+Wave Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Stereo
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    16 
+
+ [1]     0  2053  4098  6126  8131 10103 12036 13922 15753 17522
+ [1]    0 1027 2053 3077 4098 5114 6126 7132 8131 9122
+24bit_PCM_mono.wav 
+
+Wave Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Mono
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    24 
+
+ [1]       0  525532 1049000 1568346 2081531 2586539 3081384 3564124 4032862
+[10] 4485756
+24bit_PCM_mono_ex.wav 
+
+Wave Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Mono
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    24 
+
+ [1]       0  525532 1049000 1568346 2081531 2586539 3081384 3564124 4032862
+[10] 4485756
+24bit_PCM_stereo.wav 
+
+Wave Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Stereo
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    24 
+
+ [1]       0  525532 1049000 1568346 2081531 2586539 3081384 3564124 4032862
+[10] 4485756
+ [1]       0  262895  525532  787653 1049000 1309316 1568346 1825836 2081531
+[10] 2335182
+24bit_PCM_stereo_ex.wav 
+
+Wave Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Stereo
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    24 
+
+ [1]       0  525532 1049000 1568346 2081531 2586539 3081384 3564124 4032862
+[10] 4485756
+ [1]       0  262895  525532  787653 1049000 1309316 1568346 1825836 2081531
+[10] 2335182
+32bit_PCM_mono.wav 
+
+Wave Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Mono
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    32 
+
+ [1]          0  134536286  268544023  401496739  532872106  662153994
+ [7]  788834496  912415928 1032412777 1148353616
+32bit_PCM_mono_ex.wav 
+
+Wave Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Mono
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    32 
+
+ [1]          0  134536286  268544023  401496739  532872106  662153994
+ [7]  788834496  912415928 1032412777 1148353616
+32bit_PCM_stereo.wav 
+
+Wave Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Stereo
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    32 
+
+ [1]          0  134536286  268544023  401496739  532872106  662153994
+ [7]  788834496  912415928 1032412777 1148353616
+ [1]         0  67301202 134536286 201639200 268544023 335185025 401496739
+ [8] 467414018 532872106 597806695
+32bit_PCM_stereo_ex.wav 
+
+Wave Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Stereo
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    32 
+
+ [1]          0  134536286  268544023  401496739  532872106  662153994
+ [7]  788834496  912415928 1032412777 1148353616
+ [1]         0  67301202 134536286 201639200 268544023 335185025 401496739
+ [8] 467414018 532872106 597806695
+32bit_float_4channels_ex.wav 
+
+WaveMC Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Number of channels:     4
+	PCM (integer format):   FALSE
+	Bit (8/16/24/32/64):    32 
+
+              FL         FR         BL         BR
+ [1,] 0.00000000 0.00000000 0.00000000 0.00000000
+ [2,] 0.09389576 0.06264834 0.03133956 0.06264834
+ [3,] 0.18696187 0.12505056 0.06264834 0.12505056
+ [4,] 0.27837601 0.18696149 0.09389557 0.18696149
+ [5,] 0.36733043 0.24813791 0.12505056 0.24813791
+ [6,] 0.45303917 0.30833948 0.15608269 0.30833948
+ [7,] 0.53474492 0.36732969 0.18696149 0.36732969
+ [8,] 0.61172569 0.42487678 0.21765661 0.42487678
+ [9,] 0.68330133 0.48075467 0.24813791 0.48075467
+[10,] 0.74883944 0.53474385 0.27837545 0.53474385
+32bit_float_mono_ex.wav 
+
+Wave Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Mono
+	PCM (integer format):   FALSE
+	Bit (8/16/24/32/64):    32 
+
+ [1] 0.00000000 0.06264834 0.12505056 0.18696149 0.24813791 0.30833948
+ [7] 0.36732969 0.42487678 0.48075467 0.53474385
+32bit_float_stereo_ex.wav 
+
+Wave Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Stereo
+	PCM (integer format):   FALSE
+	Bit (8/16/24/32/64):    32 
+
+ [1] 0.00000000 0.06264834 0.12505056 0.18696149 0.24813791 0.30833948
+ [7] 0.36732969 0.42487678 0.48075467 0.53474385
+ [1] 0.00000000 0.03133956 0.06264834 0.09389557 0.12505056 0.15608269
+ [7] 0.18696149 0.21765661 0.24813791 0.27837545
+64bit_float_mono_ex.wav 
+
+Wave Object
+	Number of Samples:      82
+	Duration (seconds):     0
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Mono
+	PCM (integer format):   FALSE
+	Bit (8/16/24/32/64):    64 
+
+ [1] -9.094947e-13 -1.818989e-12 -3.637979e-12 -7.275958e-12 -1.455192e-11
+ [6] -2.910383e-11 -5.820766e-11 -1.164153e-10 -2.328306e-10 -4.656613e-10
+64bit_float_stereo_ex.wav 
+
+Wave Object
+	Number of Samples:      82
+	Duration (seconds):     0
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Stereo
+	PCM (integer format):   FALSE
+	Bit (8/16/24/32/64):    64 
+
+ [1] -9.094947e-13 -1.818989e-12 -3.637979e-12 -7.275958e-12 -1.455192e-11
+ [6] -2.910383e-11 -5.820766e-11 -1.164153e-10 -2.328306e-10 -4.656613e-10
+ [1] 1.000000000 0.500000000 0.250000000 0.125000000 0.062500000 0.031250000
+ [7] 0.015625000 0.007812500 0.003906250 0.001953125
+8bit_PCM_mono.wav 
+
+Wave Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Mono
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    8 
+
+ [1] 127 135 143 151 159 166 174 181 188 195
+8bit_PCM_mono_ex.wav 
+
+Wave Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Mono
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    8 
+
+ [1] 127 135 143 151 159 166 174 181 188 195
+8bit_PCM_stereo.wav 
+
+Wave Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Stereo
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    8 
+
+ [1] 127 135 143 151 159 166 174 181 188 195
+ [1] 127 131 135 139 143 147 151 155 159 162
+8bit_PCM_stereo_ex.wav 
+
+Wave Object
+	Number of Samples:      2000
+	Duration (seconds):     0.05
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Stereo
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    8 
+
+ [1] 127 135 143 151 159 166 174 181 188 195
+ [1] 127 131 135 139 143 147 151 155 159 162
+> 
+> proc.time()
+   user  system elapsed 
+   0.62    0.04    0.65 

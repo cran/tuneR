@@ -15,12 +15,12 @@ melfcc <- function(samples, sr=samples@samp.rate, wintime=0.025, hoptime=0.010,
     dcttype <- match.arg(dcttype)
     fbtype <- match.arg(fbtype)
     
-    if(!is(samples, "Wave")) 
-        stop("'samples' needs to be of class 'Wave'")
+    if(!(is(samples, "Wave") || is(samples, "WaveMC"))) 
+        stop("'samples' needs to be of class 'Wave' or 'WaveMC'")
     validObject(samples)
 
-    if(samples@stereo) 
-        stop("Stereo processing not yet implemented...")
+    if(nchannel(samples) > 1) 
+        stop("Processing for more than one channel not yet implemented...")
 
     if(!is.null(modelorder) && !(modelorder==as.integer(modelorder) && modelorder > 0))
         stop("'modelorder' has to be a non-negative integer or NULL")
@@ -28,12 +28,13 @@ melfcc <- function(samples, sr=samples@samp.rate, wintime=0.025, hoptime=0.010,
     if(!is.null(modelorder) && modelorder > 0 && numcep > modelorder+1)
         stop("No. of cepstra can't be larger than 'modelorder+1'")
 
+    samples1 <- if(is(samples, "Wave")) samples@left else samples@.Data[,1]
     if(preemph != 0){
-        ssamples <- as.vector(filter(samples@left, filter=c(1, -preemph), 
+        ssamples <- as.vector(filter(samples1, filter=c(1, -preemph), 
             method="convolution", sides=1, circular=FALSE))
-        ssamples[1] <- samples@left[1]
+        ssamples[1] <- samples1[1]
     } else {
-        ssamples <- samples@left
+        ssamples <- samples1
     }
 
     # Compute FFT power spectrum

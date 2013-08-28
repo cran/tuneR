@@ -5,7 +5,7 @@
    Apply liftering to a matrix of cepstra.
 }
 \usage{
-lifter(x, lift = 0.6, inv = FALSE, htk=FALSE)
+lifter(x, lift = 0.6, inv = FALSE, htk = FALSE)
 }
 \arguments{
   \item{x}{ Matrix of cepstra, one sample/time frame per column. }
@@ -14,8 +14,8 @@ lifter(x, lift = 0.6, inv = FALSE, htk=FALSE)
   \item{htk}{ Switch liftering type. }
 }
 \details{
- If \code{htk=FALSE}, then perform \eqn{x i^lift}, \eqn{i = 1, ldots, nrow(x)}
-liftering. If \code{htk=TRUE}, then perform HTK-style sin-curve
+ If \code{htk = FALSE}, then perform \eqn{x i^lift}, \eqn{i = 1, \ldots,} \code{nrow(x)}
+liftering. If \code{htk = TRUE}, then perform HTK-style sin-curve
 liftering with length \code{lift}.
 }
 \value{

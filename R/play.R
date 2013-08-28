@@ -23,7 +23,7 @@ function(object, player, ...){
     }
 })
 
-setMethod("play", signature(object = "Wave", player = "ANY"),
+setMethod("play", signature(object = "WaveGeneral", player = "ANY"),
 function(object, player, ...){
     filename <- "tuneRtemp.wav"
     wd <- getwd()

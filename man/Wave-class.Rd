@@ -2,7 +2,7 @@
 \docType{class}
 \alias{Wave-class}
 \title{Class Wave}
-\description{Class \dQuote{Wave}}
+\description{Class \dQuote{Wave}.}
 \section{Objects from the Class}{
 Objects can be created by calls of the form \code{new("Wave", ...)},
 or more conveniently using the function \code{\link{Wave}}.
@@ -17,10 +17,15 @@ or more conveniently using the function \code{\link{Wave}}.
     \item{\code{samp.rate}:}{Object of class \code{"numeric"} - the sampling rate, e.g. 44100 for CD quality.}
     \item{\code{bit}:}{Object of class \code{"numeric"}, common is 16 for CD quality, or
         8 for a rather rough representation.}
+    \item{\code{pcm}:}{Object of class \code{"logical"} indicating whether this is a 
+        PCM or IEEE_FLOAT Wave format.}
   }
 }
-\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
-\seealso{\code{\link{Wave}}}
+\author{Uwe Ligges \email{ligges@statistik.tu-dortmund.de}}
+\details{The class definition has been extended in \pkg{tuneR} version 1.0-0. Saved objects of class Wave generated with former versions can be 
+updated with \code{\link{updateWave}} to match the new definition.
+}
+\seealso{\code{\link{Wave}}, \code{\link{updateWave}}, and for multi channel Wave files see \link{WaveMC-class}}
 \keyword{classes}
 \concept{Wave}
 \concept{channel}

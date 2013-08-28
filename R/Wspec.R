@@ -67,7 +67,7 @@ function(object, ...){
     cat("normal.:", object@normalize, "\n\n")
 
     cat("Properties of the Wave object:\n")
-    cat(if(object@stereo) "Stereo" else "Mono", "with sampling rate", object@samp.rate, "\n\n")
+    cat("Sampling rate:", object@samp.rate, "\n\n")
 })
 
 
@@ -141,7 +141,7 @@ function(object, ...){
     cat("normal.:", object@normalize, "\n\n")
 
     cat("Properties of the Wave object:\n")
-    cat(if(object@stereo) "Stereo" else "Mono", "with sampling rate", object@samp.rate, "\n\n")
+    cat("Sampling rate:", object@samp.rate, "\n\n")
 })
 
 setAs("Wspec", "WspecMat", function(from, to) {

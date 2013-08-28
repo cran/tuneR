@@ -4,7 +4,7 @@
 \description{Apply a smoother to estimated notes.
 Currently, only a running median (using \code{\link[pastecs]{decmedian}} in package \pkg{pastecs}) is available.}
 \usage{
-smoother(notes, method ="median", order = 4, times = 2)
+smoother(notes, method = "median", order = 4, times = 2)
 }
 \arguments{
 \item{notes}{Series of notes, a vector of integers such as returned by \code{\link{noteFromFF}}.}
@@ -16,7 +16,7 @@ smoother(notes, method ="median", order = 4, times = 2)
 \value{
 The smoothed series of notes.
 }
-\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
+\author{Uwe Ligges \email{ligges@statistik.tu-dortmund.de}}
 \keyword{misc}
 \keyword{ts}
 \concept{smooth}

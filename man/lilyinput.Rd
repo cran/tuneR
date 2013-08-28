@@ -28,8 +28,8 @@ lilyinput(X, file = "Rsong.ly", Major = TRUE, key = "c",
   \item{file}{The file to be written for \emph{LilyPond}'s input.}
   \item{Major}{Logical indicating major key (if \code{TRUE}) or minor key.}
   \item{key}{Keynote, necessary to set sharps/flats.}
-  \item{clef}{Integer indicating the kind of clef, supported are \sQuote{treble} (default),
-              \sQuote{bass}, \sQuote{alto}, and \sQuote{tenor}.}
+  \item{clef}{Integer indicating the kind of clef, supported are \code{"treble"} (default),
+              \code{"bass"}, \code{"alto"}, and \code{"tenor"}.}
   \item{time}{Character indicating which meter to use, examples are: \code{"3/4"}, \code{"4/4"}.}
   \item{endbar}{Logical indicating whether to set an ending bar at the end of the sheet music.}
   \item{midi}{Logical indicating whether Midi output (by \emph{LilyPond}) is desirable.}
@@ -56,7 +56,7 @@ lilyinput(X, file = "Rsong.ly", Major = TRUE, key = "c",
     \emph{Ein R Exportfilter für das Notations- und Midi-Programm LilyPond}.   
     Arbeitsbericht 35. Fachbereich Statistik, Universität Dortmund. (german)
 }
-\author{Andrea Preußer and Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
+\author{Andrea Preußer and Uwe Ligges \email{ligges@statistik.tu-dortmund.de}}
 \note{
     This function is in development!!!\cr
     Everything (and in particular its user interface) is subject to change!!!

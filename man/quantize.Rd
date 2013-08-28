@@ -16,7 +16,7 @@ quantMerge(notes, minlength, barsize, bars)
   \item{parts}{Number of outcoming parts. The \code{notes} vector is divided into \code{parts} bins,
     the outcome is a vector of the modes of all bins.}
   \item{minlength}{1/(length of the shortest note).\cr
-    Example: if the shortest note is a quaver (1/8), set \code{minlength=8}.} 
+    Example: if the shortest note is a quaver (1/8), set \code{minlength = 8}.} 
   \item{barsize}{One bar contains \code{barsize} number of notes of length \code{minlength}.}
   \item{bars}{We expect \code{bars} number of bars.}
 }
@@ -29,13 +29,13 @@ quantMerge(notes, minlength, barsize, bars)
     \code{quantMerge} returns a data.frame with components:
   \item{note}{integer representation of a note (see Arguments).}
   \item{duration}{1/duration of a note (see \code{minlength} in Section Arguments),
-    if \code{punctuation=FALSE}.}
+    if \code{punctuation = FALSE}.}
   \item{punctuation}{Whether the note should be punctuated. If \code{TRUE}, 
     the real duration is 1.5 times the duration given in \code{duration}.}
   \item{slur}{currently always \code{FALSE}, sensible processing is not yet implemented.\cr
     It is supposed to indicate the beginning and ending positions of slurs.}
 }
-\author{Uwe Ligges, \email{ligges@statistik.tu-dortmund.de}}
+\author{Uwe Ligges \email{ligges@statistik.tu-dortmund.de}}
 \seealso{to get the input: \code{\link{noteFromFF}}, 
     for plotting: \code{\link{quantplot}}, 
     for further processing: \code{\link{lilyinput}},

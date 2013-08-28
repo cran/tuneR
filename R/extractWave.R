@@ -1,9 +1,9 @@
 extractWave <-
-function(object, from = 1, to = length(object@left), 
+function(object, from = 1, to = length(object), 
     interact = interactive(), xunit = c("samples", "time"), ...){
 
-    if(!is(object, "Wave")) 
-        stop("'object' needs to be of class 'Wave'")
+    if(!(is(object, "Wave") || is(object, "WaveMC"))) 
+        stop("'object' needs to be of class 'Wave' or 'WaveMC'")
     validObject(object)
 
     xunit <- match.arg(xunit)
@@ -34,7 +34,7 @@ function(object, from = 1, to = length(object@left),
         from <- from * object@samp.rate
     }
 
-    lo <- length(object@left)
+    lo <- length(object)
     from <- max(from, 1)
     to <- min(to, lo)
 
