@@ -2,10 +2,13 @@ citHeader("To cite tuneR in publications use:")
 
 citEntry(entry       = "Manual",
     title        = "{tuneR}: Analysis of music",
-    author       = c(person(given="Uwe", family="Ligges", email="Uwe.Ligges@R-project.org")),
-    year         = 2011,
+    author       = c(person(given="Uwe", family="Ligges", email="Uwe.Ligges@R-project.org"),
+                         person(given="Sebastian", family="Krey"),
+			 person(given="Olaf", family="Mersmann"),
+			 person(given="Sarah", family="Schnackenberg")),
+    year         = 2013,
     url          = "http://r-forge.r-project.org/projects/tuner/",
-    textVersion  = paste("Ligges, Uwe (2011).",
+    textVersion  = paste("Uwe Ligges, Sebastian Krey, Olaf Mersmann, and Sarah Schnackenberg (2013).",
         "tuneR: Analysis of music.",
         "URL: http://r-forge.r-project.org/projects/tuner/.")
-    )
+)

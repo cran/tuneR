@@ -3,17 +3,19 @@
 \title{Writing Wave files}
 \description{Writing Wave files.}
 \usage{
-writeWave(object, filename)
+writeWave(object, filename, extensible = TRUE)
 }
 \arguments{
     \item{object}{Object of class \code{\link{Wave}} or \code{\link{WaveMC}} to be written to a Wave file.}
     \item{filename}{Filename of the file to be written.}
+    \item{extensible}{If \code{TRUE} (default), an extensible Wave format file is written. If \code{FALSE}, a non-extensible Wave file is written.} 
 }
 \value{
     \code{writeWave} creates a Wave file, but returns nothing.
 }
 \details{
-\code{writeWave} always writes an extensible Wave file format.
+It is only possible to write a non-extensible Wave format file for objects of class \code{\link{Wave}} or
+for objects of class \code{\link{WaveMC}} with one or two channels (mono or stereo).
 
 If the argument \code{object} is a \link{Wave-class} object, the channels are automatically chosen to be 
 \dQuote{FL} (for mono) or \dQuote{FL} and \dQuote{FR} (for stereo).

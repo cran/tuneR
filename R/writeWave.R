@@ -1,5 +1,5 @@
 writeWave <- 
-function(object, filename){
+function(object, filename, extensible = TRUE) {
     if(!is(object, "WaveGeneral")) 
         stop("'object' needs to be of class 'Wave' or 'WaveMC'")
     validObject(object)
@@ -7,13 +7,16 @@ function(object, filename){
         object <- as(object, "WaveMC")
         colnames(object) <- c("FL", if(ncol(object) > 1) "FR")
     }
+    if(ncol(object) > 2 && !extensible)
+        stop("Objects with more than two columns (multi channel) can only be written to a Wave extensible format file.")
+
     cn <- colnames(object)
     if((length(cn) != ncol(object) || !all(cn %in% MCnames[["name"]])) || any(duplicated(cn)))
         stop("colnames(object) must be specified and must uniquely identify the channel ordering for WaveMC objects, see ?MCnames for possible channels")
     cnamesnum <- as.numeric(factor(colnames(object), levels=MCnames[["name"]]))
     if(is.unsorted(cnamesnum))
         object <- object[,order(cnamesnum)]
-    dwChannelMask <- sum(2^(cnamesnum - 1))
+    dwChannelMask <- sum(2^(cnamesnum - 1))  ##
 
     l <- length(object)
     sample.data <- t(object@.Data)
@@ -51,30 +54,38 @@ function(object, filename){
     ## Writing the header:
     # RIFF
     writeChar("RIFF", con, 4, eos = NULL) 
-    writeBin(as.integer(bytes + 72), con, size = 4, endian = "little") # cksize RIFF
+    writeBin(as.integer(bytes + if(extensible) 72 else 36), con, size = 4, endian = "little") # cksize RIFF
     # WAVE
     writeChar("WAVE", con, 4, eos = NULL)
     # fmt chunk
     writeChar("fmt ", con, 4, eos = NULL)
-    writeBin(as.integer(40), con, size = 4, endian = "little") # cksize format chunk
-    writeBin(as.integer(65534), con, size = 2, endian = "little") # wFormatTag: extensible
+    if(extensible) { # cksize format chunk
+        writeBin(as.integer(40), con, size = 4, endian = "little") 
+    } else {
+        writeBin(as.integer(16), con, size = 4, endian = "little")
+    }    
+    if(!extensible) { # wFormatTag
+        writeBin(as.integer(if(pcm) 1 else 3), con, size = 2, endian = "little")
+    } else {
+        writeBin(as.integer(65534), con, size = 2, endian = "little") # wFormatTag: extensible   
+    }
     writeBin(as.integer(channels), con, size = 2, endian = "little") # nChannels
     writeBin(as.integer(object@samp.rate), con, size = 4, endian = "little") # nSamplesPerSec
     writeBin(as.integer(object@samp.rate * block.align), con, size = 4, endian = "little") # nAvgBytesPerSec
     writeBin(as.integer(block.align), con, size = 2, endian = "little") # nBlockAlign
     writeBin(as.integer(object@bit), con, size = 2, endian = "little") # wBitsPerSample
     # extensible
-    writeBin(as.integer(22), con, size = 2, endian = "little") # cbsize extensible
-    writeBin(as.integer(object@bit), con, size = 2, endian = "little") # wValidBitsPerSample
-    
-    writeBin(as.integer(dwChannelMask), con, size = 4, endian = "little") #  dbChannelMask
-    writeBin(as.integer(if(pcm) 1 else 3), con, size = 2, endian = "little") # SubFormat 1-2
-    writeBin(as.raw(c(0,   0,   0,  0,  16,   0, 128,   0 ,  0, 170,   0,  56, 155, 113)), con) # SubFormat 3-16
-    # fact
-    writeChar("fact", con, 4, eos = NULL)
-    writeBin(as.integer(4), con, size = 4, endian = "little") # cksize fact chunk
-    writeBin(as.integer(l), con, size = 4, endian = "little") # dwSampleLength
-
+    if(extensible) {
+        writeBin(as.integer(22), con, size = 2, endian = "little") # cbsize extensible
+        writeBin(as.integer(object@bit), con, size = 2, endian = "little") # ValidBitsPerSample
+        writeBin(as.integer(dwChannelMask), con, size = 4, endian = "little") #  dbChannelMask
+        writeBin(as.integer(if(pcm) 1 else 3), con, size = 2, endian = "little") # SubFormat 1-2
+        writeBin(as.raw(c(0,   0,   0,  0,  16,   0, 128,   0 ,  0, 170,   0,  56, 155, 113)), con) # SubFormat 3-16
+        # fact
+        writeChar("fact", con, 4, eos = NULL)
+        writeBin(as.integer(4), con, size = 4, endian = "little") # cksize fact chunk
+        writeBin(as.integer(l), con, size = 4, endian = "little") # dwSampleLength
+    }
     # data
     writeChar("data", con, 4, eos = NULL)
     writeBin(as.integer(bytes), con, size = 4, endian = "little")

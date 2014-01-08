@@ -37,7 +37,7 @@ function(x, xunit, ylim, xlab, ylab, main, nr, simplify, axes = TRUE, yaxt = par
 setMethod("plot", signature(x = "Wave", y = "missing"),
 function(x, info = FALSE, xunit = c("time", "samples"), 
     ylim = NULL, main = NULL, sub = NULL, xlab = NULL, ylab = NULL, 
-    simplify = TRUE, nr = 1500, axes = TRUE, yaxt = par("yaxt"), las = 1, 
+    simplify = TRUE, nr = 2500, axes = TRUE, yaxt = par("yaxt"), las = 1, 
     center = TRUE, ...){
     
     xunit <- match.arg(xunit)
@@ -99,7 +99,7 @@ function(x, info = FALSE, xunit = c("time", "samples"),
 setMethod("plot", signature(x = "WaveMC", y = "missing"),
 function(x, info = FALSE, xunit = c("time", "samples"), 
     ylim = NULL, main = NULL, sub = NULL, xlab = NULL, ylab = colnames(x), 
-    simplify = TRUE, nr = 1500, axes = TRUE, yaxt = par("yaxt"), las = 1, 
+    simplify = TRUE, nr = 2500, axes = TRUE, yaxt = par("yaxt"), las = 1, 
     center = TRUE, mfrow = NULL, ...){
     
     xunit <- match.arg(xunit)

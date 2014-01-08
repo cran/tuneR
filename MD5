@@ -1,4 +1,4 @@
-f149f555b9f480b3c72f3f96b2f66ea9 *DESCRIPTION
+11a7b9d152dc47ea8f24b527ad3094fe *DESCRIPTION
 d921c0db734f7065774cdcb1fbff413b *NAMESPACE
 45b223e91054cfb57891222acf4fcfbd *R/FFrq.R
 5f34167ad2d3e0bf1ba9bcf37aadd0f6 *R/MCnames.R
@@ -36,7 +36,7 @@ f4affe88f460ed7c725784796eeba936 *R/lpc2cep.R
 f168999d0365d3d03997d3d4c5fdd478 *R/panorama.R
 f053d64a9854e07a59fd07bafa15148c *R/periodogram.R
 8f49073fa2a92526feb8b1dc8a2b2039 *R/play.R
-2a802a821fa680e3ffab635afe258f88 *R/plot-Wave.R
+ba2afd57490ad642776a2996fd28347b *R/plot-Wave.R
 62f2c2c97bb203b0c859dc82208b8da8 *R/plot-Wspec.R
 8eef3097523c392ad38dc2a205388f42 *R/postaud.R
 8b1355f1b22fb986109e1e928101938c *R/powspec.R
@@ -48,9 +48,9 @@ cb23a3bdd5beda4e76854246e2ba7735 *R/quantize.R
 786ae196b9f2a6739fd6e63996566fa6 *R/smooth.R
 7e590a57eade30bfdd8c1911045f0d47 *R/spec2cep.R
 92220e404563c4f9c18c85397a477c91 *R/stereo.R
-685a8e39e5276ba498da83b9b23bb7fc *R/writeWave.R
+c1beb35b47465e81cd26cd0290a8c6b0 *R/writeWave.R
 82d245dbb11d0efa4ec9596b7372bea2 *R/zzz.R
-82bb67b1c8f6434e062ca8ccf1b03630 *inst/CITATION
+e1bd87aa044de995a23922c9d4b79e5b *inst/CITATION
 b2e695c38ffc2066499260caaa0539a2 *man/Extractor.Rd
 b3eca47e3e1a8a9215f66af7f64a8862 *man/FF.Rd
 18faa80113eb2daa18e0a64243fd146d *man/MCnames.Rd
@@ -90,7 +90,7 @@ ebefe72d39510ce79be3d4af804b60b0 *man/nchannel.Rd
 ba68fc70a299c1c7c2d0796ce3e22fdc *man/panorama.Rd
 a187f740b2033077687584d302f8f000 *man/periodogram.Rd
 5bf3b8d5ffb7a19ba5d90cb0a1567080 *man/play.Rd
-71d6f2c6a92b948aa91e3c14e3017230 *man/plot-Wave.Rd
+4ab0c9e128bd13289381ecaa9227958f *man/plot-Wave.Rd
 791379384d8d131850863fb95c11be7d *man/plot-Wspec.Rd
 ecf80e0d62fc7eb7ec629e1899297fc5 *man/plot-WspecMat.Rd
 281db8a87d62697c58fad810d929b7ec *man/postaud.Rd
@@ -106,7 +106,7 @@ e145fcb49c3fcabf8b59a675a48c3507 *man/spec2cep.Rd
 313d684d75831e2ba40cdda43904d57a *man/summary.Rd
 22f1fb76e9380edd8a1ac1ae59e196ae *man/tuneR.Rd
 4775f13f838f24319e8397cf6dc0114a *man/updateWave.Rd
-b9327e75610c7eefcf98d0c016fbc2f5 *man/writeWave.Rd
+a17794e89c4a9884e550e72eb421e97b *man/writeWave.Rd
 899802ceb478cc22022a97722876c167 *src/D.h
 d268a51c63b33d00c4ece2946a46fdc7 *src/Makevars
 8a96588b69acbd35f8421cde293a5d9f *src/bit.c
@@ -161,7 +161,7 @@ fbdb3725316b8d1747cb703a4b86349e *tests/Testfiles/8bit_PCM_mono.wav
 5b0fad5bd5a5defaa9efd5032a3495fc *tests/Testfiles/8bit_PCM_mono_ex.wav
 d3e1d4af8515fb158c8eae1ed62b1a2b *tests/Testfiles/8bit_PCM_stereo.wav
 8c182d229deac523c5b381ba47a352d0 *tests/Testfiles/8bit_PCM_stereo_ex.wav
-f4755ccaaa09f07bff145032e9bbf0de *tests/readWaveTest.R
-5714a8a28d82b12c20dc96bce9e3f8b4 *tests/readWaveTest.Rout.save
-2be766133d0af61871e56997131eebca *tests/tuneRTest.R
-69f2507b573bc5316c3ab80cecc7e348 *tests/tuneRTest.Rout.save
+82084121d88c0311d354b660b6ba6f2a *tests/readWaveTest.R
+47f0b3497ab19797c3f8c3128559900c *tests/readWaveTest.Rout.save
+2c9c84a3d41126835b8027f6577ff729 *tests/tuneRTest.R
+524adbe0b706c99160a3f2912ed45daf *tests/tuneRTest.Rout.save

@@ -326,4 +326,4 @@ Wave Object
 > 
 > proc.time()
    user  system elapsed 
-   0.62    0.04    0.65 
+   0.68    0.00    0.67 

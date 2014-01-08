@@ -8,12 +8,12 @@
 \usage{
 \S4method{plot}{Wave,missing}(x, info = FALSE, xunit = c("time", "samples"), 
     ylim = NULL, main = NULL, sub = NULL, xlab = NULL, ylab = NULL, 
-    simplify = TRUE, nr = 1500, axes = TRUE, yaxt = par("yaxt"), las = 1, 
+    simplify = TRUE, nr = 2500, axes = TRUE, yaxt = par("yaxt"), las = 1, 
     center = TRUE, ...)
 
 \S4method{plot}{WaveMC,missing}(x, info = FALSE, xunit = c("time", "samples"), 
     ylim = NULL, main = NULL, sub = NULL, xlab = NULL, ylab = colnames(x), 
-    simplify = TRUE, nr = 1500, axes = TRUE, yaxt = par("yaxt"), las = 1, 
+    simplify = TRUE, nr = 2500, axes = TRUE, yaxt = par("yaxt"), las = 1, 
     center = TRUE, mfrow = NULL, ...)
     
 plot.Wave.channel(x, xunit, ylim, xlab, ylab, main, nr, simplify, axes = TRUE, 
