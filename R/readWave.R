@@ -22,7 +22,18 @@ function(filename, from = 1, to = Inf,
     WAVE <- readChar(con, 4)
     if (!(RIFF == "RIFF" && WAVE == "WAVE"))
         warning("Looks like '", filename, "' is not a valid wave file.")
-    FMT <- readChar(con, 4)
+   
+    FMT <- readChar(con, 4)    
+    bext <- NULL
+    ## extract possible bext information, if header = TRUE
+    if (header && (FMT == "bext" || FMT == "BEXT")){
+        bext.length <- readBin(con, int, n = 1, size = 4, endian = "little")
+        bext <- sapply(seq(bext.length), function(x) readChar(con, 1))
+        bext[bext==""] <- " "
+        bext <- paste(bext, collapse="")
+        FMT <- readChar(con, 4)
+    }
+        
     ## waiting for the fmt chunk
     i <- 0
     while(FMT != "fmt "){
@@ -85,8 +96,9 @@ function(filename, from = 1, to = Inf,
 
     ## If only header required: construct and return it
     if(header){
-        return(list(sample.rate = sample.rate, channels = channels, 
-            bits = bits, samples = data.length / (channels * bytes)))
+        return(c(list(sample.rate = sample.rate, channels = channels, 
+            bits = bits, samples = data.length / (channels * bytes)),
+            if(!is.null(bext)) list(bext = bext)))
     }
 
     ## convert times to sample numbers

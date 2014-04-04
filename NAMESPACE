@@ -11,7 +11,7 @@ export(channel, prepComb, downsample, mono, stereo, updateWave,
     smoother, notenames, melodyplot,
     quantize, quantplot, quantMerge, lilyinput,
     setWavPlayer, getWavPlayer,
-    silence, sine, sawtooth, square, noise,
+    silence, sine, sawtooth, square, noise, pulse,
     MFCC, melfcc, deltas, audspec, dolpc, lifter, postaud, powspec,
     bark2hz, hz2bark, hz2mel, mel2hz, lpc2cep, spec2cep
 )

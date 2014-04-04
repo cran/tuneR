@@ -6,47 +6,66 @@ x2 <- sine(440, pcm=TRUE, bit=8, duration=500)
 x3 <- sine(220, pcm=TRUE, bit=8, duration=500)
 x1_2 <- stereo(sine(440, bit=8, pcm=TRUE, duration=500), sine(220, bit=8, pcm=TRUE, duration=500))
 
-## writeWave (always Wave extensible format)
+## writeWave
 files <- tempfile(as.character(1:100), fileext = ".wav")
 ## 8bit (pcm)
 ## - mono
-writeWave(x2, file = files[1]) 
+writeWave(x2, file = files[1], extensible = TRUE)
+writeWave(x2, file = files[2], extensible = FALSE)  
 ## - stereo
-writeWave(stereo(x2, x3), file = files[2])
+writeWave(stereo(x2, x3), file = files[3], extensible = TRUE)
+writeWave(stereo(x2, x3), file = files[4], extensible = FALSE)
 ## 16bit (pcm)
 ## - mono
-writeWave(sine(440, pcm=TRUE, bit=16, duration=500), file = files[3])
+writeWave(sine(440, pcm=TRUE, bit=16, duration=500), file = files[5], extensible = TRUE)
+writeWave(sine(440, pcm=TRUE, bit=16, duration=500), file = files[6], extensible = FALSE)
 ## - stereo
-writeWave(stereo(sine(440, bit=16, pcm=TRUE, duration=500), sine(220, bit=16, pcm=TRUE, duration=500)), file = files[4])
+writeWave(stereo(sine(440, bit=16, pcm=TRUE, duration=500), sine(220, bit=16, pcm=TRUE, duration=500)), 
+                           file = files[7], extensible = TRUE)
+writeWave(stereo(sine(440, bit=16, pcm=TRUE, duration=500), sine(220, bit=16, pcm=TRUE, duration=500)), 
+                           file = files[8], extensible = FALSE)
+
 ## 24bit (pcm)
 ## - mono
-writeWave(sine(440, pcm=TRUE, bit=24, duration=500), file = files[5])
+writeWave(sine(440, pcm=TRUE, bit=24, duration=500), file = files[9], extensible = TRUE)
+writeWave(sine(440, pcm=TRUE, bit=24, duration=500), file = files[10], extensible = FALSE)
 ## - stereo
-writeWave(stereo(sine(440, bit=24, pcm=TRUE, duration=500), sine(220, bit=24, pcm=TRUE, duration=500)), file = files[6])
+writeWave(stereo(sine(440, bit=24, pcm=TRUE, duration=500), sine(220, bit=24, pcm=TRUE, duration=500)), 
+                           file = files[11], extensible = TRUE)
+writeWave(stereo(sine(440, bit=24, pcm=TRUE, duration=500), sine(220, bit=24, pcm=TRUE, duration=500)), 
+                           file = files[12], extensible = FALSE)
 ## 32bit
 sine32 <- sine(440, bit=32, duration=500)
 sine32@left <- round(sine32@left, 5)
 ## - IEEE_FLOAT mono
-writeWave(sine32, file = files[7])
+writeWave(sine32, file = files[13], extensible = TRUE)
+writeWave(sine32, file = files[14], extensible = FALSE)
 ## - pcm mono
-writeWave(sine(440, pcm=TRUE, bit=32, duration=500), file = files[8])
+writeWave(sine(440, pcm=TRUE, bit=32, duration=500), file = files[15], extensible = TRUE)
+writeWave(sine(440, pcm=TRUE, bit=32, duration=500), file = files[16], extensible = FALSE)
 ## - IEEE_FLOAT stereo
-writeWave(stereo(sine32, sine32), file = files[9])
+writeWave(stereo(sine32, sine32), file = files[17], extensible = TRUE)
+writeWave(stereo(sine32, sine32), file = files[18], extensible = FALSE)
 ## - pcm stereo
-writeWave(stereo(sine(440, bit=32, pcm=TRUE, duration=500), sine(220, bit=32, pcm=TRUE, duration=500)), file = files[10])
+writeWave(stereo(sine(440, bit=32, pcm=TRUE, duration=500), sine(220, bit=32, pcm=TRUE, duration=500)), 
+                           file = files[19], extensible = TRUE)
+writeWave(stereo(sine(440, bit=32, pcm=TRUE, duration=500), sine(220, bit=32, pcm=TRUE, duration=500)), 
+                           file = files[20], extensible = FALSE)
 ## 64bit (IEEE_FLOAT)
 exact64 <- c(-2^(-40:0), 2^(-40:0))
 ## - mono
-writeWave(Wave(left = exact64, bit = 64, pcm = FALSE, samp.rate = 44100), file = files[11])
+writeWave(Wave(left = exact64, bit = 64, pcm = FALSE, samp.rate = 44100), file = files[21], extensible = TRUE)
+writeWave(Wave(left = exact64, bit = 64, pcm = FALSE, samp.rate = 44100), file = files[22], extensible = FALSE)
 ## - stereo
-writeWave(Wave(left = exact64, right = exact64, bit = 64, pcm = FALSE, samp.rate = 44100), file = files[12])
+writeWave(Wave(left = exact64, right = exact64, bit = 64, pcm = FALSE, samp.rate = 44100), file = files[23], extensible = TRUE)
+writeWave(Wave(left = exact64, right = exact64, bit = 64, pcm = FALSE, samp.rate = 44100), file = files[24], extensible = FALSE)
 ## multi channel
 mc <- WaveMC(cbind(x1@left, x2@left, x3@left), bit = 16, samp.rate = 44100)
 colnames(mc) <- c("FL","FR","FC")
-writeWave(mc, file = files[13]) 
+writeWave(mc, file = files[25], extensible = TRUE) 
 colnames(mc) <- c("FL","FC","FR")
-writeWave(mc, file = files[14])
-as.vector(md5sum(files[1:14]))
+writeWave(mc, file = files[26], extensible = TRUE)
+as.vector(md5sum(files[1:26]))
 
 ## Waveforms
 ## sine
@@ -80,6 +99,25 @@ x7@stereo
 x7@samp.rate
 x7@bit
 x7@pcm
+## pulse
+(x37 <- pulse(220, duration = 1000))
+length(x37@left)
+x37@stereo
+x37@samp.rate
+x37@bit
+x37@pcm
+(x37_2 <- stereo(pulse(440, duration=1000), pulse(220, duration=1000)))
+length(x37_2@left)
+x37_2@stereo
+x37_2@samp.rate
+x37_2@bit
+x37_2@pcm
+(x38 <- pulse(440, duration = 1000, pcm = TRUE, bit = 8))
+length(x38@left)
+x38@stereo
+x38@samp.rate
+x38@bit
+x38@pcm
 
 ## normalize
 (x8 <- normalize(x1, unit = "1", center = TRUE, level = 1, rescale = TRUE))

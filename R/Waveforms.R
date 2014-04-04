@@ -47,7 +47,7 @@ sine <- function(freq, duration = samp.rate, from = 0, samp.rate = 44100, bit = 
 }
 
 sawtooth <- function(freq, duration = samp.rate, from = 0, samp.rate = 44100, bit = 1, 
-                 stereo = FALSE, xunit = c("samples", "time"), reverse = FALSE, ...){
+                     stereo = FALSE, xunit = c("samples", "time"), reverse = FALSE, ...){
     xunit <- match.arg(xunit)
     durFrom <- preWaveform(freq = freq, duration = duration, from = from, 
         xunit = xunit, samp.rate = samp.rate)
@@ -61,7 +61,7 @@ sawtooth <- function(freq, duration = samp.rate, from = 0, samp.rate = 44100, bi
 }
 
 square <- function(freq, duration = samp.rate, from = 0, samp.rate = 44100, bit = 1, 
-                 stereo = FALSE, xunit = c("samples", "time"), up = 0.5, ...){
+                   stereo = FALSE, xunit = c("samples", "time"), up = 0.5, ...){
     xunit <- match.arg(xunit)
     durFrom <- preWaveform(freq = freq, duration = duration, from = from, 
         xunit = xunit, samp.rate = samp.rate)
@@ -115,4 +115,21 @@ TK95 <- function(N, alpha = 1){
      # 0 and pi do not need an imaginary part
     reihe <- fft(fR, inverse=TRUE) # go back into time domain
     return(Re(reihe)) # imaginary part is 0
+}
+
+pulse <- function(freq, duration = samp.rate, from = 0, samp.rate = 44100, bit = 1, 
+                  stereo = FALSE, xunit = c("samples", "time"), width = 0.1,
+                  plateau = 0.2, interval = 0.5, ...){
+    xunit <- match.arg(xunit)
+    if((width < 0) || (width > 1)) stop("Parameter 'width' must be between 0 and 1.")
+    if((interval < 0) || (interval > 1)) stop("Parameter 'interval' must be between 0 and 1.")
+    if((plateau  < 0) || (plateau > 1)) stop("Parameter 'interval' must be between 0 and 1.")
+    durFrom <- preWaveform(freq = freq, duration = duration, from = from,
+                           xunit = xunit, samp.rate = samp.rate)
+    x <- freq * (durFrom["from"]:(sum(durFrom)-1)) / samp.rate
+    channel <- .C("pulsewav", as.integer(length(x)),
+                  as.double(width), as.double(interval), as.double(plateau),
+                  as.double(x), y = double(length(x)))$y
+    postWaveform(channel = channel, samp.rate = samp.rate,
+                 bit = bit, stereo = stereo, ...)
 }

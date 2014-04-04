@@ -6,27 +6,32 @@
 \alias{square}
 \alias{silence}
 \alias{noise}
+\alias{pulse}
 \title{Create Wave Objects of Special Waveforms}
 \description{Create a \code{\link{Wave}} object of special waveform such as
-silcence, power law (white, red, pink, ...) noise, sawtooth, sine, and square.}
+silcence, power law (white, red, pink, ...) noise, sawtooth, sine, square, and pulse.}
 \usage{
 noise(kind = c("white", "pink", "power", "red"), duration = samp.rate, 
-        samp.rate = 44100, bit = 1, stereo = FALSE, 
-        xunit = c("samples", "time"), alpha = 1, ...)
+      samp.rate = 44100, bit = 1, stereo = FALSE, 
+      xunit = c("samples", "time"), alpha = 1, ...)
+
+pulse(freq, duration = samp.rate, from = 0, samp.rate = 44100,
+      bit = 1, stereo = FALSE, xunit = c("samples", "time"),
+      width = 0.1, plateau = 0.2, interval = 0.5, ...)
 
 sawtooth(freq, duration = samp.rate, from = 0, samp.rate = 44100, 
-        bit = 1, stereo = FALSE, xunit = c("samples", "time"), 
-        reverse = FALSE, ...)
+         bit = 1, stereo = FALSE, xunit = c("samples", "time"), 
+         reverse = FALSE, ...)
 
 silence(duration = samp.rate, from = 0, samp.rate = 44100, 
         bit = 1, stereo = FALSE, xunit = c("samples", "time"), ...)
 
 sine(freq, duration = samp.rate, from = 0, samp.rate = 44100, 
-        bit = 1, stereo = FALSE, xunit = c("samples", "time"), ...)
+     bit = 1, stereo = FALSE, xunit = c("samples", "time"), ...)
 
 square(freq, duration = samp.rate, from = 0, samp.rate = 44100, 
-        bit = 1, stereo = FALSE, xunit = c("samples", "time"), 
-        up = 0.5, ...)
+       bit = 1, stereo = FALSE, xunit = c("samples", "time"), 
+       up = 0.5, ...)
 }
 \arguments{
   \item{kind}{The kind of noise, \dQuote{white}, \dQuote{pink}, \dQuote{power}, or \dQuote{red}
@@ -59,6 +64,10 @@ square(freq, duration = samp.rate, from = 0, samp.rate = 44100,
   \item{reverse}{Logical, if \code{TRUE}, the waveform will be mirrored vertically.}
   \item{up}{A number between 0 and 1 giving the percentage of the waveform at max value 
     (= 1 - percentage of min value).}
+  \item{width}{Relative pulses width: the proportion of time the amplitude is non-zero.}
+  \item{plateau}{Relative plateau width: the proportion of the pulse width where amplitude is \enc{±}{+/-}1.}
+  \item{interval}{Relative interval between the up-going and down-going pulses with respect to the center of the wave
+    period (0: immediatly after up-going, 1: center of the wave period).}
   \item{...}{Further arguments to be passed to \code{\link{Wave}} through the internal function \code{postWaveform}.}
 }
 \value{
@@ -69,13 +78,15 @@ J. Timmer and M. \enc{König}{Koenig} (1995): On generating power law noise. Astr
 }
 \author{Uwe Ligges \email{ligges@statistik.tu-dortmund.de},
     partly based on code from Matthias Heymann's former package \sQuote{sound},
-    Anita Thieler}
+    Anita Thieler, Guillaume \enc{Guénard}{Guenard}}
 \seealso{\link{Wave-class}, \code{\link{Wave}}, \code{\link{normalize}}, \code{\link{noSilence}}}
 \examples{
 Wobj <- sine(440, duration = 1000)
 Wobj2 <- noise(duration = 1000)
+Wobj3 <- pulse(220, duration = 1000)
 plot(Wobj)
 plot(Wobj2)
+plot(Wobj3)
 }
 \keyword{datagen}
 \concept{Wave}

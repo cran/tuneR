@@ -1,12 +1,12 @@
-11a7b9d152dc47ea8f24b527ad3094fe *DESCRIPTION
-d921c0db734f7065774cdcb1fbff413b *NAMESPACE
+d6ee51dba364d93dc4c527e1388c3d4f *DESCRIPTION
+f914616fcccbab45d15b1287513f7169 *NAMESPACE
 45b223e91054cfb57891222acf4fcfbd *R/FFrq.R
 5f34167ad2d3e0bf1ba9bcf37aadd0f6 *R/MCnames.R
 0f2209f3513c605aaa5daefae0ece2e7 *R/MFCC.R
 0231688d088d6bf52e595c81443cffd2 *R/WavPlayer.R
 6f642ebfb09c2a69898238e462c79a3d *R/Wave.R
 e87e2009a013cae5a1a57ef68ad84576 *R/WaveArith.R
-75851a2df3a83680eca7b5358f4e741c *R/Waveforms.R
+e6ceb8dd5842b1ef30924973d13579f0 *R/Waveforms.R
 531e77844b020095e3933ac16ef901bb *R/Wspec.R
 b17f3631a89d79393b130882a7353840 *R/audspec.R
 50cfc97866050bdca95f22adc5bbb0ff *R/bark2hz.R
@@ -44,7 +44,7 @@ b75ad8957ff9ddcf7668dd304b44314f *R/prepComb.R
 cb23a3bdd5beda4e76854246e2ba7735 *R/quantize.R
 9b37a65acce668308069bf29d62f81ae *R/quantplot.R
 09f8c92fefc09bb6b85248766c7c0784 *R/readMP3.R
-2ac0699ff5b8bbbdde17055661db6fb4 *R/readWave.R
+086d0ce2cfee6bd5044e4b300ec4a76b *R/readWave.R
 786ae196b9f2a6739fd6e63996566fa6 *R/smooth.R
 7e590a57eade30bfdd8c1911045f0d47 *R/spec2cep.R
 92220e404563c4f9c18c85397a477c91 *R/stereo.R
@@ -63,7 +63,7 @@ b050c0bc15189829335ba365b10453f6 *man/Wave.Rd
 900dd5cab80329303fcfa238fbdf8aba *man/WaveMC-class.Rd
 e645d97c826792be203d8ac9d7bf27e5 *man/WaveMC.Rd
 0569671a9fbf7882b8f856a0c4792010 *man/Waveforms-internal.Rd
-13b1a59149f371916c32572d7086c364 *man/Waveforms.Rd
+a7e4c0d319295d63e642da4367e30a6e *man/Waveforms.Rd
 2ce2add678eb1f6953b4b4f54af3c368 *man/Wspec.Rd
 654c7303ecd794a3a7eee7eb78f0d86e *man/WspecMat.Rd
 5dab74775601e139ee5ce47e35661e0c *man/audspec.Rd
@@ -126,6 +126,8 @@ ffb6131c642f256c4ecbfba8492304f7 *src/decoder.h
 d865c8eb69bc79d0b48076e10c85a77e *src/layer12.h
 35872f2f1e27cf92da5b7f63ab2a00ff *src/layer3.c
 2dc89aecfb50193434cb65b7ca0257ee *src/layer3.h
+edcd155089fe8f7dfbb2b7559fece9dd *src/pulse.c
+cb1e6c71c20ae8a13624efa7fcf0f5a0 *src/pulse.h
 42fab3257ba9a18a953415b1e9e76a16 *src/qc_table.h
 9b0eefa55693abb525366a7600d2082e *src/readmp3.c
 b6a615c01660b1c2ab1f42d6d3098d85 *src/rq_table.h
@@ -163,5 +165,5 @@ d3e1d4af8515fb158c8eae1ed62b1a2b *tests/Testfiles/8bit_PCM_stereo.wav
 8c182d229deac523c5b381ba47a352d0 *tests/Testfiles/8bit_PCM_stereo_ex.wav
 82084121d88c0311d354b660b6ba6f2a *tests/readWaveTest.R
 47f0b3497ab19797c3f8c3128559900c *tests/readWaveTest.Rout.save
-2c9c84a3d41126835b8027f6577ff729 *tests/tuneRTest.R
-524adbe0b706c99160a3f2912ed45daf *tests/tuneRTest.Rout.save
+549951b3eb1f5827b2f32b5975ad62ee *tests/tuneRTest.R
+b35ed2528b5f69f4886a0970a9dad699 *tests/tuneRTest.Rout.save
