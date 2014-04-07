@@ -1,4 +1,4 @@
-d6ee51dba364d93dc4c527e1388c3d4f *DESCRIPTION
+59cfd189d18e69fbeb7e9f5efce39533 *DESCRIPTION
 f914616fcccbab45d15b1287513f7169 *NAMESPACE
 45b223e91054cfb57891222acf4fcfbd *R/FFrq.R
 5f34167ad2d3e0bf1ba9bcf37aadd0f6 *R/MCnames.R
@@ -44,13 +44,13 @@ b75ad8957ff9ddcf7668dd304b44314f *R/prepComb.R
 cb23a3bdd5beda4e76854246e2ba7735 *R/quantize.R
 9b37a65acce668308069bf29d62f81ae *R/quantplot.R
 09f8c92fefc09bb6b85248766c7c0784 *R/readMP3.R
-086d0ce2cfee6bd5044e4b300ec4a76b *R/readWave.R
+c2f1f44c615bff71883b6b861db5e5cb *R/readWave.R
 786ae196b9f2a6739fd6e63996566fa6 *R/smooth.R
 7e590a57eade30bfdd8c1911045f0d47 *R/spec2cep.R
 92220e404563c4f9c18c85397a477c91 *R/stereo.R
 c1beb35b47465e81cd26cd0290a8c6b0 *R/writeWave.R
 82d245dbb11d0efa4ec9596b7372bea2 *R/zzz.R
-e1bd87aa044de995a23922c9d4b79e5b *inst/CITATION
+063d7cd1584fae31d757d08e0b0e75be *inst/CITATION
 b2e695c38ffc2066499260caaa0539a2 *man/Extractor.Rd
 b3eca47e3e1a8a9215f66af7f64a8862 *man/FF.Rd
 18faa80113eb2daa18e0a64243fd146d *man/MCnames.Rd
@@ -99,7 +99,7 @@ bc74aaec72fe004ed6b551449fe5e910 *man/prepComb.Rd
 33a917d184fe1c9fc9677023b3f8a611 *man/quantize.Rd
 3080d89907d1ac2b2767a7a73f58d17b *man/quantplot.Rd
 4e86f963dc6f9122d2b40c38b0b5eb9b *man/readMP3.Rd
-81416fa04fa2ab60a8dd86f61211a0b5 *man/readWave.Rd
+ab6b3c2b36b3b3430b231bb3fb0d4419 *man/readWave.Rd
 594c975fa4f2e5f5d2a0c6fbd24f4627 *man/show.Rd
 66c28d3074e9a91272e36feba2ab8775 *man/smoother.Rd
 e145fcb49c3fcabf8b59a675a48c3507 *man/spec2cep.Rd

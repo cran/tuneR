@@ -21,6 +21,8 @@ readWave(filename, from = 1, to = Inf,
 \value{
     An object of class \code{\link{Wave}}  or \code{\link{WaveMC}} 
         or a list containing just the header information if \code{header = TRUE}.
+        If the latter, some experimental support for reading \code{bext} chunks in 
+        Broadcast Wave Format files is implemented, and the content is returned as an unprocessed string (character).
 }
 \author{Uwe Ligges \email{ligges@statistik.tu-dortmund.de}, Sarah Schnackenberg}
 \seealso{\link{Wave-class}, \code{\link{Wave}}, \link{WaveMC-class}, \code{\link{WaveMC}},  \code{\link{writeWave}}}
