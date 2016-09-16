@@ -55,21 +55,24 @@ function(filename, from = 1, to = Inf,
     bits <- readBin(con, int, n = 1, size = 2, endian = "little")
     if(!(bits %in% c(8, 16, 24, 32, 64)))
         stop("Only 8-, 16-, 24-, 32- or 64-bit Wave formats supported")
-    ## non-PCM (chunk size 18 or 40) 
-    if(fmt.length >= 18)    
+    ## non-PCM (chunk size 18 or 40)
+    
+    if(fmt.length >= 18){    
         cbSize <- readBin(con, int, n = 1, size = 2, endian = "little")
     ## chunk size 40 (extension 22)
-    if(exists("cbSize") && cbSize == 22 && fmt.length == 40){
-        validBits <- readBin(con, int, n = 1, size = 2, endian = "little")
-        dwChannelMask <- readBin(con, int, n = 1, size = 4, endian = "little")    
-        channelNames <- MCnames[as.logical(intToBits(dwChannelMask)),"name"]
-        SubFormat <- readBin(con, int, n = 1, size = 2, endian = "little", signed = FALSE)
-        x <- readBin(con, "raw", n=14)
-    }
+        if(cbSize == 22 && fmt.length == 40){
+            validBits <- readBin(con, int, n = 1, size = 2, endian = "little")
+            dwChannelMask <- readBin(con, int, n = 1, size = 4, endian = "little")    
+            channelNames <- MCnames[as.logical(intToBits(dwChannelMask)),"name"]
+            SubFormat <- readBin(con, int, n = 1, size = 2, endian = "little", signed = FALSE)
+            x <- readBin(con, "raw", n=14)
+        } else {
+            if(cbSize > 0) 
+                seek(con, where = fmt.length-18, origin = "current")
+        }   
+    }    
     if(exists("SubFormat") && !(SubFormat %in% c(0, 1, 3)))
         stop("Only uncompressed PCM and IEEE_FLOAT Wave formats supported")
-    #if(fmt.length > 26)
-    #    seek(con, where = fmt.length - 26, origin = "current")
     
     ## fact chunk
 #    if((pcm %in% c(0, 3)) || (pcm = 65534 && SubFormat %in% c(0, 3))) {
@@ -77,17 +80,19 @@ function(filename, from = 1, to = Inf,
 #      fact.length <- readBin(con, int, n = 1, size = 4, endian = "little")
 #      dwSampleLength <- readBin(con, int, n = 1, size = 4, endian = "little")
 #    }
-    
+
     DATA <- readChar(con, 4)
     ## waiting for the data chunk    
     i <- 0    
-    while(DATA != "data"){
+    while(length(DATA) && DATA != "data"){
         i <- i+1
         belength <- readBin(con, int, n = 1, size = 4, endian = "little")
         seek(con, where = belength, origin = "current")
         DATA <- readChar(con, 4)
         if(i > 5) stop("There seems to be no 'data' chunk in this Wave (?) file.")
     }
+    if(!length(DATA)) 
+        stop("No data chunk found")
     data.length <- readBin(con, int, n = 1, size = 4, endian = "little")
     bytes <- bits/8
     if(((sample.rate * block.align) != bytes.second) || 

@@ -96,6 +96,7 @@ SEXP do_read_mp3(SEXP s_blob) {
   state.input = blob;
   state.input_size = n_blob;
   state.output_size = 0;
+  state.output_pos = 0;	
   mad_decoder_init(&decoder, &state, 
            mad_input_cb, mad_header_cb, NULL,
            NULL, NULL, NULL);

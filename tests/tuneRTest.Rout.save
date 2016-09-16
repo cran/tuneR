@@ -16,8 +16,6 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 Type 'q()' to quit R.
 
 > library("tuneR")
-tuneR >= 1.0 has changed its Wave class definition.
-Use updateWave(object) to convert Wave objects saved with previous versions of tuneR.
 > library("tools")
 > 
 > x1 <- sine(660, pcm=TRUE, bit=8, duration=500)

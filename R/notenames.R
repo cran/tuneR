@@ -6,17 +6,21 @@ notenames <- function(notes, language = c("english", "german")){
     
     ## How is the note called?
     name <- switch(language,
-        english = c("C",  "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B",
-            unlist(lapply(c("", "'", "''", "'''", "''''"), 
+        english = c(
+            unlist(lapply(c(",,,", ",,", ",", ""),
+                function(x) paste(c("C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"), x, sep=""))),
+            unlist(lapply(c("", "'", "''", "'''", "''''", "'''''", "''''''"), 
                 function(x) paste(c("c", "c#", "d", "d#", "e", "f", "f#", "g", "g#", "a", "a#", "b"), x, sep="")))),
-        german = c("C",  "Cis", "D", "Dis", "E", "F", "Fis", "G", "Gis", "A", "Ais", "H",
-            unlist(lapply(c("", "'", "''", "'''", "''''"), 
+        german = c(
+            unlist(lapply(c(",,,", ",,", ",", ""),
+                function(x) paste(c("C",  "Cis", "D", "Dis", "E", "F", "Fis", "G", "Gis", "A", "Ais", "H"), x, sep=""))),
+            unlist(lapply(c("", "'", "''", "'''", "''''", "'''''", "''''''"), 
                 function(x) paste(c("c", "cis", "d", "dis", "e", "f", "fis", "g", "gis", "a", "ais", "h"), x, sep="")))),
         stop("currently only notenames in english and german are implemented")
     )
-    ## Now we know notes between -33 and 38:
-    low <- -33 - rg[1]
-    high <- rg[2] - 38
+    ## Now we know notes between -69 and 62 (more than the midi range):
+    low <- -69 - rg[1]
+    high <- rg[2] - 62
 
     ## cutting off below and above:
     if(low < 0) name <- name[(-1):low]

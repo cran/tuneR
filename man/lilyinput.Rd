@@ -17,7 +17,7 @@ lilyinput(X, file = "Rsong.ly", Major = TRUE, key = "c",
     \itemize{
         \item \code{note}: Integer - the notes' pitch in halftones from diapason (a),
             i.e. 0 for diapason a, 3 for c', ...
-        \item \code{length}: Integer - denominator of lengths of the notes, e.g. 8 for a quaver.
+        \item \code{duration}: Integer - denominator of lengths of the notes, e.g. 8 for a quaver.
         \item \code{punctate}: Logical - whether to punctate a note.
         \item \code{slur}: Logical - \code{TRUE} indicates to start a slur, or to end it.
             That means that the first, third, ... occurences of \code{TRUE} start slurps,

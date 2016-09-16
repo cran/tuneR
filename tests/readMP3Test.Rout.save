@@ -1,0 +1,60 @@
+
+R version 3.3.1 (2016-06-21) -- "Bug in Your Hair"
+Copyright (C) 2016 The R Foundation for Statistical Computing
+Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library("tuneR")
+> d <- list.files("Testfiles", pattern="\\.mp3$")
+> garbage <- lapply(d, 
++     function(x) {
++         wav <- readMP3(file.path("Testfiles", x))
++         cat(x, "\n")
++         print(wav)
++         if(is(wav, "Wave")){
++             print(rev(wav@left)[1:10])
++             if(wav@stereo)
++                 print(rev(wav@right)[1:10])
++         } else {
++             print(wav@.Data[1:10,])
++         }
++     }
++ )
+mp3_mono_170kBit.mp3 
+
+Wave Object
+	Number of Samples:      3456
+	Duration (seconds):     0.08
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Mono
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    16 
+
+ [1]  -9509 -11462 -13372 -15229 -17025 -18755 -20410 -21984 -23473 -24868
+mp3_stereo_298kBit.mp3 
+
+Wave Object
+	Number of Samples:      3456
+	Duration (seconds):     0.08
+	Samplingrate (Hertz):   44100
+	Channels (Mono/Stereo): Stereo
+	PCM (integer format):   TRUE
+	Bit (8/16/24/32/64):    16 
+
+ [1]  -9509 -11462 -13372 -15229 -17025 -18755 -20410 -21984 -23473 -24868
+ [1]  -4817  -5835  -6848  -7853  -8852  -9841 -10820 -11788 -12745 -13691
+> 
+> proc.time()
+   user  system elapsed 
+   0.43    0.03    0.46 

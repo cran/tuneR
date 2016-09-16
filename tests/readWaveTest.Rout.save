@@ -16,8 +16,6 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 Type 'q()' to quit R.
 
 > library("tuneR")
-tuneR >= 1.0 has changed its Wave class definition.
-Use updateWave(object) to convert Wave objects saved with previous versions of tuneR.
 > d <- list.files("Testfiles", pattern="\\.wav$")
 > garbage <- lapply(d, 
 +     function(x) {
