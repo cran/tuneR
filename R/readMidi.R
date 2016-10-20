@@ -69,38 +69,41 @@ readMTrkEvent <- function(con, lastEventChannel = NA){
             "7f" = "Sequencer Specific",
                    "Meta")
 
-    if(type > "00" && type < "10")
-        eventData <- readChar(con, elength[1])
-    else
-        eventData <- paste(as.character(switch(type,
-            "00" = readBin(con, integer(0), n = 1, size = elength[1], endian = "big"),
-            "20" = readBin(con, integer(0), n = 1, size = elength[1], endian = "big"),
-            "21" = readBin(con, integer(0), n = 1, size = elength[1], endian = "big"),
-            "51" = as.vector(readBin(con, integer(0), n = 3, size = 1, endian = "big") %*% c(256^2, 256, 1)),
-            "58" = {temp <- readBin(con, integer(0), n = 4, size = 1, endian = "big") 
-                    paste0(temp[1], "/", 2^temp[2], ", ", temp[3], " clocks/tick, ", temp[4], " 1/32 notes / 24 clocks")
-                   },
-            "59" = {sharpflat <- readBin(con, integer(0), n = 1, size = 1, endian = "big")
-                    majorminor <- readBin(con, integer(0), n = 1, size = 1, endian = "big")
-                    ma <- paste(c("B (H)", "Gb", "Db", "Ab", "Eb", "Bb", "F", "C", "G", "D", "A", "E", "B (H)", "F#", "C#"), "major")
-                    mi <- paste(c("Ab","Eb", "Bb", "F",  "C",  "G",  "D", "A", "E", "B (H)", "F#","C#","G#","D#", "A#"), "minor")
-                    if(majorminor == 1) mi[sharpflat+8] else ma[sharpflat+8]
-                   },
-                   readBin(con, raw(0), n = elength[1])
-        )), collapse=" x ")
+        if(type > "00" && type < "10")
+            eventData <- readChar(con, elength[1])
+        else
+            eventData <- paste(as.character(switch(type,
+                "00" = readBin(con, integer(0), n = 1, size = elength[1], endian = "big"),
+                "20" = readBin(con, integer(0), n = 1, size = elength[1], endian = "big"),
+                "21" = readBin(con, integer(0), n = 1, size = elength[1], endian = "big"),
+                "51" = as.vector(readBin(con, integer(0), n = 3, size = 1, endian = "big") %*% c(256^2, 256, 1)),
+                "58" = {temp <- readBin(con, integer(0), n = 4, size = 1, endian = "big") 
+                        paste0(temp[1], "/", 2^temp[2], ", ", temp[3], " clocks/tick, ", temp[4], " 1/32 notes / 24 clocks")
+                       },
+                "59" = {sharpflat <- readBin(con, integer(0), n = 1, size = 1, endian = "big")
+                        majorminor <- readBin(con, integer(0), n = 1, size = 1, endian = "big")
+                        ma <- paste(c("B (H)", "Gb", "Db", "Ab", "Eb", "Bb", "F", "C", "G", "D", "A", "E", "B (H)", "F#", "C#"), "major")
+                        mi <- paste(c("Ab","Eb", "Bb", "F",  "C",  "G",  "D", "A", "E", "B (H)", "F#","C#","G#","D#", "A#"), "minor")
+                        if(majorminor == 1) mi[sharpflat+8] else ma[sharpflat+8]
+                       },
+                       readBin(con, raw(0), n = elength[1])
+            )), collapse=" x ")
 
-        return(list(deltatime=DT, event=eventName, type=type, channel = NA, parameter1=NA, parameter2=NA, parameterMetaSystem=eventData, bytes=2+sum(elength)+DTtemp[2]-backseeked, EventChannel=EventChannel))
+        return(list(deltatime=DT, event=eventName, type=type, channel = NA, parameter1=NA, parameter2=NA, 
+                    parameterMetaSystem=eventData, bytes=2+sum(elength)+DTtemp[2]-backseeked, EventChannel=EventChannel))
     }
     if(event == "f"){
         eventName <- "System"
         elength <- readVarLength(con)
         seek(con, where = elength[1], origin = "current")
-        return(list(deltatime=DT, event=eventName, type=NA, channel = NA, parameter1=NA, parameter2=NA, parameterMetaSystem=NA, bytes=1+sum(elength)+DTtemp[2]-backseeked, EventChannel=EventChannel))
+        return(list(deltatime=DT, event=eventName, type=NA, channel = NA, parameter1=NA, parameter2=NA, 
+                    parameterMetaSystem=NA, bytes=1+sum(elength)+DTtemp[2]-backseeked, EventChannel=EventChannel))
     }
     channel <- as.numeric(rawShift(EventChannel, 4)) / 2^4
     parameter1 <- readBin(con, integer(0), n = 1, size = 1, signed = FALSE, endian = "big")
     parameter2 <- if(event %in% c("c", "d")) NA else readBin(con, integer(0), n = 1, size = 1, signed = FALSE, endian = "big")    
-    return(list(deltatime=DT, event=eventName, type=NA, channel = channel, parameter1=parameter1, parameter2=parameter2, parameterMetaSystem=NA, bytes=2+DTtemp[2]+ !(event %in% c("c", "d"))-backseeked, EventChannel=EventChannel))
+    return(list(deltatime=DT, event=eventName, type=NA, channel = channel, parameter1=parameter1, parameter2=parameter2, 
+                parameterMetaSystem=NA, bytes=2+DTtemp[2]+ !(event %in% c("c", "d"))-backseeked, EventChannel=EventChannel))
 }
 
 readMidi <- function(file){

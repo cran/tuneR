@@ -20,9 +20,19 @@ function(filename, from = 1, to = Inf,
     RIFF <- readChar(con, 4)
     file.length <- readBin(con, int, n = 1, size = 4, endian = "little")
     WAVE <- readChar(con, 4)
-    if (!(RIFF == "RIFF" && WAVE == "WAVE"))
-        warning("Looks like '", filename, "' is not a valid wave file.")
-   
+
+    ## waiting for the WAVE part
+    i <- 0
+    while(!(RIFF == "RIFF" && WAVE == "WAVE")){
+        i <- i+1
+        seek(con, where = file.length - 4, origin = "current")
+        RIFF <- readChar(con, 4)
+        file.length <- readBin(con, int, n = 1, size = 4, endian = "little")
+        WAVE <- readChar(con, 4)
+        if(i > 5) stop("This seems not to be a valid RIFF file of type WAVE.")
+    }
+    
+       
     FMT <- readChar(con, 4)    
     bext <- NULL
     ## extract possible bext information, if header = TRUE
