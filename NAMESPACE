@@ -1,4 +1,4 @@
-useDynLib(tuneR)
+useDynLib(tuneR, .registration = TRUE, .fixes = "C_")
 importFrom(graphics, plot, image)
 importFrom(signal, hamming, hanning, levinson, specgram)
 import("stats","methods")

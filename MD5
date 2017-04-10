@@ -1,12 +1,12 @@
-1be65a9dc121c2da3a5a0167ca2b34b3 *DESCRIPTION
-de2665a7a65c7e5e4a2591e139927484 *NAMESPACE
+4f00558c83f4a24c865fab2096fa758e *DESCRIPTION
+00df92c20bd654006756251c8a77856e *NAMESPACE
 45b223e91054cfb57891222acf4fcfbd *R/FFrq.R
 5f34167ad2d3e0bf1ba9bcf37aadd0f6 *R/MCnames.R
 0f2209f3513c605aaa5daefae0ece2e7 *R/MFCC.R
 0231688d088d6bf52e595c81443cffd2 *R/WavPlayer.R
 6f642ebfb09c2a69898238e462c79a3d *R/Wave.R
 e87e2009a013cae5a1a57ef68ad84576 *R/WaveArith.R
-e6ceb8dd5842b1ef30924973d13579f0 *R/Waveforms.R
+e7ec6bfd634a971db3c6857f7e60b30b *R/Waveforms.R
 531e77844b020095e3933ac16ef901bb *R/Wspec.R
 b17f3631a89d79393b130882a7353840 *R/audspec.R
 50cfc97866050bdca95f22adc5bbb0ff *R/bark2hz.R
@@ -44,7 +44,7 @@ ba2afd57490ad642776a2996fd28347b *R/plot-Wave.R
 b75ad8957ff9ddcf7668dd304b44314f *R/prepComb.R
 cb23a3bdd5beda4e76854246e2ba7735 *R/quantize.R
 9b37a65acce668308069bf29d62f81ae *R/quantplot.R
-09f8c92fefc09bb6b85248766c7c0784 *R/readMP3.R
+31a04aa879b4115e12142dd019ebf5e0 *R/readMP3.R
 d9e125763ce144d765fdb7ed040c320d *R/readMidi.R
 8fa7abdbb776a2878f769f3fce86cfc8 *R/readWave.R
 52f5b443d451c90eb7d3ed0e1d760c72 *R/smooth.R
@@ -126,6 +126,7 @@ ffb6131c642f256c4ecbfba8492304f7 *src/decoder.h
 90403d7067b600771f7cadd052d336da *src/huffman.c
 0b9cf9af921a8184ed88d01f8ee7a730 *src/huffman.h
 5679bc09756d8eaf11ff69f61e88b5a7 *src/imdct_s.h
+27d273c468e8ac4c080877984dea3cd9 *src/init.c
 5baace7dd93bc2009c0192049b351694 *src/layer12.c
 d865c8eb69bc79d0b48076e10c85a77e *src/layer12.h
 35872f2f1e27cf92da5b7f63ab2a00ff *src/layer3.c
@@ -133,7 +134,7 @@ d865c8eb69bc79d0b48076e10c85a77e *src/layer12.h
 edcd155089fe8f7dfbb2b7559fece9dd *src/pulse.c
 cb1e6c71c20ae8a13624efa7fcf0f5a0 *src/pulse.h
 42fab3257ba9a18a953415b1e9e76a16 *src/qc_table.h
-e24d1b2f3cd3f606a89796caa4b67a4c *src/readmp3.c
+bc8fb5583d9fd5a2b326dc825dbf3f90 *src/readmp3.c
 b6a615c01660b1c2ab1f42d6d3098d85 *src/rq_table.h
 d5588c85e78ba5083a5878f0c7765fc7 *src/sexp_macros.h
 fafbd99f5b999d5af14540f634d2777e *src/sf_table.h

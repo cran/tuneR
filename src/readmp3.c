@@ -87,7 +87,7 @@ SEXP do_read_mp3(SEXP s_blob) {
   state_t state;
   mad_decoder_t decoder;
   int result;
-  SEXP s_res;
+  SEXP s_res, lslot, rslot; 
 
   /* Unpack argument */
   UNPACK_RAW_VECTOR(s_blob, blob, n_blob);
@@ -110,10 +110,12 @@ SEXP do_read_mp3(SEXP s_blob) {
   *REAL(GET_SLOT(s_res, install("samp.rate"))) = state.sample_rate;
   *REAL(GET_SLOT(s_res, install("bit"))) = 16;
   *LOGICAL(GET_SLOT(s_res, install("stereo"))) = state.output_channels == 2;
-  SET_SLOT(s_res, install("left"), allocVector(INTSXP, state.output_size));
+  lslot = PROTECT(allocVector(INTSXP, state.output_size));
+  rslot = PROTECT(allocVector(INTSXP, state.output_size));
+  SET_SLOT(s_res, install("left"), lslot);
   state.left_output = INTEGER(GET_SLOT(s_res, install("left")));
   if (state.output_channels == 2) {
-      SET_SLOT(s_res, install("right"), allocVector(INTSXP, state.output_size));
+      SET_SLOT(s_res, install("right"), rslot);
       state.right_output = INTEGER(GET_SLOT(s_res, install("right")));
   }
 
@@ -129,7 +131,7 @@ SEXP do_read_mp3(SEXP s_blob) {
   result = mad_decoder_run(&decoder, MAD_DECODER_MODE_SYNC);
   mad_decoder_finish(&decoder);
   /* Unprotect memory */
-  UNPROTECT(1); /* s_res */
+  UNPROTECT(3); /* s_res */
 
   if (0 != result)
       error("MAD decoder error. Your MP3 is likely corrupt.");

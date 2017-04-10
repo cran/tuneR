@@ -15,5 +15,5 @@ readMP3 <- function(filename){
     on.exit(close(con)) # be careful ...
 
     data <- readBin(con, raw(), n = file.info(filename)$size)
-    .Call("do_read_mp3", data, package = "tuneR")
+    .Call(C_do_read_mp3, data)
 }

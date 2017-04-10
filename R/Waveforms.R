@@ -127,7 +127,7 @@ pulse <- function(freq, duration = samp.rate, from = 0, samp.rate = 44100, bit =
     durFrom <- preWaveform(freq = freq, duration = duration, from = from,
                            xunit = xunit, samp.rate = samp.rate)
     x <- freq * (durFrom["from"]:(sum(durFrom)-1)) / samp.rate
-    channel <- .C("pulsewav", as.integer(length(x)),
+    channel <- .C(C_pulsewav, as.integer(length(x)),
                   as.double(width), as.double(interval), as.double(plateau),
                   as.double(x), y = double(length(x)))$y
     postWaveform(channel = channel, samp.rate = samp.rate,
