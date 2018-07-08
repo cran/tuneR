@@ -1,6 +1,10 @@
 readWave <- 
 function(filename, from = 1, to = Inf, 
     units = c("samples", "seconds", "minutes", "hours"), header = FALSE, toWaveMC = NULL){
+
+    read4ByteUnsignedInt <- function(){
+        as.vector(readBin(con, int, n = 4, size = 1, endian = "little", signed = FALSE) %*% 2^c(0, 8, 16, 24))
+    }
         
     if(!is.character(filename))
         stop("'filename' must be of type character.")
@@ -18,7 +22,7 @@ function(filename, from = 1, to = Inf,
     
     ## Reading in the header:
     RIFF <- readChar(con, 4)
-    file.length <- readBin(con, int, n = 1, size = 4, endian = "little")
+    file.length <- read4ByteUnsignedInt()
     WAVE <- readChar(con, 4)
 
     ## waiting for the WAVE part
@@ -27,7 +31,7 @@ function(filename, from = 1, to = Inf,
         i <- i+1
         seek(con, where = file.length - 4, origin = "current")
         RIFF <- readChar(con, 4)
-        file.length <- readBin(con, int, n = 1, size = 4, endian = "little")
+        file.length <- read4ByteUnsignedInt()
         WAVE <- readChar(con, 4)
         if(i > 5) stop("This seems not to be a valid RIFF file of type WAVE.")
     }
@@ -37,7 +41,7 @@ function(filename, from = 1, to = Inf,
     bext <- NULL
     ## extract possible bext information, if header = TRUE
     if (header && (tolower(FMT) == "bext")){
-        bext.length <- readBin(con, int, n = 1, size = 4, endian = "little")
+        bext.length <- read4ByteUnsignedInt()
         bext <- sapply(seq(bext.length), function(x) readChar(con, 1, useBytes=TRUE))
         bext[bext==""] <- " "
         bext <- paste(bext, collapse="")
@@ -48,12 +52,12 @@ function(filename, from = 1, to = Inf,
     i <- 0
     while(FMT != "fmt "){
         i <- i+1
-        belength <- readBin(con, int, n = 1, size = 4, endian = "little")
+        belength <- read4ByteUnsignedInt()
         seek(con, where = belength, origin = "current")
         FMT <- readChar(con, 4)
         if(i > 5) stop("There seems to be no 'fmt ' chunk in this Wave (?) file.")
     }
-    fmt.length <- readBin(con, int, n = 1, size = 4, endian = "little")
+    fmt.length <- read4ByteUnsignedInt()
     pcm <- readBin(con, int, n = 1, size = 2, endian = "little", signed = FALSE)
     ## FormatTag: only WAVE_FORMAT_PCM (0,1), WAVE_FORMAT_IEEE_FLOAT (3), WAVE_FORMAT_EXTENSIBLE (65534, determined by SubFormat)
     if(!(pcm %in% c(0, 1, 3, 65534)))
@@ -96,14 +100,14 @@ function(filename, from = 1, to = Inf,
     i <- 0    
     while(length(DATA) && DATA != "data"){
         i <- i+1
-        belength <- readBin(con, int, n = 1, size = 4, endian = "little")
+        belength <- read4ByteUnsignedInt()
         seek(con, where = belength, origin = "current")
         DATA <- readChar(con, 4)
         if(i > 5) stop("There seems to be no 'data' chunk in this Wave (?) file.")
     }
     if(!length(DATA)) 
         stop("No data chunk found")
-    data.length <- readBin(con, int, n = 1, size = 4, endian = "little")
+    data.length <- read4ByteUnsignedInt()
     bytes <- bits/8
     if(((sample.rate * block.align) != bytes.second) || 
         ((channels * bytes) != block.align))

@@ -1,3 +1,22 @@
+write_4byte_unsigned_int <- function(x, con){
+    if((!is.numeric(x) || is.na(x)) || (x < 0 || x > (2^32-1))) 
+        stop("the field length must be a 4 byte unsigned integer in [0, 2^32-1], i.e. file size < 4 GB")
+    big <- x %/% 256^2
+    small <- x %% 256^2
+    writeBin(as.integer(c(small, big)), con, size = 2, endian = "little")
+}
+
+write_longvector <- function(x, ..., bytes){
+    if(bytes > (2^31-1)){
+        index <- 1:floor(length(x)/2)
+        writeBin(x[index], ...)
+        writeBin(x[-index], ...)        
+    }
+    else writeBin(x, ...)
+}
+
+
+
 writeWave <- 
 function(object, filename, extensible = TRUE) {
     if(!is(object, "WaveGeneral")) 
@@ -18,7 +37,7 @@ function(object, filename, extensible = TRUE) {
         object <- object[,order(cnamesnum)]
     dwChannelMask <- sum(2^(cnamesnum - 1))  ##
 
-    l <- length(object)
+    l <- as.numeric(length(object)) # can be an int > 2^31
     sample.data <- t(object@.Data)
     dim(sample.data) <- NULL
     
@@ -50,11 +69,16 @@ function(object, filename, extensible = TRUE) {
     channels <- ncol(object)
     block.align <- channels * byte
     bytes <- l * byte * channels
-            
+
+    if((!is.numeric(bytes) || is.na(bytes)) || (bytes < 0 || (round(bytes + if(extensible) 72 else 36) + 4) > (2^32-1)))
+        stop(paste("File size in bytes is", round(bytes + if(extensible) 72 else 36) + 4, "but must be a 4 byte unsigned integer in [0, 2^32-1], i.e. file size < 4 GB"))
+
     ## Writing the header:
     # RIFF
     writeChar("RIFF", con, 4, eos = NULL) 
-    writeBin(as.integer(bytes + if(extensible) 72 else 36), con, size = 4, endian = "little") # cksize RIFF
+    write_4byte_unsigned_int(round(bytes + if(extensible) 72 else 36), con) # cksize RIFF
+    
+    
     # WAVE
     writeChar("WAVE", con, 4, eos = NULL)
     # fmt chunk
@@ -88,7 +112,7 @@ function(object, filename, extensible = TRUE) {
     }
     # data
     writeChar("data", con, 4, eos = NULL)
-    writeBin(as.integer(bytes), con, size = 4, endian = "little")
+    write_4byte_unsigned_int(round(bytes), con)
 
     # Write data:
     # PCM format
@@ -99,12 +123,12 @@ function(object, filename, extensible = TRUE) {
           sample.data <- sample.data %/% 256^2
           a2 <- temp %/% 256
           temp <- temp %%  256
-          writeBin(as.integer(rbind(temp, a2, sample.data)), con, size = 1, endian = "little")
+          write_longvector(as.integer(rbind(temp, a2, sample.data)), con, size = 1, endian = "little", bytes=bytes)
       } else {
-          writeBin(as.integer(sample.data), con, size = byte, endian = "little")
+          write_longvector(as.integer(sample.data), con, size = byte, endian = "little", bytes=bytes)
       }
     } else {
-      writeBin(as.numeric(sample.data), con, size = byte, endian = "little")
+      write_longvector(as.numeric(sample.data), con, size = byte, endian = "little", bytes=bytes)
     }
 
     invisible(NULL)

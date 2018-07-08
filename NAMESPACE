@@ -1,7 +1,7 @@
 useDynLib(tuneR, .registration = TRUE, .fixes = "C_")
 importFrom(graphics, plot, image)
 importFrom(signal, hamming, hanning, levinson, specgram)
-import("stats","methods")
+import("stats", "methods")
 importFrom("graphics", "abline", "axTicks", "axis", "locator", "mtext", "par", "segments", "title")
 importFrom("utils", "flush.console")
   

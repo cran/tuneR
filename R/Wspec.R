@@ -1,4 +1,4 @@
-require(methods)
+#require(methods)
 ##########
 # define class Wspec
 setClass("Wspec",

@@ -11,9 +11,10 @@
     \item{\code{name}}{abbreviated name for the channel}
   }
 }
-\source{Data derived from the technical documentation given at \url{http://www.microsoft.com/whdc/device/audio/multichaud.mspx}.}
-\references{Microsoft Corporation (2007): Multiple Channel Audio Data and WAVE Files, \url{http://www.microsoft.com/whdc/device/audio/multichaud.mspx}.}
+\source{Data derived from the technical documentation given at \url{https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/content/ksmedia/ns-ksmedia-waveformatextensible}.}
+\references{Microsoft Corporation (2018): WAVEFORMATEXTENSIBLE structure, \url{https://docs.microsoft.com/en-us/windows-hardware/drivers/ddi/content/ksmedia/ns-ksmedia-waveformatextensible}.}
 \examples{
 MCnames # the 18 predefined channels in a multi channel Wave file (WaveMC object)
 }
 \keyword{datasets}
+    

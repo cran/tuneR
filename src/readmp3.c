@@ -83,6 +83,13 @@ static enum mad_flow mad_output_cb(void *blob,
   return MAD_FLOW_CONTINUE;
 }
 
+SEXP NEW_OBJECT_OF_CLASS(const char* cls)
+{
+    SEXP ans = NEW_OBJECT(PROTECT(MAKE_CLASS(cls)));
+    UNPROTECT(1);
+    return ans;
+}
+
 SEXP do_read_mp3(SEXP s_blob) {
   state_t state;
   mad_decoder_t decoder;
@@ -106,7 +113,7 @@ SEXP do_read_mp3(SEXP s_blob) {
       error("MAD decoder error. Your MP3 is likely corrupt.");
 
   /* Allocate result matrix based on calculated number of samples */
-  PROTECT(s_res = NEW_OBJECT(MAKE_CLASS("Wave")));
+  PROTECT(s_res = NEW_OBJECT_OF_CLASS("Wave"));
   *REAL(GET_SLOT(s_res, install("samp.rate"))) = state.sample_rate;
   *REAL(GET_SLOT(s_res, install("bit"))) = 16;
   *LOGICAL(GET_SLOT(s_res, install("stereo"))) = state.output_channels == 2;

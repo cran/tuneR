@@ -1,6 +1,6 @@
 Package: tuneR
-Version: 1.3.2
-Date: 2017-04-07
+Version: 1.3.3
+Date: 2018-07-03
 Title: Analysis of Music and Speech
 Author: Uwe Ligges <ligges@statistik.tu-dortmund.de> with contributions
         from Sebastian Krey, Olaf Mersmann, Sarah Schnackenberg, Guillaume Guenard,
@@ -17,6 +17,6 @@ Description: Analyze music and speech, extract features like MFCCs, handle wave 
         Also contains functions ported from the 'rastamat' 'Matlab' package.
 License: GPL-2 | GPL-3
 NeedsCompilation: yes
-Packaged: 2017-04-10 15:29:28 UTC; ligges
+Packaged: 2018-07-07 22:40:03 UTC; ligges
 Repository: CRAN
-Date/Publication: 2017-04-10 21:50:52 UTC
+Date/Publication: 2018-07-08 04:20:03 UTC

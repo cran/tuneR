@@ -73,11 +73,11 @@ readMTrkEvent <- function(con, lastEventChannel = NA){
             eventData <- readChar(con, elength[1])
         else
             eventData <- paste(as.character(switch(type,
-                "00" = readBin(con, integer(0), n = 1, size = elength[1], endian = "big"),
-                "20" = readBin(con, integer(0), n = 1, size = elength[1], endian = "big"),
-                "21" = readBin(con, integer(0), n = 1, size = elength[1], endian = "big"),
-                "51" = as.vector(readBin(con, integer(0), n = 3, size = 1, endian = "big") %*% c(256^2, 256, 1)),
-                "58" = {temp <- readBin(con, integer(0), n = 4, size = 1, endian = "big") 
+                "00" = readBin(con, integer(0), n = 1, size = elength[1], endian = "big", signed = FALSE),
+                "20" = readBin(con, integer(0), n = 1, size = elength[1], endian = "big", signed = FALSE),
+                "21" = readBin(con, integer(0), n = 1, size = elength[1], endian = "big", signed = FALSE),
+                "51" = as.vector(readBin(con, integer(0), n = 3, size = 1, endian = "big", signed = FALSE) %*% c(256^2, 256, 1)),
+                "58" = {temp <- readBin(con, integer(0), n = 4, size = 1, endian = "big", signed = FALSE) 
                         paste0(temp[1], "/", 2^temp[2], ", ", temp[3], " clocks/tick, ", temp[4], " 1/32 notes / 24 clocks")
                        },
                 "59" = {sharpflat <- readBin(con, integer(0), n = 1, size = 1, endian = "big")
@@ -115,16 +115,16 @@ readMidi <- function(file){
   MThd_length <- readBin(con, integer(0), n = 1, size = 4, endian = "big")
   if(MThd_length != 6) 
     stop("Unexpected Header Chunk size") 
-  MThd_format <- readBin(con, integer(0), n = 1, size = 2, endian = "big")
+  MThd_format <- readBin(con, integer(0), n = 1, size = 2, endian = "big", signed = FALSE)
   if(!(MThd_format %in% 0:2)) 
     stop("Unexpected Mide file format") 
-  MThd_tracks <- readBin(con, integer(0), n = 1, size = 2, endian = "big")
+  MThd_tracks <- readBin(con, integer(0), n = 1, size = 2, endian = "big", signed = FALSE)
 
 # FIXME: MThd_division < 0 can appear in Midi files with a very different interpretation!
   MThd_division <- readBin(con, integer(0), n = 1, size = 2, signed = TRUE, endian = "big")
   if(MThd_division < 0){
         stop("Midi representation of timing: Frames per second / ticks per frame not yet implemented, please ask the author")
-  } 
+  }
   
   allTracks <- list()
   for(track in 1:MThd_tracks){

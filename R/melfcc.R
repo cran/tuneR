@@ -20,7 +20,7 @@ melfcc <- function(samples, sr=samples@samp.rate, wintime=0.025, hoptime=0.010,
     validObject(samples)
 
     if(nchannel(samples) > 1) 
-        stop("Processing for more than one channel not yet implemented...")
+        warning("Processing for more than one channel not yet implemented, using the first channel only ...")
 
     if(!is.null(modelorder) && !(modelorder==as.integer(modelorder) && modelorder > 0))
         stop("'modelorder' has to be a non-negative integer or NULL")
