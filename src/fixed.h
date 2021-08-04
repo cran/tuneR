@@ -22,6 +22,9 @@
 # ifndef LIBMAD_FIXED_H
 # define LIBMAD_FIXED_H
 
+// always true for R.
+#define SIZEOF_INT 4
+
 # if SIZEOF_INT >= 4
 typedef   signed int mad_fixed_t;
 

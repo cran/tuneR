@@ -50,7 +50,7 @@ lilyinput(X, file = "Rsong.ly", Major = TRUE, key = "c",
 \references{
     The LilyPond development team (2005):
     \emph{LilyPond - The music typesetter}.
-    \url{http://www.lilypond.org/}, Version 2.7.20.
+    \url{https://lilypond.org/}, Version 2.7.20.
 
     Preußer, A., Ligges, U. und Weihs, C. (2002): 
     \emph{Ein R Exportfilter für das Notations- und Midi-Programm LilyPond}.   

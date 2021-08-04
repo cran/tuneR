@@ -1,4 +1,4 @@
-06ad393ebd5359b289ebacb8e5e6c878 *DESCRIPTION
+594fd7881b036207452229e01bf8ba7d *DESCRIPTION
 c982769d8c544e29b12d0064534d7155 *NAMESPACE
 45b223e91054cfb57891222acf4fcfbd *R/FFrq.R
 5f34167ad2d3e0bf1ba9bcf37aadd0f6 *R/MCnames.R
@@ -20,13 +20,13 @@ fb2a580d5c782305bb224dd39207f354 *R/equalWave.R
 d018c68b6b7009d9e8fdbb1f44376ef6 *R/fft2barkmx.R
 dc010bb251106ab3bd0dc6281dd31239 *R/fft2melmx.R
 8a5725d6495cebc9a363531e7a7c9fee *R/getMidiNotes.R
-a0e5e8970d898a52bd034fce3d203b62 *R/hz2bark.R
+f8fa8132656f0c7aced032ea395f3462 *R/hz2bark.R
 f0374dca72ccebdc2f71febcb2c20661 *R/hz2mel.R
 f826b901abbe4efe05cd3226441f882f *R/length.R
 b1dde47871375c2fb525aed6d5071d28 *R/lifter.R
 87133bb81373b8d68a8681c964ab0abe *R/lilyinput.R
 f4affe88f460ed7c725784796eeba936 *R/lpc2cep.R
-57ba5a2c1bb08112407c9e4d416acda6 *R/mel2hz.R
+bb933b603246b79c24c9251c0cf8376a *R/mel2hz.R
 c50495cd22fb1eccd39670b3eb7d7733 *R/melfcc.R
 7bd3bb7b927baa06ed0a9feb492f4381 *R/melodyplot.R
 2a02401b38dbc437e7f247c04c3d8d96 *R/mono.R
@@ -76,12 +76,12 @@ f60b8e5d32a7bcdd20a6faa077b796a0 *man/deltas.Rd
 0f0cf8bbb96a4980728da093be9afdfa *man/downsample.Rd
 6f37e0076c3ac4991acc281aae0c8572 *man/equalWave.Rd
 ffc774f4d7e0af56ef257c11c94f3766 *man/extractWave.Rd
-d50ce4a8e8f6fa6893eaeaa4af17bc72 *man/fftfreqconvmx.Rd
+125293648e7d0b31f582bd03ef6cce72 *man/fftfreqconvmx.Rd
 31d761323c002e17f487910f6f15a95c *man/freqconv.Rd
 90fc3f850bde82f7d80a3151f34c21e9 *man/getMidiNotes.Rd
 94fdbb59763a53c108093baafe393fb7 *man/length.Rd
 868d70ca3d2b15f175a6aca6eae7406b *man/lifter.Rd
-c1e094d657ed10a7aa572dc6ed936143 *man/lilyinput.Rd
+28432c2e3b88499329fc7aedd5c1968f *man/lilyinput.Rd
 7ff2c8da8fcbedcc10efebc6b29bc0c2 *man/lpc2cep.Rd
 3fc13ac3222d7e49d676af1dbfcbae7d *man/melfcc.Rd
 48baedc16725820ca7e6d2376022fcf0 *man/melodyplot.Rd
@@ -119,7 +119,7 @@ edbe00fe76c87723ce96bf72cf1fe59c *src/bit.h
 fb96b9a47c261d006a1b9eabcc067663 *src/decoder.c
 ffb6131c642f256c4ecbfba8492304f7 *src/decoder.h
 096c1b6945bffbf59667ba76b55f35e1 *src/fixed.c
-60f3a40bdd24658c9d4c1148e5a1d06b *src/fixed.h
+d5b8595ca7ea57815902840392f47ec2 *src/fixed.h
 2049c9eebf156c153963dbdf5b6cf8cf *src/frame.c
 95e4b97d3347472330271c759742c07b *src/frame.h
 3caa30be68021364df1f6302a00ee31e *src/global.h
@@ -129,7 +129,7 @@ ffb6131c642f256c4ecbfba8492304f7 *src/decoder.h
 27d273c468e8ac4c080877984dea3cd9 *src/init.c
 5baace7dd93bc2009c0192049b351694 *src/layer12.c
 d865c8eb69bc79d0b48076e10c85a77e *src/layer12.h
-35872f2f1e27cf92da5b7f63ab2a00ff *src/layer3.c
+1a8731e49faaf05c745314eb0848011d *src/layer3.c
 2dc89aecfb50193434cb65b7ca0257ee *src/layer3.h
 edcd155089fe8f7dfbb2b7559fece9dd *src/pulse.c
 cb1e6c71c20ae8a13624efa7fcf0f5a0 *src/pulse.h
