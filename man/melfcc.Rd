@@ -61,7 +61,7 @@ scale) of the signal}
   \item{pspectrum }{Power spectrum of the input signal.}
   \item{lpcas }{If \code{modelorder > 0}, the linear prediction coefficients (LPC/PLP).}
 }
-\references{Daniel P. W. Ellis: \url{http://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/} }
+\references{Daniel P. W. Ellis: \url{https://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/} }
 \author{ Sebastian Krey \email{krey@statistik.tu-dortmund.de} }
 \note{
 The following non-default values nearly duplicate Malcolm Slaney's mfcc (i.e. 
@@ -82,7 +82,7 @@ where HTK config has \sQuote{PREEMCOEF = 0.97}, \sQuote{NUMCHANS = 20},
 \sQuote{TARGETKIND = MFCC_0}).
 
 For more detail on reproducing other programs' outputs, see
-\url{http://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/mfccs.html}
+\url{https://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/mfccs.html}
 }
 \examples{
   testsound <- normalize(sine(400) + sine(1000) + square(250), "16")

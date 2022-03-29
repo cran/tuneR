@@ -21,7 +21,7 @@ liftering with length \code{lift}.
 \value{
 Matrix of the liftered cepstra.
 }
-\references{Daniel P. W. Ellis: \url{http://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/} }
+\references{Daniel P. W. Ellis: \url{https://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/} }
 \author{ Sebastian Krey \email{krey@statistik.tu-dortmund.de} }
 \examples{
   testsound <- normalize(sine(400) + sine(1000) + square(250), "16")

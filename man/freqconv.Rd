@@ -24,7 +24,7 @@ Auditory Toolbox (\code{htk = FALSE}) }
 The value of the input in the target frequency scale.
 }
 \references{Daniel P. W. Ellis:
-\url{http://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/}, Malcolm
+\url{https://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/}, Malcolm
 Slaney: Auditory Toolbox }
 \author{ Sebastian Krey \email{krey@statistik.tu-dortmund.de} }
 \examples{

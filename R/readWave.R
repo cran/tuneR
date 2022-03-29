@@ -21,23 +21,23 @@ function(filename, from = 1, to = Inf,
     int <- integer()
     
     ## Reading in the header:
-    RIFF <- readChar(con, 4)
+    RIFF <- readChar(con, 4, useBytes=TRUE)
     file.length <- read4ByteUnsignedInt()
-    WAVE <- readChar(con, 4)
+    WAVE <- readChar(con, 4, useBytes=TRUE)
 
     ## waiting for the WAVE part
     i <- 0
     while(!(RIFF == "RIFF" && WAVE == "WAVE")){
         i <- i+1
         seek(con, where = file.length - 4, origin = "current")
-        RIFF <- readChar(con, 4)
+        RIFF <- readChar(con, 4, useBytes=TRUE)
         file.length <- read4ByteUnsignedInt()
-        WAVE <- readChar(con, 4)
+        WAVE <- readChar(con, 4, useBytes=TRUE)
         if(i > 5) stop("This seems not to be a valid RIFF file of type WAVE.")
     }
     
        
-    FMT <- readChar(con, 4)    
+    FMT <- readChar(con, 4, useBytes=TRUE)
     bext <- NULL
     ## extract possible bext information, if header = TRUE
     if (header && (tolower(FMT) == "bext")){
@@ -45,7 +45,7 @@ function(filename, from = 1, to = Inf,
         bext <- sapply(seq(bext.length), function(x) readChar(con, 1, useBytes=TRUE))
         bext[bext==""] <- " "
         bext <- paste(bext, collapse="")
-        FMT <- readChar(con, 4)
+        FMT <- readChar(con, 4, useBytes=TRUE)
     }
         
     ## waiting for the fmt chunk
@@ -54,7 +54,7 @@ function(filename, from = 1, to = Inf,
         i <- i+1
         belength <- read4ByteUnsignedInt()
         seek(con, where = belength, origin = "current")
-        FMT <- readChar(con, 4)
+        FMT <- readChar(con, 4, useBytes=TRUE)
         if(i > 5) stop("There seems to be no 'fmt ' chunk in this Wave (?) file.")
     }
     fmt.length <- read4ByteUnsignedInt()
@@ -90,19 +90,19 @@ function(filename, from = 1, to = Inf,
     
     ## fact chunk
 #    if((pcm %in% c(0, 3)) || (pcm = 65534 && SubFormat %in% c(0, 3))) {
-#      fact <- readChar(con, 4)
+#      fact <- readChar(con, 4, useBytes=TRUE)
 #      fact.length <- readBin(con, int, n = 1, size = 4, endian = "little")
 #      dwSampleLength <- readBin(con, int, n = 1, size = 4, endian = "little")
 #    }
 
-    DATA <- readChar(con, 4)
+    DATA <- readChar(con, 4, useBytes=TRUE)
     ## waiting for the data chunk    
     i <- 0    
     while(length(DATA) && DATA != "data"){
         i <- i+1
         belength <- read4ByteUnsignedInt()
         seek(con, where = belength, origin = "current")
-        DATA <- readChar(con, 4)
+        DATA <- readChar(con, 4, useBytes=TRUE)
         if(i > 5) stop("There seems to be no 'data' chunk in this Wave (?) file.")
     }
     if(!length(DATA)) 

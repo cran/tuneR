@@ -27,7 +27,7 @@ squared afterwards.}
   \item{aspectrum }{Matrix with the auditory spectrum of each time frame in its columns.}
   \item{wts }{Weight matrix for the frequency band conversion.}
 }
-\references{Daniel P. W. Ellis: \url{http://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/} }
+\references{Daniel P. W. Ellis: \url{https://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/} }
 \author{ Sebastian Krey \email{krey@statistik.tu-dortmund.de} }
 \seealso{\code{\link{fft2melmx}}, \code{\link{fft2barkmx}}}
 \examples{

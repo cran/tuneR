@@ -17,7 +17,7 @@ column). }
 Returns a matrix of the normalized AR coefficients (depending on the input
 spectrum: LPC or PLP coefficients). Every column represents one time frame.
 }
-\references{Daniel P. W. Ellis: \url{http://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/} }
+\references{Daniel P. W. Ellis: \url{https://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/} }
 \author{ Sebastian Krey \email{krey@statistik.tu-dortmund.de} }
 \seealso{ \code{\link{levinson}} }
 \examples{

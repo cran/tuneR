@@ -19,7 +19,7 @@ powspec(x, sr = 8000, wintime = 0.025, steptime = 0.01, dither = FALSE)
 Matrix, where each column represents a power spectrum for a given frame
 and each row represents a frequency.
 }
-\references{Daniel P. W. Ellis: \url{http://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/} }
+\references{Daniel P. W. Ellis: \url{https://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/} }
 \author{ Sebastian Krey \email{krey@statistik.tu-dortmund.de} }
 \seealso{ \code{\link[signal]{specgram}} }
 \examples{

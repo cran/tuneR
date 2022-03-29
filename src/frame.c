@@ -142,12 +142,12 @@ int decode_header(struct mad_header *header, struct mad_stream *stream)
   }
 
   /* layer */
-  header->layer = 4 - mad_bit_read(&stream->ptr, 2);
+  int tmp = mad_bit_read(&stream->ptr, 2);
 
-  if (header->layer == 4) {
+  if (tmp == 0) {
     stream->error = MAD_ERROR_BADLAYER;
     return -1;
-  }
+  } else header->layer = 4 - tmp;
 
   /* protection_bit */
   if (mad_bit_read(&stream->ptr, 1) == 0) {

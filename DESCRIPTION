@@ -1,15 +1,20 @@
 Package: tuneR
-Version: 1.3.3.1
-Date: 2018-07-03
+Version: 1.4.0
+Date: 2022-03-29
 Title: Analysis of Music and Speech
-Author: Uwe Ligges <ligges@statistik.tu-dortmund.de> with contributions
-        from Sebastian Krey, Olaf Mersmann, Sarah Schnackenberg, Guillaume Guenard,
-    Andrea Preusser, Anita Thieler, Johanna Mielke and Claus Weihs, as well as code fragments
-    and ideas from the former package 'sound' by Matthias Heymann
-    and functions from 'rastamat' by Daniel P. W. Ellis.
-    The included parts of the libmad MPEG audio decoder library are
-    authored by Underbit Technologies.
-Maintainer: Uwe Ligges <ligges@statistik.tu-dortmund.de>
+Authors@R: c(person("Uwe", "Ligges", email="ligges@statistik.tu-dortmund.de", role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0001-5875-6167")),
+             person("Sebastian", "Krey", role = c("aut", "cph")),
+             person("Olaf", "Mersmann", role = c("aut", "cph")),
+             person("Sarah", "Schnackenberg", role = c("aut", "cph")),
+             person("Guillaume", "Guenard", role = c("aut", "cph"), comment = "for the pulse functionality"),
+             person("Daniel P. W.", "Ellis", role = c("aut", "cph"), comment = "functions ported from 'rastamat'"),
+             person("", "Underbit Technologies", role = c("aut", "cph"), comment = "for the included libmad MPEG audio decoder library"),
+             person("Andrea", "Preusser", role = c("ctb")),
+             person("Anita", "Thieler", role = c("ctb")),
+             person("Johanna", "Mielke", role = c("ctb")),
+			 person("Claus", "Weihs", role = c("ctb")),
+			 person("Brian D.", "Ripley", role = c("ctb")),			 
+			 person("Matthias", "Heymann", role = c("ctb"), comment = "for ideas from the former sound package"))
 Depends: R (>= 3.0.0)
 Suggests: pastecs
 Imports: signal, methods
@@ -17,6 +22,21 @@ Description: Analyze music and speech, extract features like MFCCs, handle wave 
         Also contains functions ported from the 'rastamat' 'Matlab' package.
 License: GPL-2 | GPL-3
 NeedsCompilation: yes
-Packaged: 2021-07-16 20:41:54 UTC; ripley
+Packaged: 2022-03-29 08:35:49 UTC; ligges
+Author: Uwe Ligges [aut, cre, cph] (<https://orcid.org/0000-0001-5875-6167>),
+  Sebastian Krey [aut, cph],
+  Olaf Mersmann [aut, cph],
+  Sarah Schnackenberg [aut, cph],
+  Guillaume Guenard [aut, cph] (for the pulse functionality),
+  Daniel P. W. Ellis [aut, cph] (functions ported from 'rastamat'),
+  Underbit Technologies [aut, cph] (for the included libmad MPEG audio
+    decoder library),
+  Andrea Preusser [ctb],
+  Anita Thieler [ctb],
+  Johanna Mielke [ctb],
+  Claus Weihs [ctb],
+  Brian D. Ripley [ctb],
+  Matthias Heymann [ctb] (for ideas from the former sound package)
+Maintainer: Uwe Ligges <ligges@statistik.tu-dortmund.de>
 Repository: CRAN
-Date/Publication: 2021-08-04 08:00:07 UTC
+Date/Publication: 2022-03-29 12:50:02 UTC

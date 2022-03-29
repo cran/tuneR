@@ -17,7 +17,7 @@ spec2cep(spec, ncep = 12, type = c("t2", "t1", "t3", "t4"))
   \item{cep }{Matrix of resulting cepstra.}
   \item{dctm }{Returns the DCT matrix that spec was multiplied by to give cep.}
 }
-\references{Daniel P. W. Ellis: \url{http://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/} }
+\references{Daniel P. W. Ellis: \url{https://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/} }
 \author{ Sebastian Krey \email{krey@statistik.tu-dortmund.de} }
 \seealso{\code{\link{lpc2cep}}} 
 %% \code{\link{cep2spec}}, \code{\link{lpc2spec}}

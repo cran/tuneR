@@ -641,25 +641,25 @@ void synth_full(struct mad_synth *synth, struct mad_frame const *frame,
 
     *pcm1++ = SHIFT(MLZ(hi, lo));
 
-    ptr = *Dptr - pe;
-    ML0(hi, lo, (*fe)[0], ptr[31 - 16]);
-    MLA(hi, lo, (*fe)[1], ptr[31 - 14]);
-    MLA(hi, lo, (*fe)[2], ptr[31 - 12]);
-    MLA(hi, lo, (*fe)[3], ptr[31 - 10]);
-    MLA(hi, lo, (*fe)[4], ptr[31 -  8]);
-    MLA(hi, lo, (*fe)[5], ptr[31 -  6]);
-    MLA(hi, lo, (*fe)[6], ptr[31 -  4]);
-    MLA(hi, lo, (*fe)[7], ptr[31 -  2]);
+    ptr = *Dptr; // original subtracted pe here, which is undefined behaviour
+    ML0(hi, lo, (*fe)[0], ptr[31 - 16 - pe]);
+    MLA(hi, lo, (*fe)[1], ptr[31 - 14 - pe]);
+    MLA(hi, lo, (*fe)[2], ptr[31 - 12 - pe]);
+    MLA(hi, lo, (*fe)[3], ptr[31 - 10 - pe]);
+    MLA(hi, lo, (*fe)[4], ptr[31 -  8 - pe]);
+    MLA(hi, lo, (*fe)[5], ptr[31 -  6 - pe]);
+    MLA(hi, lo, (*fe)[6], ptr[31 -  4 - pe]);
+    MLA(hi, lo, (*fe)[7], ptr[31 -  2 - pe]);
 
-    ptr = *Dptr - po;
-    MLA(hi, lo, (*fo)[7], ptr[31 -  2]);
-    MLA(hi, lo, (*fo)[6], ptr[31 -  4]);
-    MLA(hi, lo, (*fo)[5], ptr[31 -  6]);
-    MLA(hi, lo, (*fo)[4], ptr[31 -  8]);
-    MLA(hi, lo, (*fo)[3], ptr[31 - 10]);
-    MLA(hi, lo, (*fo)[2], ptr[31 - 12]);
-    MLA(hi, lo, (*fo)[1], ptr[31 - 14]);
-    MLA(hi, lo, (*fo)[0], ptr[31 - 16]);
+    ptr = *Dptr; // original subtracted po here, which is undefined behaviour
+    MLA(hi, lo, (*fo)[7], ptr[31 -  2 - po]);
+    MLA(hi, lo, (*fo)[6], ptr[31 -  4 - po]);
+    MLA(hi, lo, (*fo)[5], ptr[31 -  6 - po]);
+    MLA(hi, lo, (*fo)[4], ptr[31 -  8 - po]);
+    MLA(hi, lo, (*fo)[3], ptr[31 - 10 - po]);
+    MLA(hi, lo, (*fo)[2], ptr[31 - 12 - po]);
+    MLA(hi, lo, (*fo)[1], ptr[31 - 14 - po]);
+    MLA(hi, lo, (*fo)[0], ptr[31 - 16 - po]);
 
     *pcm2-- = SHIFT(MLZ(hi, lo));
 

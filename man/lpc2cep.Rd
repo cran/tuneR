@@ -14,7 +14,7 @@ lpc2cep(a, nout = nrow(a))
 \value{
 Matrix of cepstra (one column per time frame).
 }
-\references{Daniel P. W. Ellis: \url{http://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/} }
+\references{Daniel P. W. Ellis: \url{https://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/} }
 \author{ Sebastian Krey \email{krey@statistik.tu-dortmund.de} }
 \seealso{\code{\link{spec2cep}}}
 %%, \code{\link{cep2spec}},  \code{\link{lpc2spec}} }

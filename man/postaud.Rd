@@ -20,7 +20,7 @@ dependant loudness equalization and compression. }
   \item{eql }{Vector of the equal loudness curve. }
 }
 \references{Daniel P. W. Ellis
-\url{http://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/}, Hynek
+\url{https://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/}, Hynek
 Hermansky }
 \author{ Sebastian Krey \email{krey@statistik.tu-dortmund.de} }
 \seealso{ \code{\link{audspec}}, \code{\link{dolpc}}} 
