@@ -1,4 +1,4 @@
-0f38ed321233a9369dc11aec741cecb4 *DESCRIPTION
+d84cdf8bfd2871c13ceac9912ee70232 *DESCRIPTION
 7dc3df8acc1ff40ff42f32ce5f02363a *NAMESPACE
 45b223e91054cfb57891222acf4fcfbd *R/FFrq.R
 5f34167ad2d3e0bf1ba9bcf37aadd0f6 *R/MCnames.R
@@ -129,8 +129,8 @@ d5b8595ca7ea57815902840392f47ec2 *src/fixed.h
 d865c8eb69bc79d0b48076e10c85a77e *src/layer12.h
 1a8731e49faaf05c745314eb0848011d *src/layer3.c
 2dc89aecfb50193434cb65b7ca0257ee *src/layer3.h
-edcd155089fe8f7dfbb2b7559fece9dd *src/pulse.c
-cb1e6c71c20ae8a13624efa7fcf0f5a0 *src/pulse.h
+f7bb3f04445fc54f56a52fea63e74db1 *src/pulse.c
+5bb69aae897d16903a095df80cf96825 *src/pulse.h
 42fab3257ba9a18a953415b1e9e76a16 *src/qc_table.h
 27ee61cdb5b4a4bce2a2090a31c97899 *src/readmp3.c
 b6a615c01660b1c2ab1f42d6d3098d85 *src/rq_table.h

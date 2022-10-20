@@ -1,6 +1,6 @@
 /*
  * Function to generate variable shape pulses.
- * Copyright (C) 2014 Guillaume Guénard, Université de Montréal
+ * Copyright (C) 2014 Guillaume GuÃ©nard, UniversitÃ© de MontrÃ©al
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
