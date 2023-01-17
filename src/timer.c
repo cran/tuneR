@@ -342,144 +342,146 @@ unsigned long mad_timer_fraction(mad_timer_t timer, unsigned long denom)
  * NAME:	timer->string()
  * DESCRIPTION:	write a string representation of a timer using a template
  */
-void mad_timer_string(mad_timer_t timer,
-		      char *dest, char const *format, enum mad_units units,
-		      enum mad_units fracunits, unsigned long subparts)
-{
-  unsigned long hours, minutes, seconds, sub;
-  unsigned int frac;
+ 
+ 
+  // void mad_timer_string(mad_timer_t timer,
+		      // char *dest, char const *format, enum mad_units units,
+		      // enum mad_units fracunits, unsigned long subparts)
+// {
+  // unsigned long hours, minutes, seconds, sub;
+  // unsigned int frac;
 
-  timer = mad_timer_abs(timer);
+  // timer = mad_timer_abs(timer);
 
-  seconds = timer.seconds;
-  frac = sub = 0;
+  // seconds = timer.seconds;
+  // frac = sub = 0;
 
-  switch (fracunits) {
-  case MAD_UNITS_HOURS:
-  case MAD_UNITS_MINUTES:
-  case MAD_UNITS_SECONDS:
-    break;
+  // switch (fracunits) {
+  // case MAD_UNITS_HOURS:
+  // case MAD_UNITS_MINUTES:
+  // case MAD_UNITS_SECONDS:
+    // break;
 
-  case MAD_UNITS_DECISECONDS:
-  case MAD_UNITS_CENTISECONDS:
-  case MAD_UNITS_MILLISECONDS:
+  // case MAD_UNITS_DECISECONDS:
+  // case MAD_UNITS_CENTISECONDS:
+  // case MAD_UNITS_MILLISECONDS:
 
-  case MAD_UNITS_8000_HZ:
-  case MAD_UNITS_11025_HZ:
-  case MAD_UNITS_12000_HZ:
-  case MAD_UNITS_16000_HZ:
-  case MAD_UNITS_22050_HZ:
-  case MAD_UNITS_24000_HZ:
-  case MAD_UNITS_32000_HZ:
-  case MAD_UNITS_44100_HZ:
-  case MAD_UNITS_48000_HZ:
+  // case MAD_UNITS_8000_HZ:
+  // case MAD_UNITS_11025_HZ:
+  // case MAD_UNITS_12000_HZ:
+  // case MAD_UNITS_16000_HZ:
+  // case MAD_UNITS_22050_HZ:
+  // case MAD_UNITS_24000_HZ:
+  // case MAD_UNITS_32000_HZ:
+  // case MAD_UNITS_44100_HZ:
+  // case MAD_UNITS_48000_HZ:
 
-  case MAD_UNITS_24_FPS:
-  case MAD_UNITS_25_FPS:
-  case MAD_UNITS_30_FPS:
-  case MAD_UNITS_48_FPS:
-  case MAD_UNITS_50_FPS:
-  case MAD_UNITS_60_FPS:
-  case MAD_UNITS_75_FPS:
-    {
-      unsigned long denom;
+  // case MAD_UNITS_24_FPS:
+  // case MAD_UNITS_25_FPS:
+  // case MAD_UNITS_30_FPS:
+  // case MAD_UNITS_48_FPS:
+  // case MAD_UNITS_50_FPS:
+  // case MAD_UNITS_60_FPS:
+  // case MAD_UNITS_75_FPS:
+    // {
+      // unsigned long denom;
 
-      denom = MAD_TIMER_RESOLUTION / fracunits;
+      // denom = MAD_TIMER_RESOLUTION / fracunits;
 
-      frac = timer.fraction / denom;
-      sub  = scale_rational(timer.fraction % denom, denom, subparts);
-    }
-    break;
+      // frac = timer.fraction / denom;
+      // sub  = scale_rational(timer.fraction % denom, denom, subparts);
+    // }
+    // break;
 
-  case MAD_UNITS_23_976_FPS:
-  case MAD_UNITS_24_975_FPS:
-  case MAD_UNITS_29_97_FPS:
-  case MAD_UNITS_47_952_FPS:
-  case MAD_UNITS_49_95_FPS:
-  case MAD_UNITS_59_94_FPS:
-    /* drop-frame encoding */
-    /* N.B. this is only well-defined for MAD_UNITS_29_97_FPS */
-    {
-      unsigned long frame, cycle, d, m;
+  // case MAD_UNITS_23_976_FPS:
+  // case MAD_UNITS_24_975_FPS:
+  // case MAD_UNITS_29_97_FPS:
+  // case MAD_UNITS_47_952_FPS:
+  // case MAD_UNITS_49_95_FPS:
+  // case MAD_UNITS_59_94_FPS:
+    // /* drop-frame encoding */
+    // /* N.B. this is only well-defined for MAD_UNITS_29_97_FPS */
+    // {
+      // unsigned long frame, cycle, d, m;
 
-      frame = mad_timer_count(timer, fracunits);
+      // frame = mad_timer_count(timer, fracunits);
 
-      cycle = -fracunits * 60 * 10 - (10 - 1) * 2;
+      // cycle = -fracunits * 60 * 10 - (10 - 1) * 2;
 
-      d = frame / cycle;
-      m = frame % cycle;
-      frame += (10 - 1) * 2 * d;
-      if (m > 2)
-	frame += 2 * ((m - 2) / (cycle / 10));
+      // d = frame / cycle;
+      // m = frame % cycle;
+      // frame += (10 - 1) * 2 * d;
+      // if (m > 2)
+	// frame += 2 * ((m - 2) / (cycle / 10));
 
-      frac    = frame % -fracunits;
-      seconds = frame / -fracunits;
-    }
-    break;
-  }
+      // frac    = frame % -fracunits;
+      // seconds = frame / -fracunits;
+    // }
+    // break;
+  // }
 
-  switch (units) {
-  case MAD_UNITS_HOURS:
-    minutes = seconds / 60;
-    hours   = minutes / 60;
+  // switch (units) {
+  // case MAD_UNITS_HOURS:
+    // minutes = seconds / 60;
+    // hours   = minutes / 60;
 
-    sprintf(dest, format,
-	    hours,
-	    (unsigned int) (minutes % 60),
-	    (unsigned int) (seconds % 60),
-	    frac, sub);
-    break;
+    // snprintf(dest, sizeof(dest), format,
+	    // hours,
+	    // (unsigned int) (minutes % 60),
+	    // (unsigned int) (seconds % 60),
+	    // frac, sub);
+    // break;
 
-  case MAD_UNITS_MINUTES:
-    minutes = seconds / 60;
+  // case MAD_UNITS_MINUTES:
+    // minutes = seconds / 60;
 
-    sprintf(dest, format,
-	    minutes,
-	    (unsigned int) (seconds % 60),
-	    frac, sub);
-    break;
+    // snprintf(dest, sizeof(dest),format,
+	    // minutes,
+	    // (unsigned int) (seconds % 60),
+	    // frac, sub);
+    // break;
 
-  case MAD_UNITS_SECONDS:
-    sprintf(dest, format,
-	    seconds,
-	    frac, sub);
-    break;
+  // case MAD_UNITS_SECONDS:
+    // snprintf(dest, sizeof(dest), format,
+	    // seconds,
+	    // frac, sub);
+    // break;
 
-  case MAD_UNITS_23_976_FPS:
-  case MAD_UNITS_24_975_FPS:
-  case MAD_UNITS_29_97_FPS:
-  case MAD_UNITS_47_952_FPS:
-  case MAD_UNITS_49_95_FPS:
-  case MAD_UNITS_59_94_FPS:
-    if (fracunits < 0) {
-      /* not yet implemented */
-      sub = 0;
-    }
+  // case MAD_UNITS_23_976_FPS:
+  // case MAD_UNITS_24_975_FPS:
+  // case MAD_UNITS_29_97_FPS:
+  // case MAD_UNITS_47_952_FPS:
+  // case MAD_UNITS_49_95_FPS:
+  // case MAD_UNITS_59_94_FPS:
+    // if (fracunits < 0) {
+      // /* not yet implemented */
+      // sub = 0;
+    // }
 
-    /* fall through */
+    // /* fall through */
 
-  case MAD_UNITS_DECISECONDS:
-  case MAD_UNITS_CENTISECONDS:
-  case MAD_UNITS_MILLISECONDS:
+  // case MAD_UNITS_DECISECONDS:
+  // case MAD_UNITS_CENTISECONDS:
+  // case MAD_UNITS_MILLISECONDS:
 
-  case MAD_UNITS_8000_HZ:
-  case MAD_UNITS_11025_HZ:
-  case MAD_UNITS_12000_HZ:
-  case MAD_UNITS_16000_HZ:
-  case MAD_UNITS_22050_HZ:
-  case MAD_UNITS_24000_HZ:
-  case MAD_UNITS_32000_HZ:
-  case MAD_UNITS_44100_HZ:
-  case MAD_UNITS_48000_HZ:
+  // case MAD_UNITS_8000_HZ:
+  // case MAD_UNITS_11025_HZ:
+  // case MAD_UNITS_12000_HZ:
+  // case MAD_UNITS_16000_HZ:
+  // case MAD_UNITS_22050_HZ:
+  // case MAD_UNITS_24000_HZ:
+  // case MAD_UNITS_32000_HZ:
+  // case MAD_UNITS_44100_HZ:
+  // case MAD_UNITS_48000_HZ:
 
-  case MAD_UNITS_24_FPS:
-  case MAD_UNITS_25_FPS:
-  case MAD_UNITS_30_FPS:
-  case MAD_UNITS_48_FPS:
-  case MAD_UNITS_50_FPS:
-  case MAD_UNITS_60_FPS:
-  case MAD_UNITS_75_FPS:
-    sprintf(dest, format, mad_timer_count(timer, units), sub);
-    break;
-  }
-}
+  // case MAD_UNITS_24_FPS:
+  // case MAD_UNITS_25_FPS:
+  // case MAD_UNITS_30_FPS:
+  // case MAD_UNITS_48_FPS:
+  // case MAD_UNITS_50_FPS:
+  // case MAD_UNITS_60_FPS:
+  // case MAD_UNITS_75_FPS:
+    // snprintf(dest, sizeof(dest), format, mad_timer_count(timer, units), sub);
+    // break;
+  // }
+// }

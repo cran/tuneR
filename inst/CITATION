@@ -6,9 +6,9 @@ citEntry(entry       = "Manual",
              person(given="Sebastian", family="Krey"),
              person(given="Olaf", family="Mersmann"),
              person(given="Sarah", family="Schnackenberg")),
-    year         = 2018,
+    year         = 2023,
     url          = "https://CRAN.R-project.org/package=tuneR",
-    textVersion  = paste("Uwe Ligges, Sebastian Krey, Olaf Mersmann, and Sarah Schnackenberg (2018).",
+    textVersion  = paste("Uwe Ligges, Sebastian Krey, Olaf Mersmann, and Sarah Schnackenberg (2023).",
         "tuneR: Analysis of Music and Speech.",
         "URL: https://CRAN.R-project.org/package=tuneR")
 )

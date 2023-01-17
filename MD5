@@ -1,4 +1,4 @@
-d84cdf8bfd2871c13ceac9912ee70232 *DESCRIPTION
+98fb4e2dfc9bdf8edc0703a46cd89648 *DESCRIPTION
 7dc3df8acc1ff40ff42f32ce5f02363a *NAMESPACE
 45b223e91054cfb57891222acf4fcfbd *R/FFrq.R
 5f34167ad2d3e0bf1ba9bcf37aadd0f6 *R/MCnames.R
@@ -45,12 +45,12 @@ cb23a3bdd5beda4e76854246e2ba7735 *R/quantize.R
 9b37a65acce668308069bf29d62f81ae *R/quantplot.R
 31a04aa879b4115e12142dd019ebf5e0 *R/readMP3.R
 189ccfff3e850bd6c153ec88663ef996 *R/readMidi.R
-917c00bb1fdac8f57acebe4fb9e177e4 *R/readWave.R
+929a7c560a0ffee342dc81662d917b25 *R/readWave.R
 52f5b443d451c90eb7d3ed0e1d760c72 *R/smooth.R
 7e590a57eade30bfdd8c1911045f0d47 *R/spec2cep.R
 92220e404563c4f9c18c85397a477c91 *R/stereo.R
 7dfa8ae0eb317f0375ef80083ea1be90 *R/writeWave.R
-f326acacf8400913435399bbbcaf0d01 *inst/CITATION
+21e7ba0d231804d81620ebdf8f46221c *inst/CITATION
 d6805d7215b9b5243a9381c654822c34 *inst/example_files/Bass_sample.mid
 b2e695c38ffc2066499260caaa0539a2 *man/Extractor.Rd
 b3eca47e3e1a8a9215f66af7f64a8862 *man/FF.Rd
@@ -140,8 +140,8 @@ fafbd99f5b999d5af14540f634d2777e *src/sf_table.h
 8ccb2f8e854c03afb40c4a3c8af2fe9a *src/stream.h
 2c8a972f48a148b23d9e52a086f9110e *src/synth.c
 be6cbffe8bc6957844ce17738a1dc736 *src/synth.h
-8345038fe443bf4438a3b83eea256117 *src/timer.c
-e10fdfe23c758f7ba3d1424b83e86802 *src/timer.h
+eee73aa61050a33c967cf1418bbf8d3e *src/timer.c
+ee3aecfb14ab763566cede1eb9ed446a *src/timer.h
 5a5c4486691f084c9f1254ed8e2c0f70 *src/version.c
 e30deaaf0dabf38605fb98f69f3bd41b *src/version.h
 578e33d33053b5728d3dd642dcfd6419 *tests/Testfiles/16bit_PCM_3channels_ex.wav
