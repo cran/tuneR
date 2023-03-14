@@ -1,6 +1,6 @@
 Package: tuneR
-Version: 1.4.2
-Date: 2023-01-16
+Version: 1.4.3
+Date: 2023-03-14
 Title: Analysis of Music and Speech
 Authors@R: c(person("Uwe", "Ligges", email="ligges@statistik.tu-dortmund.de", role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0001-5875-6167")),
              person("Sebastian", "Krey", role = c("aut", "cph")),
@@ -23,7 +23,7 @@ Description: Analyze music and speech, extract features like MFCCs, handle wave 
         Also contains functions ported from the 'rastamat' 'Matlab' package.
 License: GPL-2 | GPL-3
 NeedsCompilation: yes
-Packaged: 2023-01-17 16:34:24 UTC; ligges
+Packaged: 2023-03-14 11:58:48 UTC; ligges
 Author: Uwe Ligges [aut, cre, cph] (<https://orcid.org/0000-0001-5875-6167>),
   Sebastian Krey [aut, cph],
   Olaf Mersmann [aut, cph],
@@ -40,4 +40,4 @@ Author: Uwe Ligges [aut, cre, cph] (<https://orcid.org/0000-0001-5875-6167>),
   Matthias Heymann [ctb] (for ideas from the former 'sound' package)
 Maintainer: Uwe Ligges <ligges@statistik.tu-dortmund.de>
 Repository: CRAN
-Date/Publication: 2023-01-17 18:00:02 UTC
+Date/Publication: 2023-03-14 12:30:02 UTC

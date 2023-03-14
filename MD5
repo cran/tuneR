@@ -1,4 +1,4 @@
-98fb4e2dfc9bdf8edc0703a46cd89648 *DESCRIPTION
+86cd881eba583314c57a1e4ba2fc8d48 *DESCRIPTION
 7dc3df8acc1ff40ff42f32ce5f02363a *NAMESPACE
 45b223e91054cfb57891222acf4fcfbd *R/FFrq.R
 5f34167ad2d3e0bf1ba9bcf37aadd0f6 *R/MCnames.R
@@ -34,7 +34,7 @@ c50495cd22fb1eccd39670b3eb7d7733 *R/melfcc.R
 4c203d914f58b33a98272e2255abceb3 *R/normalize.R
 4cd5de3caf2c8a995a7e4dbbceeb91ab *R/notenames.R
 f168999d0365d3d03997d3d4c5fdd478 *R/panorama.R
-f053d64a9854e07a59fd07bafa15148c *R/periodogram.R
+7898f70482fc9b46c51ad56a679f3baa *R/periodogram.R
 8f49073fa2a92526feb8b1dc8a2b2039 *R/play.R
 ba2afd57490ad642776a2996fd28347b *R/plot-Wave.R
 62f2c2c97bb203b0c859dc82208b8da8 *R/plot-Wspec.R
@@ -50,7 +50,7 @@ cb23a3bdd5beda4e76854246e2ba7735 *R/quantize.R
 7e590a57eade30bfdd8c1911045f0d47 *R/spec2cep.R
 92220e404563c4f9c18c85397a477c91 *R/stereo.R
 7dfa8ae0eb317f0375ef80083ea1be90 *R/writeWave.R
-21e7ba0d231804d81620ebdf8f46221c *inst/CITATION
+6e391058d12787aefab8618cdd2b76a1 *inst/CITATION
 d6805d7215b9b5243a9381c654822c34 *inst/example_files/Bass_sample.mid
 b2e695c38ffc2066499260caaa0539a2 *man/Extractor.Rd
 b3eca47e3e1a8a9215f66af7f64a8862 *man/FF.Rd
@@ -89,7 +89,7 @@ ebefe72d39510ce79be3d4af804b60b0 *man/nchannel.Rd
 93d1bf811dfcce5a95599cd306abd205 *man/noteFromFF.Rd
 6ce066dc6f1cfee8004dff53e6de78a9 *man/notenames.Rd
 ba68fc70a299c1c7c2d0796ce3e22fdc *man/panorama.Rd
-a187f740b2033077687584d302f8f000 *man/periodogram.Rd
+fc37c67c80d78652c3fe6faf07319062 *man/periodogram.Rd
 5bf3b8d5ffb7a19ba5d90cb0a1567080 *man/play.Rd
 4ab0c9e128bd13289381ecaa9227958f *man/plot-Wave.Rd
 791379384d8d131850863fb95c11be7d *man/plot-Wspec.Rd

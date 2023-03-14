@@ -74,9 +74,9 @@ function(object, width = length(object), overlap = 0,
         lapply(spec, function(x){
             sx <- sum(x)
             lx <- length(x)
-            (if(!sx) rep(1 / lx, lx) else x / sum(x))[store]
+            (if(!sx) rep(1 / lx, lx) else x / sx)[store]
         })
-        else spec[store]
+        else lapply(spec, "[", store)
 
     Wspec@variance <- mapply(function(x,y) var(dat[x:y]), starts, ends)
     Wspec@energy <- 20 * log10(mapply(function(x,y) sum(abs(dat[x:y])), starts, ends))

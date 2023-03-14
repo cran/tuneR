@@ -104,6 +104,17 @@ plot(Wspecobj)
 plot(Wspecobj, which = 3, xlim = c(0, 1000))
 # Mark frequency that has been generated before:
 abline(v = 440, col="red")
+# plot the spectrogram
+image(Wspecobj, ylim=c(0, 2000))
+
+# same again with normalize = FALSE and with logarithmic y-axis plotted:
+Wspecobj2 <- periodogram(Wobj, width = 4096, normalize = FALSE)
+Wspecobj2
+
+plot(Wspecobj2, which = 3, xlim = c(0, 1000), log="y")
+abline(v = 440, col="red")
+image(Wspecobj2, ylim=c(0, 2000), log="z")
+
 
 FF(Wspecobj)              # all ~ 440 Hertz
 noteFromFF(FF(Wspecobj))  # all diapason a

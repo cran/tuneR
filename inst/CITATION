@@ -1,6 +1,7 @@
 citHeader("To cite tuneR in publications use:")
 
-citEntry(entry       = "Manual",
+
+bibentry(bibtype       = "Manual",
     title        = "{tuneR}: Analysis of Music and Speech",
     author       = c(person(given="Uwe", family="Ligges", email="Uwe.Ligges@R-project.org"),
              person(given="Sebastian", family="Krey"),
