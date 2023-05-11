@@ -2,7 +2,7 @@
 \docType{methods}
 \alias{plot,Wave,missing-method}
 \alias{plot,WaveMC,missing-method}
-\alias{plot.Wave.channel}
+\alias{plot_Wave_channel}
 \title{Plotting Wave objects}
 \description{Plotting objects of class \code{Wave}.}
 \usage{
@@ -16,7 +16,7 @@
     simplify = TRUE, nr = 2500, axes = TRUE, yaxt = par("yaxt"), las = 1, 
     center = TRUE, mfrow = NULL, ...)
     
-plot.Wave.channel(x, xunit, ylim, xlab, ylab, main, nr, simplify, axes = TRUE, 
+plot_Wave_channel(x, xunit, ylim, xlab, ylab, main, nr, simplify, axes = TRUE, 
     yaxt = par("yaxt"), las = 1, center = TRUE, ...)
 }
 \arguments{
@@ -51,7 +51,7 @@ plot.Wave.channel(x, xunit, ylim, xlab, ylab, main, nr, simplify, axes = TRUE,
   \item{mfrow}{A vector indicating the arrangement of the figures, see \code{\link{par}} for details.}
   \item{\dots}{Further arguments to be passed to the underlying plot functions.}
 }
-\details{Function \code{plot.Wave.channel} is a helper function
+\details{Function \code{plot_Wave_channel} is a helper function
     to plot a single channel (left for a \code{Wave} object, first channel / first column of data slot of a \code{WaveMC} object); 
     in particular it is \emph{not} intended to be called by the user directly.}
 \author{Uwe Ligges \email{ligges@statistik.tu-dortmund.de}, Sarah Schnackenberg}

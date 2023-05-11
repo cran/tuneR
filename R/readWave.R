@@ -81,7 +81,7 @@ function(filename, from = 1, to = Inf,
             SubFormat <- readBin(con, int, n = 1, size = 2, endian = "little", signed = FALSE)
             x <- readBin(con, "raw", n=14)
         } else {
-            if(cbSize > 0) 
+            if(cbSize >= 0) 
                 seek(con, where = fmt.length-18, origin = "current")
         }   
     }    

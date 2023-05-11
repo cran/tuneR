@@ -1,4 +1,4 @@
-plot.Wave.channel <- 
+plot_Wave_channel <- 
 function(x, xunit, ylim, xlab, ylab, main, nr, simplify, axes = TRUE, yaxt = par("yaxt"), 
         las = 1, center = TRUE, ...){
     channel <- if(is(x, "WaveMC")) x@.Data[,1] else x@left
@@ -58,12 +58,12 @@ function(x, info = FALSE, xunit = c("time", "samples"),
         on.exit(par(opar))
         mar <- par("mar")
         par(mar = c(0, mar[2], 0, mar[4]))
-        plot.Wave.channel(mono(x, "left"), xunit = xunit,
+        plot_Wave_channel(mono(x, "left"), xunit = xunit,
             ylab = if(is.null(ylab)) "left channel" else ylab[1], 
             main = NULL, sub = NULL, xlab = NA, ylim = ylim, 
             xaxt = "n", simplify = simplify, nr = nr, 
             axes = axes, yaxt = yaxt, las = las, center = center, ...)
-        plot.Wave.channel(mono(x, "right"), xunit = xunit,
+        plot_Wave_channel(mono(x, "right"), xunit = xunit,
             ylab = if(is.null(ylab)) "right channel" else ylab[2],
             main = NULL, sub = sub, xlab = NA, ylim = ylim,  
             simplify = simplify, nr = nr, 
@@ -78,7 +78,7 @@ function(x, info = FALSE, xunit = c("time", "samples"),
             opar <- par(oma = c(2, 0, 0, 0))
             on.exit(par(opar))
         }
-        plot.Wave.channel(x, xunit = xunit, 
+        plot_Wave_channel(x, xunit = xunit, 
             ylab = if(is.null(ylab)) "" else ylab,
             main = main, sub = sub, xlab = xlab, ylim = ylim,
             simplify = simplify, nr = nr, 
@@ -138,7 +138,7 @@ function(x, info = FALSE, xunit = c("time", "samples"),
               opar <- par(oma = c(2, 0, 0, 0))
               on.exit(par(opar))
       }
-      plot.Wave.channel(x, xunit = xunit, 
+      plot_Wave_channel(x, xunit = xunit, 
           ylab = if(is.null(ylab)) "" else ylab,
           main = main, sub = sub, xlab = xlab, ylim = ylim,
           simplify = simplify, nr = nr, 
@@ -150,7 +150,7 @@ function(x, info = FALSE, xunit = c("time", "samples"),
       mar <- par("mar")
       par(mar = c(0, mar[2], 0, mar[4]))
       for(i in 1:ncol(x)) {
-        plot.Wave.channel(x[,i], xunit = xunit,
+        plot_Wave_channel(x[,i], xunit = xunit,
             ylab = if(is.null(ylab)) paste("channel ", i) else ylab[i],         
             main = NULL, sub = NULL, xlab = NA, ylim = ylim,   
             xaxt = if(i %in% (ncol(x) - 0:(mfrow[2]-1))) "s" else "n", simplify = simplify, nr = nr, 

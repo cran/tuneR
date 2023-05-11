@@ -1,4 +1,4 @@
-86cd881eba583314c57a1e4ba2fc8d48 *DESCRIPTION
+8e3e331233461d59b492d6a6cfdac82f *DESCRIPTION
 7dc3df8acc1ff40ff42f32ce5f02363a *NAMESPACE
 45b223e91054cfb57891222acf4fcfbd *R/FFrq.R
 5f34167ad2d3e0bf1ba9bcf37aadd0f6 *R/MCnames.R
@@ -36,7 +36,7 @@ c50495cd22fb1eccd39670b3eb7d7733 *R/melfcc.R
 f168999d0365d3d03997d3d4c5fdd478 *R/panorama.R
 7898f70482fc9b46c51ad56a679f3baa *R/periodogram.R
 8f49073fa2a92526feb8b1dc8a2b2039 *R/play.R
-ba2afd57490ad642776a2996fd28347b *R/plot-Wave.R
+3b8830e371ea07ac2957cc6e5216b342 *R/plot-Wave.R
 62f2c2c97bb203b0c859dc82208b8da8 *R/plot-Wspec.R
 8eef3097523c392ad38dc2a205388f42 *R/postaud.R
 8b1355f1b22fb986109e1e928101938c *R/powspec.R
@@ -45,7 +45,7 @@ cb23a3bdd5beda4e76854246e2ba7735 *R/quantize.R
 9b37a65acce668308069bf29d62f81ae *R/quantplot.R
 31a04aa879b4115e12142dd019ebf5e0 *R/readMP3.R
 189ccfff3e850bd6c153ec88663ef996 *R/readMidi.R
-929a7c560a0ffee342dc81662d917b25 *R/readWave.R
+f09c19c6d5f20dc04a0345c6e629fd56 *R/readWave.R
 52f5b443d451c90eb7d3ed0e1d760c72 *R/smooth.R
 7e590a57eade30bfdd8c1911045f0d47 *R/spec2cep.R
 92220e404563c4f9c18c85397a477c91 *R/stereo.R
@@ -91,7 +91,7 @@ ebefe72d39510ce79be3d4af804b60b0 *man/nchannel.Rd
 ba68fc70a299c1c7c2d0796ce3e22fdc *man/panorama.Rd
 fc37c67c80d78652c3fe6faf07319062 *man/periodogram.Rd
 5bf3b8d5ffb7a19ba5d90cb0a1567080 *man/play.Rd
-4ab0c9e128bd13289381ecaa9227958f *man/plot-Wave.Rd
+11ba76a03da74e4c252943e81ee71655 *man/plot-Wave.Rd
 791379384d8d131850863fb95c11be7d *man/plot-Wspec.Rd
 ecf80e0d62fc7eb7ec629e1899297fc5 *man/plot-WspecMat.Rd
 adc9a0a09bd30e65f4bc190a4bbce3e3 *man/postaud.Rd
