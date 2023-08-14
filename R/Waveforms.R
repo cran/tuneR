@@ -51,8 +51,7 @@ sawtooth <- function(freq, duration = samp.rate, from = 0, samp.rate = 44100, bi
     xunit <- match.arg(xunit)
     durFrom <- preWaveform(freq = freq, duration = duration, from = from, 
         xunit = xunit, samp.rate = samp.rate)
-    channel <- seq(durFrom["from"], 2*freq*sum(durFrom), 
-        length = durFrom["duration"]) %% 2 - 1
+    channel <- (durFrom["from"]:(sum(durFrom)-1)) %% (samp.rate/freq) / (samp.rate/(2*freq)) - 1
     if(!is.logical(reverse) || length(reverse) != 1)
         stop("'reverse' must be a logical value of length 1")
     if(reverse) channel <- rev(channel)
@@ -65,11 +64,10 @@ square <- function(freq, duration = samp.rate, from = 0, samp.rate = 44100, bit 
     xunit <- match.arg(xunit)
     durFrom <- preWaveform(freq = freq, duration = duration, from = from, 
         xunit = xunit, samp.rate = samp.rate)
-    if(!is.numeric(up) || length(up) != 1 || max(abs(up)) > .5)
-        stop("'up' must be a numeric in [-0.5, 0.5] of length 1")
-    channel <- sign(seq(durFrom["from"], freq*sum(durFrom), 
-                        length = durFrom["duration"])
-                    %% 1 - 1 + up)
+    if(!is.numeric(up) || length(up) != 1 || max(abs(up)) > 1)
+        stop("'up' must be a numeric in [0, 1] of length 1")
+    channel <- ifelse((durFrom["from"]:(sum(durFrom)-1)) %% (samp.rate/freq) / (samp.rate/freq) - 1 + up > 0, 1, -1)
+    if(up==1) channel[] <- 1
     postWaveform(channel = channel, samp.rate = samp.rate, 
         bit = bit, stereo = stereo, ...)
 }
