@@ -1,4 +1,4 @@
-9576cad5739bd36aabb9db82e0f9a8c8 *DESCRIPTION
+8e6945e210f3b83463283c4116fd50c5 *DESCRIPTION
 7dc3df8acc1ff40ff42f32ce5f02363a *NAMESPACE
 45b223e91054cfb57891222acf4fcfbd *R/FFrq.R
 5f34167ad2d3e0bf1ba9bcf37aadd0f6 *R/MCnames.R
@@ -144,6 +144,7 @@ eee73aa61050a33c967cf1418bbf8d3e *src/timer.c
 ee3aecfb14ab763566cede1eb9ed446a *src/timer.h
 5a5c4486691f084c9f1254ed8e2c0f70 *src/version.c
 e30deaaf0dabf38605fb98f69f3bd41b *src/version.h
+fad5c028888fe72774c63092061ba638 *tests/Examples/tuneR-Ex.Rout.save
 578e33d33053b5728d3dd642dcfd6419 *tests/Testfiles/16bit_PCM_3channels_ex.wav
 38a17fca904e8944be57e3094f264770 *tests/Testfiles/16bit_PCM_mono.wav
 d72aaa476693b0f5e5b6e3255da2e82b *tests/Testfiles/16bit_PCM_mono_ex.wav
@@ -176,6 +177,5 @@ c04706d2215cd512cf74de1c5c1a0897 *tests/Testfiles/mp3_mono_170kBit.mp3
 2e71f80b12e8b35b1f694ed68e6b8c1d *tests/readMidiTest.Rout.save
 82084121d88c0311d354b660b6ba6f2a *tests/readWaveTest.R
 27edcd0a329a5e0bf204593a72bcd12a *tests/readWaveTest.Rout.save
-0b52878f7260b1cf87653b980ca9e4ac *tests/tuneR-Ex.Rout
 549951b3eb1f5827b2f32b5975ad62ee *tests/tuneRTest.R
 58ba0d112764c797c23ee26e1d350a42 *tests/tuneRTest.Rout.save
