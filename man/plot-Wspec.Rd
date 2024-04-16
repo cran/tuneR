@@ -5,7 +5,7 @@
 \title{Plotting Wspec objects}
 \description{Plotting a periodogram contained in an object of class \code{Wspec}.}
 \usage{
-\S4method{plot}{Wspec,missing}(x, which = 1, type = "h", xlab = "Frequency", 
+\S4method{plot}{Wspec,missing}(x, which = 1, type = "h", xlab = "frequency", 
     ylab = NULL, log = "", ...)
 }
 \arguments{

@@ -8,9 +8,9 @@
 \title{Plotting WspecMat objects}
 \description{Plotting a spectogram (image) of an object of class \code{Wspec} or \code{WspecMat}.}
 \usage{
-\S4method{plot}{WspecMat,missing}(x, xlab = "time", ylab = "Frequency", 
+\S4method{plot}{WspecMat,missing}(x, xlab = "time", ylab = "frequency", 
     xunit = c("samples", "time"), log = "", ...)
-\S4method{image}{Wspec}(x, xlab = "time", ylab = "Frequency", 
+\S4method{image}{Wspec}(x, xlab = "time", ylab = "frequency", 
     xunit = c("samples", "time"), log = "", ...)
 }
 \arguments{

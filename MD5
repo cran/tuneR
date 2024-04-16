@@ -1,4 +1,4 @@
-8e6945e210f3b83463283c4116fd50c5 *DESCRIPTION
+ef02d35d56a77c86ca3e99d9e462c79d *DESCRIPTION
 7dc3df8acc1ff40ff42f32ce5f02363a *NAMESPACE
 45b223e91054cfb57891222acf4fcfbd *R/FFrq.R
 5f34167ad2d3e0bf1ba9bcf37aadd0f6 *R/MCnames.R
@@ -37,7 +37,7 @@ f168999d0365d3d03997d3d4c5fdd478 *R/panorama.R
 7898f70482fc9b46c51ad56a679f3baa *R/periodogram.R
 8f49073fa2a92526feb8b1dc8a2b2039 *R/play.R
 3b8830e371ea07ac2957cc6e5216b342 *R/plot-Wave.R
-62f2c2c97bb203b0c859dc82208b8da8 *R/plot-Wspec.R
+c9098b725670ffa7f9bd8f20999922a4 *R/plot-Wspec.R
 8eef3097523c392ad38dc2a205388f42 *R/postaud.R
 8b1355f1b22fb986109e1e928101938c *R/powspec.R
 b75ad8957ff9ddcf7668dd304b44314f *R/prepComb.R
@@ -70,7 +70,7 @@ a7e4c0d319295d63e642da4367e30a6e *man/Waveforms.Rd
 41681816e0c5239c88f5d072c8a3b000 *man/bind.Rd
 8b875285d6a62a2b559d458f9a475a4a *man/channel.Rd
 838d1ac0afecf92f2cb696ac0a8c3eea *man/deltas.Rd
-8e93f1176a30a72877e22bf43e2df58d *man/dolpc.Rd
+679fc7fd2bafe8b79788353d737500d6 *man/dolpc.Rd
 0f0cf8bbb96a4980728da093be9afdfa *man/downsample.Rd
 6f37e0076c3ac4991acc281aae0c8572 *man/equalWave.Rd
 ffc774f4d7e0af56ef257c11c94f3766 *man/extractWave.Rd
@@ -92,8 +92,8 @@ ba68fc70a299c1c7c2d0796ce3e22fdc *man/panorama.Rd
 fc37c67c80d78652c3fe6faf07319062 *man/periodogram.Rd
 5bf3b8d5ffb7a19ba5d90cb0a1567080 *man/play.Rd
 11ba76a03da74e4c252943e81ee71655 *man/plot-Wave.Rd
-791379384d8d131850863fb95c11be7d *man/plot-Wspec.Rd
-ecf80e0d62fc7eb7ec629e1899297fc5 *man/plot-WspecMat.Rd
+9491fbf81c90dcf9ac2a6551a1bf199f *man/plot-Wspec.Rd
+66e15efe828d083e46b8edffad421ced *man/plot-WspecMat.Rd
 adc9a0a09bd30e65f4bc190a4bbce3e3 *man/postaud.Rd
 bd48749ca855ead75da296556e4061c7 *man/powspec.Rd
 bc74aaec72fe004ed6b551449fe5e910 *man/prepComb.Rd

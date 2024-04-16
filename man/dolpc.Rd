@@ -19,7 +19,7 @@ spectrum: LPC or PLP coefficients). Every column represents one time frame.
 }
 \references{Daniel P. W. Ellis: \url{https://www.ee.columbia.edu/~dpwe/resources/matlab/rastamat/} }
 \author{ Sebastian Krey \email{krey@statistik.tu-dortmund.de} }
-\seealso{ \code{\link{levinson}} }
+\seealso{ \code{\link[signal]{levinson}} }
 \examples{
   testsound <- normalize(sine(400) + sine(1000) + square(250), "16")
   pspectrum <- powspec(testsound@left, testsound@samp.rate)
